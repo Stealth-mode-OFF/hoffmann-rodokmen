@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rodokmen Hoffmann / Hofman — od roku 1766</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #F0E4C4;
+    --dark: #1a1a2e;
+    --darker: #0f0f1a;
+    --card-bg: #16213e;
+    --card-border: #2a3a5e;
+    --text: #e8e8e8;
+    --text-muted: #8892a8;
+    --main-line: #C9A84C;
+    --side-line: #4a5568;
+    --accent-blue: #4299e1;
+    --accent-green: #48bb78;
+    --accent-red: #fc8181;
+    --accent-purple: #9f7aea;
+    --infant: #e53e3e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--darker);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(180deg, #0a0a15 0%, var(--darker) 100%);
+    border-bottom: 1px solid var(--card-border);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+  }
+  .hero .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .hero .crest {
+    font-size: 4rem;
+    margin-bottom: 16px;
+    opacity: 0.8;
+  }
+  .hero .meta {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .hero .meta-item {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 12px 20px;
+    text-align: center;
+  }
+  .hero .meta-item .num {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+  }
+  .hero .meta-item .label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  /* ===== SECTION HEADERS ===== */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  /* ===== FAMILY TREE ===== */
+  .tree-container {
+    overflow-x: auto;
+    padding: 20px 0;
+  }
+
+  .generation {
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .gen-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .gen-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--card-border);
+  }
+  .gen-label .era {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-style: italic;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .gen-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  /* ===== PERSON CARD ===== */
+  .person {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    min-width: 260px;
+    max-width: 340px;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .person:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  .person.main-line {
+    border-color: var(--gold);
+    border-width: 2px;
+    background: linear-gradient(135deg, var(--card-bg) 0%, #1a2340 100%);
+  }
+  .person.main-line::before {
+    content: '★';
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    color: var(--gold);
+    font-size: 1rem;
+  }
+
+  .person .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  .person .née {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+
+  .person .dates {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+  }
+  .person .dates .birth, .person .dates .death {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .person .dates .birth::before { content: '★'; color: var(--accent-green); font-size: 0.7rem; }
+  .person .dates .death::before { content: '✝'; color: var(--accent-red); font-size: 0.7rem; }
+
+  .person .age-badge {
+    display: inline-block;
+    background: rgba(201, 168, 76, 0.15);
+    color: var(--gold);
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .person .age-badge.infant {
+    background: rgba(229, 62, 62, 0.15);
+    color: var(--accent-red);
+  }
+
+  .person .detail {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .person .detail .icon { margin-right: 4px; }
+
+  .person .tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 4px;
+    margin-right: 4px;
+  }
+  .tag.spouse { background: rgba(66,153,225,0.2); color: var(--accent-blue); }
+  .tag.location { background: rgba(72,187,120,0.2); color: var(--accent-green); }
+  .tag.military { background: rgba(252,129,129,0.2); color: var(--accent-red); }
+  .tag.occupation { background: rgba(159,122,234,0.2); color: var(--accent-purple); }
+  .tag.source { background: rgba(255,255,255,0.05); color: var(--text-muted); }
+  .tag.note { background: rgba(201,168,76,0.15); color: var(--gold); }
+  .tag.died-young { background: rgba(229,62,62,0.15); color: var(--accent-red); }
+
+  .connector {
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin: 0 8px;
+    align-self: center;
+  }
+
+  .couple {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .couple .person:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .couple .person:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+  }
+  .couple-link {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    background: var(--gold);
+    width: 3px;
+    position: relative;
+  }
+  .couple-link::after {
+    content: '∞';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--darker);
+    color: var(--gold);
+    font-size: 1rem;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+
+  /* ===== SIBLINGS GROUP ===== */
+  .siblings-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+    padding: 12px;
+    background: rgba(255,255,255,0.02);
+    border: 1px dashed var(--card-border);
+    border-radius: 8px;
+  }
+  .siblings-group .group-label {
+    width: 100%;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .person.mini {
+    min-width: 200px;
+    max-width: 260px;
+    padding: 10px 14px;
+  }
+  .person.mini .name {
+    font-size: 0.95rem;
+  }
+  .person.mini .dates {
+    font-size: 0.78rem;
+  }
+
+  /* ===== TIMELINE ===== */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+    margin: 30px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--card-border);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 18px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--darker);
+  }
+  .timeline-item .year {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .timeline-item .event {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .timeline-item.family-event::before { background: var(--accent-blue); }
+  .timeline-item.war-event::before { background: var(--accent-red); }
+  .timeline-item.history-event::before { background: var(--accent-purple); }
+
+  /* ===== CONTEXT SECTION ===== */
+  .context-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .context-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .context-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+  }
+  .context-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ===== STATS TABLE ===== */
+  .stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  .stats-table th {
+    text-align: left;
+    padding: 10px 16px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--card-border);
+  }
+  .stats-table td {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .stats-table tr:hover td {
+    background: rgba(201,168,76,0.05);
+  }
+  .stats-table tr.died-infant td {
+    opacity: 0.6;
+  }
+  .stats-table .main-row {
+    background: rgba(201,168,76,0.05);
+  }
+
+  /* ===== MORTALITY CHART ===== */
+  .mortality-bar {
+    display: flex;
+    height: 32px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 12px 0;
+  }
+  .mortality-bar .survived {
+    background: var(--accent-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #000;
+  }
+  .mortality-bar .died {
+    background: var(--accent-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    border-top: 1px solid var(--card-border);
+    margin-top: 60px;
+  }
+
+  /* ===== RESEARCH NOTE ===== */
+  .research-note {
+    background: rgba(201,168,76,0.05);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .research-note strong { color: var(--gold); }
+
+  .unknown {
+    opacity: 0.6;
+    border-style: dashed;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .gen-cards { flex-direction: column; }
+    .couple { flex-direction: column; }
+    .couple .person { border-radius: 10px !important; border: 1px solid var(--card-border) !important; }
+    .couple-link { display: none; }
+    .person { max-width: 100%; min-width: auto; }
+    .siblings-group { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="crest">⚒️</div>
+  <h1>Rod Hoffmann / Hofman</h1>
+  <div class="subtitle">Sylvárov (Silberleut) · Běluň · Rtyně u Zaloňova · Jaroměř · Praha — od roku 1766</div>
+  <div class="meta">
+    <div class="meta-item">
+      <div class="num">9</div>
+      <div class="label">Generací</div>
+    </div>
+    <div class="meta-item">
+      <div class="num">260</div>
+      <div class="label">Let historie</div>
+    </div>
+    <div class="meta-item">
+      <div class="num">44</div>
+      <div class="label">Členů rodu</div>
+    </div>
+    <div class="meta-item">
+      <div class="num">6×</div>
+      <div class="label">Josef v přímé linii</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ===== GENERACE I ===== -->
+<div class="generation">
+  <div class="gen-label">
+    I. Generace — Zakladatel
+    <span class="era">~ 1766–1828 · Habsburská monarchie</span>
+  </div>
+
+  <div class="research-note">
+    <strong>Nejstarší doložený předek.</strong> Joseph Franz Hoffmann se narodil kolem roku 1766 — přesné datum neznámé. Zemřel v <strong>Silberleut</strong> (dnes <strong>Sylvárov</strong>, součást Dvora Králové nad Labem, okres Trutnov) 3. března 1828. Měl nejméně <strong>12 dětí</strong>, z nichž mnohé zemřely v kojeneckém věku.
+  </div>
+
+  <div class="gen-cards">
+    <div class="person main-line">
+      <div class="name">Joseph Franz Hoffmann</div>
+      <div class="dates">
+        <span class="birth">~ 1766</span>
+        <span class="death">3. 3. 1828, Silberleut</span>
+      </div>
+      <div class="age-badge">~ 62 let</div>
+      <div class="detail">
+        <span class="icon">📍</span> Silberleut = <strong>Sylvárov</strong> (dnes Dvůr Králové n. L., okr. Trutnov)
+      </div>
+      <span class="tag note">Zakladatel sledované linie</span>
+      <span class="tag note">12 dětí</span>
+      <span class="tag location">Královéhradecký kraj</span>
+      <span class="tag note">🐕 Ohnivý Pes (rok ~1766)</span>
+      <div class="detail" style="margin-top:8px; font-size:0.78rem;">
+        Nejstarší doložený předek v přímé linii. Narozen za vlády Marie Terezie, žil celý život pod Habsburky. Silberleut č. 12 = dnes <strong>Sylvárov</strong>, zaniklá osada vstřebaná do Dvora Králové nad Labem. Přivedl na svět 12 doložených dětí mezi lety 1793–1815.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GENERACE II ===== -->
+<div class="generation">
+  <div class="gen-label">
+    II. Generace — Třináct dětí v Silberleut č. 12
+    <span class="era">1793–1815 · Napoleonské války, předbřeznové Rakousko</span>
+  </div>
+
+  <div class="research-note">
+    <strong>12 doložených dětí, z toho nejméně 5 zemřelo v dětství.</strong> Tragická realita doby — kojenecká úmrtnost v českých zemích dosahovala 25–30 %. Rosalia žila pouhý <strong>1 den</strong>, Anton Norbertus 5 měsíců, Josephus Joanes 2,5 roku. Hlavní linie pokračuje přes <strong>Franze Xaveri Johanna</strong>, kováře a chalupníka.
+  </div>
+
+  <div class="gen-cards">
+
+    <!-- HLAVNÍ LINIE -->
+    <div class="person main-line">
+      <div class="name">Franz Xaveri Johann Hoffmann</div>
+      <div class="dates">
+        <span class="birth">29. 11. 1799, Silwerleut č. 12</span>
+        <span class="death">18. 12. 1867, Bělouň 4</span>
+      </div>
+      <div class="age-badge">68 let</div>
+      <span class="tag occupation">Chalupník, kovář, polní zahradník</span>
+      <span class="tag note">Hlavní linie → Gen. III</span>
+      <span class="tag note">♐ Střelec · 🐐 Zemská Koza</span>
+      <div class="detail" style="margin-top:8px; font-size:0.78rem;">
+        Trojité křestní jméno <em>Franz Xaver Johann</em> — sv. František Xaverský, patron misií. Kovář a chalupník — přestěhoval se ze Silberleut do <strong>Bělouň č. 4</strong>, kde založil rodinu. Záznam o povolání z 10. 11. 1818 (sňatek?).
+      </div>
+    </div>
+
+    <!-- SOUROZENCI -->
+    <div class="person mini">
+      <div class="name">Eleonora Katharina Gluß</div>
+      <div class="née">roz. Hoffmannová → provd. Gluß</div>
+      <div class="dates">
+        <span class="birth">6. 10. 1793, Silberleut</span>
+      </div>
+      <span class="tag spouse">Provdaná Gluß</span>
+      <span class="tag note">Nejstarší dítě</span>
+      <span class="tag note">♎ Váhy · 🐂 Vodový Bůvol</span>
+    </div>
+
+    <div class="person mini">
+      <div class="name">Katharina Marie Rudisch</div>
+      <div class="née">roz. Hoffmannová → provd. Rudisch</div>
+      <div class="dates">
+        <span class="birth">5. 10. 1795, Silberleut č. 12</span>
+      </div>
+      <span class="tag spouse">Provdaná Rudisch</span>
+      <span class="tag note">♎ Váhy · 🐇 Dřevěný Králík</span>
+    </div>
+
+    <div class="person mini">
+      <div class="name">Joseph Michael Hoffmann</div>
+      <div class="dates">
+        <span class="birth">17. 10. 1797</span>
+      </div>
+      <span class="tag note">Další osud neznámý</span>
+      <span class="tag note">♎ Váhy · 🐍 Ohnivý Had</span>
+    </div>
+
+    <div class="person mini">
+      <div class="name">Augustinus Aloysius Hoffmann</div>
+      <div class="dates">
+        <span class="birth">13. 9. 1801, Silwerleut č. 12</span>
+        <span class="death">27. 1. 1817</span>
+      </div>
+      <div class="age-badge infant">† 15 let</div>
+      <span class="tag note">♍ Panna · 🐓 Kovový Kohout</span>
+    </div>
+
+    <div class="person mini">
+      <div class="name">Ignatius Bartholus Hoffmann</div>
+      <div class="dates">
+        <span class="birth">22. 8. 1803, Silwerleut č. 12</span>
+        <span class="death">25. 8. 1855</span>
+      </div>
+      <div class="age-badge">52 let</div>
+      <span class="tag occupation">Polní zahradník, hajný (1832)</span>
+      <span class="tag note">♌ Lev · 🐖 Vodové Prase</span>
+    </div>
+
+    <div class="person mini unknown">
+      <div class="name">Jacobus Christophorus Hoffmann</div>
+      <div class="dates">
+        <span class="birth">24. 7. 1805, Silwerleut č. 12</span>
+        <span class="death">~ 1805</span>
+      </div>
+      <div class="age-badge infant">† brzy po narození</div>
+      <span class="tag died-young">Datum úmrtí nečitelné</span>
+      <span class="tag note">♌ Lev · 🐂 Dřevěný Bůvol</span>
+    </div>
+
+    <div class="person mini">
+      <div class="name">Anna Catharina Hoffmannová</div>
+      <div class="dates">
+        <span class="birth">13. 4. 1807, Silberleut č. 12</span>
+      </div>
+      <span class="tag note">Další osud neznámý</span>
+      <span class="tag note">♈ Beran · 🐇 Ohnivý Králík</span>
+    </div>
+
+    <div class="person mini">
+      <div class="name">Josephus Joanes Hoffmann</div>
+      <div class="dates">
+        <span class="birth">23. 5. 1809, Silwerleut č. 12</span>
+        <span class="death">30. 11. 1811</span>
+      </div>
+      <div class="age-badge infant">† 2,5 roku</div>
+      <span class="tag note">♊ Blíženci · 🐍 Zemský Had</span>
+    </div>
+
+    <div class="person mini">
+      <div class="name">Anton Norbertus Hoffmann</div>
+      <div class="dates">
+        <span class="birth">7. 5. 1811, Silwerleut č. 12</span>
+        <span class="death">18. 10. 1811</span>
+      </div>
+      <div class="age-badge infant">† 5 měsíců</div>
+      <span class="tag note">♉ Býk · 🐐 Kovová Koza</span>
+    </div>
+
+    <div class="person mini unknown">
+      <div class="name">Rosalia Hofmannová</div>
+      <div class="dates">
+        <span class="birth">31. 8. 1813, Silberleut č. 12</span>
+        <span class="death">1. 9. 1813</span>
+      </div>
+      <div class="age-badge infant">† 1 den</div>
+      <span class="tag note">♍ Panna · 🐓 Vodový Kohout</span>
+    </div>
+
+    <div class="person mini">
+      <div class="name">Agnes Josepha Hoffmannová</div>
+      <div class="dates">
+        <span class="birth">26. 8. 1815, Silberleut č. 12</span>
+      </div>
+      <span class="tag note">Nejmladší dítě</span>
+      <span class="tag note">♍ Panna · 🐖 Dřevěné Prase</span>
+    </div>
+
+  </div>
+
+  <!-- MORTALITY VIZ -->
+  <div style="margin-top: 20px;">
+    <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">Přežití dětí Josepha Franze (12 dětí):</div>
+    <div class="mortality-bar">
+      <div class="survived" style="width: 58%;">7 přežilo dětství</div>
+      <div class="died" style="width: 42%;">5 zemřelo v dětství</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GENERACE III ===== -->
+<div class="generation">
+  <div class="gen-label">
+    III. Generace — Kováři z Bělouně
+    <span class="era">1825–1836 · Předbřeznové Rakousko, průmyslová revoluce</span>
+  </div>
+
+  <div class="research-note">
+    <strong>Ze Sylvárova (Silberleut) do Běluně.</strong> Franz Xaveri Johann se přestěhoval do <strong>Běluně č. 4</strong> (Běluň u Heřmanic, okr. Náchod — 3 km od Jaroměře) a založil kovářskou dynastii. Syn <strong>Franz</strong> se stal Mistrem podkovářským (Hufschmiedemeister) — nejvyšší cechovní hodnost. <strong>Anton</strong> sloužil u 36. c.k. pěšího pluku hraběte Degenfeld-Schönburga (1852–1876) a dožil se úctyhodných <strong>90 let</strong>.
+  </div>
+
+  <div class="gen-cards">
+
+    <div class="person main-line">
+      <div class="name">Franz Hofman</div>
+      <div class="dates">
+        <span class="birth">5. 6. 1825, Bělouň 4</span>
+        <span class="death">4. 8. 1901, Rtyně 27</span>
+      </div>
+      <div class="age-badge">76 let</div>
+      <span class="tag occupation">Mistr podkovářský (Hufschmiedemeister)</span>
+      <span class="tag occupation">Výměnkář</span>
+      <span class="tag note">Hlavní linie → Gen. IV</span>
+      <span class="tag note">♊ Blíženci · 🐓 Dřevěný Kohout</span>
+      <div class="detail" style="margin-top:8px; font-size:0.78rem;">
+        <strong>Hufschmiedemeister</strong> — mistr podkovářský. Nejvyšší cechovní hodnost — vlastní dílna, učni, mistrovská zkouška. Přesídlil z Bělouně do <strong>Rtyně č. 27</strong>, kde strávil zbytek života. Zemřel jako výměnkář (důchodce s doživotním právem na bydlení u hospodáře).
+      </div>
+    </div>
+
+    <div class="person mini">
+      <div class="name">Joseph Hofman</div>
+      <div class="dates">
+        <span class="birth">29. 3. 1827, Bělouň 4</span>
+      </div>
+      <span class="tag note">Další osud neznámý</span>
+      <span class="tag note">♈ Beran · 🐖 Ohnivé Prase</span>
+    </div>
+
+    <div class="person mini unknown">
+      <div class="name">Ignaz Hofman</div>
+      <div class="dates">
+        <span class="birth">25. 1. 1829, Bělouň 4</span>
+        <span class="death">16. 3. 1830</span>
+      </div>
+      <div class="age-badge infant">† 1 rok</div>
+      <span class="tag note">♒ Vodnář · 🐂 Zemský Bůvol</span>
+    </div>
+
+    <div class="person mini">
+      <div class="name">Ignaz Hoffmann</div>
+      <div class="dates">
+        <span class="birth">7. 11. 1830, Bělouň 4</span>
+      </div>
+      <span class="tag note">2. Ignaz — po smrti prvního</span>
+      <span class="tag note">♏ Štír · 🐅 Kovový Tygr</span>
+    </div>
+
+    <div class="person mini unknown">
+      <div class="name">Františka Hoffmannová</div>
+      <div class="dates">
+        <span class="birth">6. 10. 1832, Bělouň 4</span>
+        <span class="death">23. 3. 1834</span>
+      </div>
+      <div class="age-badge infant">† 1,5 roku</div>
+      <span class="tag note">♎ Váhy · 🐉 Vodový Drak</span>
+    </div>
+
+    <div class="person mini" style="border-color: var(--accent-purple);">
+      <div class="name">Anton Hofmann</div>
+      <div class="dates">
+        <span class="birth">14. 6. 1834, Bělouň 4</span>
+        <span class="death">10. 6. 1925, Rtyně 10</span>
+      </div>
+      <div class="age-badge" style="background: rgba(159,122,234,0.2); color: var(--accent-purple);">90 let!</div>
+      <span class="tag military">IR 36 — hr. Degenfeld-Schönburg (1852–76)</span>
+      <span class="tag occupation">Zahradník v Lišicích 7 (okr. HK)</span>
+      <span class="tag note">♊ Blíženci · 🐎 Dřevěný Kůň</span>
+      <div class="detail" style="margin-top:6px; font-size:0.78rem;">
+        Výjimečný věk na dobu — dožil se 90 let! Sloužil u <strong>IR 36</strong> (36. pěší pluk) pod Grafem Augustem von Degenfeld-Schönburg, nábor z Mladé Boleslavi — pluk byl z 95 % český. Po vojně zahradníkem v <strong>Lišicích</strong> (okr. Hradec Králové, ~30 km od Jaroměře). Zemřel v Rtyni č. 10.
+      </div>
+    </div>
+
+    <div class="person mini">
+      <div class="name">Johan Nepomucký Hofman</div>
+      <div class="dates">
+        <span class="birth">8. 10. 1836, Bělouň 4</span>
+      </div>
+      <span class="tag note">Pojmenován po sv. Janu Nepomuckém</span>
+      <span class="tag note">♎ Váhy · 🐒 Ohnivá Opice</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== GENERACE IV ===== -->
+<div class="generation">
+  <div class="gen-label">
+    IV. Generace — Rodina mistra podkováře
+    <span class="era">1852–1869 · Rtyně č. 27, Habsburská monarchie</span>
+  </div>
+
+  <div class="research-note">
+    <strong>Rtyně č. 27</strong> — dům rodiny Mistra podkováře Franze Hofmana. 6 dětí, z toho opět tragické ztráty: Jan zemřel ve 35 dnech, František ve 14 měsících, Marie ve 13 letech. <strong>Dvojčata</strong> František a Jan se narodila stejný den 24. 4. 1862.
+  </div>
+
+  <div class="gen-cards">
+
+    <div class="person mini">
+      <div class="name">Anna Erman</div>
+      <div class="née">roz. Hoffmannová → provd. Erman</div>
+      <div class="dates">
+        <span class="birth">17. 7. 1852, Rtyně 27</span>
+        <span class="death">~ 1909, Bělouň</span>
+      </div>
+      <div class="age-badge">~ 57 let</div>
+      <span class="tag spouse">Provdaná Erman</span>
+      <span class="tag note">♋ Rak · 🐀 Vodová Krysa</span>
+    </div>
+
+    <div class="person main-line">
+      <div class="name">Josef Hoffmann</div>
+      <div class="dates">
+        <span class="birth">12. 1. 1857, Rtyně 27</span>
+      </div>
+      <span class="tag note">Hlavní linie → Gen. V</span>
+      <span class="tag note">♑ Kozoroh · 🐉 Ohnivý Drak</span>
+      <div class="detail" style="margin-top:6px; font-size:0.78rem;">
+        Syn mistra podkováře. Pokračuje rodová tradice jména <strong>Josef</strong>. Datum smrti neznámé.
+      </div>
+    </div>
+
+    <div class="person mini unknown">
+      <div class="name">Jan Hoffmann</div>
+      <div class="dates">
+        <span class="birth">29. 6. 1859, Rtyně 27</span>
+        <span class="death">3. 8. 1859</span>
+      </div>
+      <div class="age-badge infant">† 35 dní</div>
+      <span class="tag note">♋ Rak · 🐐 Zemská Koza</span>
+    </div>
+
+    <div class="person mini unknown">
+      <div class="name">František Hoffmann</div>
+      <div class="dates">
+        <span class="birth">24. 4. 1862, Rtyně 27</span>
+        <span class="death">14. 7. 1863</span>
+      </div>
+      <div class="age-badge infant">† 14 měsíců</div>
+      <span class="tag note">Dvojče s Janem</span>
+      <span class="tag note">♉ Býk · 🐕 Vodový Pes</span>
+    </div>
+
+    <div class="person mini">
+      <div class="name">Jan Hoffmann</div>
+      <div class="dates">
+        <span class="birth">24. 4. 1862, Rtyně 27</span>
+        <span class="death">~ 1929</span>
+      </div>
+      <div class="age-badge">~ 67 let</div>
+      <span class="tag note">Dvojče s Františkem — přežil</span>
+      <span class="tag note">♉ Býk · 🐕 Vodový Pes</span>
+    </div>
+
+    <div class="person mini unknown">
+      <div class="name">Marie Hoffmannová</div>
+      <div class="dates">
+        <span class="birth">20. 10. 1869, Rtyně 27</span>
+        <span class="death">5. 1. 1883</span>
+      </div>
+      <div class="age-badge infant">† 13 let</div>
+      <span class="tag note">♎ Váhy · 🐍 Zemský Had</span>
+    </div>
+
+  </div>
+
+  <div style="margin-top: 20px;">
+    <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px;">Přežití dětí Franze Hofmana (6 dětí, z toho dvojčata):</div>
+    <div class="mortality-bar">
+      <div class="survived" style="width: 50%;">3 dospělost</div>
+      <div class="died" style="width: 50%;">3 zemřely mladé</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GENERACE V ===== -->
+<div class="generation">
+  <div class="gen-label">
+    V. Generace — Přelom století
+    <span class="era">1892–1894 · Rtyně, konec monarchie</span>
+  </div>
+
+  <div class="gen-cards">
+
+    <div class="person mini">
+      <div class="name">Maria Hamanová</div>
+      <div class="née">roz. Hoffmannová → provd. Hamanová</div>
+      <div class="dates">
+        <span class="birth">3. 10. 1892, Rtyně 27</span>
+      </div>
+      <span class="tag spouse">Provdaná Haman</span>
+      <span class="tag note">♎ Váhy · 🐉 Vodový Drak</span>
+    </div>
+
+    <div class="person main-line">
+      <div class="name">Josef Hoffmann</div>
+      <div class="dates">
+        <span class="birth">24. 12. 1894, Rtyně 27</span>
+      </div>
+      <span class="tag note">Narozen na Štědrý den!</span>
+      <span class="tag note">Hlavní linie → Gen. VI</span>
+      <span class="tag note">♑ Kozoroh · 🐎 Dřevěný Kůň</span>
+      <div class="detail" style="margin-top:6px; font-size:0.78rem;">
+        Třetí Josef v přímé linii. Narozen na <strong>Štědrý den</strong> 1894. V roce 1914 mu bylo 20 let — narukoval do 1. světové války?
+      </div>
+    </div>
+
+    <div class="person mini">
+      <div class="name">Marie Nýčová</div>
+      <div class="née">roz. Hofmanová → provd. Nýčová</div>
+      <div class="dates">
+        <span class="birth">Rtyně 27</span>
+      </div>
+      <span class="tag spouse">Provdaná Nýč</span>
+      <span class="tag note">Větev Nýčů →</span>
+
+    </div>
+
+  </div>
+
+  <!-- NÝČ BRANCH -->
+  <div class="siblings-group" style="margin-top: 16px;">
+    <div class="group-label">Větev Nýčů — potomci Marie Nýčové roz. Hofmanové</div>
+
+    <div class="person mini unknown">
+      <div class="name">Václav Nýč</div>
+      <span class="tag note">Bližší data neznámá</span>
+    </div>
+
+    <div class="person mini unknown">
+      <div class="name">Miloš Nýč</div>
+      <span class="tag note">Bližší data neznámá</span>
+    </div>
+
+    <div class="person mini unknown">
+      <div class="name">Helena Nýčová</div>
+      <span class="tag note">Bližší data neznámá</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GENERACE VI ===== -->
+<div class="generation">
+  <div class="gen-label">
+    VI. Generace — Josef policajt
+    <span class="era">1924–2000 · Protektorát, socialismus, sametová revoluce</span>
+  </div>
+
+  <div class="gen-cards">
+    <div class="couple">
+      <div class="person main-line">
+        <div class="name">Josef Hoffmann</div>
+        <div class="dates">
+          <span class="birth">13. 7. 1924, Rtyně 27</span>
+          <span class="death">5. 3. 2000, Praha</span>
+        </div>
+        <div class="age-badge">75 let</div>
+        <span class="tag occupation">Policajt</span>
+        <span class="tag note">Hlavní linie → Gen. VII</span>
+        <span class="tag note">♋ Rak · 🐀 Dřevěná Krysa</span>
+        <div class="detail" style="margin-top:8px; font-size:0.78rem;">
+          Čtvrtý Josef v přímé linii. Narozen ještě v Rtyni č. 27 — posledním domě po pradědovi Mistru podkováři. Pracoval jako <strong>policista</strong>. Přesídlil do Prahy, kde v roce 2000 zemřel. Zažil protektorát, komunismus i sametovou revoluci.
+        </div>
+      </div>
+      <div class="couple-link"></div>
+      <div class="person">
+        <div class="name">Miluše Hofmanová</div>
+        <div class="née">roz. Hušková → provd. Hofmanová</div>
+        <span class="tag spouse">∞ Josef Hoffmann</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GENERACE VII ===== -->
+<div class="generation">
+  <div class="gen-label">
+    VII. Generace — Poválečná generace
+    <span class="era">1952–1963 · Socialismus, Jaroměř, Praha</span>
+  </div>
+
+  <div class="gen-cards">
+
+    <div class="person mini">
+      <div class="name">Hana Hofmanová</div>
+      <div class="dates">
+        <span class="birth">12. 10. 1952, Jaroměř</span>
+      </div>
+      <span class="tag occupation">Administrativa, Ministerstvo vnitra</span>
+      <span class="tag note">♎ Váhy · 🐉 Vodový Drak</span>
+    </div>
+
+    <div class="couple">
+      <div class="person main-line">
+        <div class="name">Josef Hofman</div>
+        <div class="dates">
+          <span class="birth">20. 3. 1958, Praha</span>
+        </div>
+        <span class="tag note">Hlavní linie → Gen. VIII</span>
+        <span class="tag note">Příjmení: Hoffmann → Hofman</span>
+        <span class="tag note">♓ Ryby · 🐕 Zemský Pes</span>
+        <div class="detail" style="margin-top:6px; font-size:0.78rem;">
+          Pátý Josef v přímé linii. Příjmení definitivně <strong>počeštěno na Hofman</strong> — jedno F, jedno N. Narozen v Praze.
+        </div>
+      </div>
+      <div class="couple-link"></div>
+      <div class="person">
+        <div class="name">Magdalena Hofmanová</div>
+        <div class="née">roz. Novotná → provd. Hofmanová</div>
+        <div class="dates">
+          <span class="birth">13. 2. 1967, Jaroměř</span>
+        </div>
+        <span class="tag spouse">∞ Josef Hofman</span>
+        <span class="tag note">♒ Vodnář · 🐐 Ohnivá Koza</span>
+      </div>
+    </div>
+
+    <div class="person mini">
+      <div class="name">Pavel Hofman</div>
+      <div class="dates">
+        <span class="birth">21. 7. 1963, Jaroměř</span>
+      </div>
+      <span class="tag occupation">Opravář (východní pobřeží USA)</span>
+      <span class="tag occupation">Revizní technik (Praha)</span>
+      <span class="tag note">♋ Rak · 🐇 Vodový Králík</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== GENERACE VIII ===== -->
+<div class="generation">
+  <div class="gen-label">
+    VIII. Generace — Současnost
+    <span class="era">1988+ · Sametová revoluce, EU, digitální věk</span>
+  </div>
+  <div class="gen-cards">
+
+    <div class="person main-line" style="border-color: var(--gold); border-width: 3px;">
+      <div class="name" style="color: var(--gold);">Josef Hofman</div>
+      <div class="dates">
+        <span class="birth">29. 3. 1988, Jaroměř</span>
+      </div>
+      <div class="detail">
+        <span class="icon">💻</span> Frontend developer · manGoweb.cz · Echo Pulse
+      </div>
+      <span class="tag note">VIII. generace · 6. Josef v přímé linii!</span>
+      <span class="tag note">♈ Beran · 🐉 Zemský Drak</span>
+      <div class="detail" style="margin-top:8px; font-size:0.78rem;">
+        Šestý Josef v přímé linii: Joseph Franz (~1766) → Josef (1857) → Josef (1894) → Josef (1924) → Josef (1958) → <strong>Josef (1988)</strong>. Od kováře v Silberleut po frontend developera v Praze — 222 let, jedno jméno.
+      </div>
+    </div>
+
+    <div class="couple">
+      <div class="person mini">
+        <div class="name">Martin Hofman</div>
+        <div class="dates">
+          <span class="birth">10. 2. 1991, Praha</span>
+        </div>
+        <span class="tag occupation">Psychoterapeut</span>
+        <span class="tag note">♒ Vodnář · 🐎 Kovový Kůň</span>
+      </div>
+      <div class="couple-link"></div>
+      <div class="person mini">
+        <div class="name">Zuzana Hofman</div>
+        <div class="née">roz. Vachová</div>
+        <span class="tag spouse">∞ Martin Hofman</span>
+      </div>
+    </div>
+
+    <div class="person mini">
+      <div class="name">Tereza Hofmanová</div>
+      <div class="dates">
+        <span class="birth">~ 2005</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- IX. GENERACE — děti Martina -->
+  <div class="siblings-group" style="margin-top: 16px;">
+    <div class="group-label">IX. Generace — děti Martina a Zuzany</div>
+    <div class="person mini">
+      <div class="name">Nola Hofman</div>
+      <div class="dates">
+        <span class="birth">21. 1. 2021</span>
+      </div>
+      <span class="tag note">♒ Vodnář · 🐀 Kovová Krysa</span>
+    </div>
+    <div class="person mini">
+      <div class="name">Flora Hofman</div>
+      <div class="dates">
+        <span class="birth">6. 6. 2025</span>
+      </div>
+      <span class="tag note">♊ Blíženci · 🐍 Dřevěný Had</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PŘEHLED JMEN ===== -->
+<h2 class="section-title" style="margin-top:60px;">📊 Kompletní přehled všech 44 členů rodu</h2>
+
+<table class="stats-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Jméno</th>
+      <th>Nar.</th>
+      <th>Úmrtí</th>
+      <th>Věk</th>
+      <th>Místo</th>
+      <th>Gen.</th>
+      <th>Poznámka</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- GEN I -->
+    <tr class="main-row">
+      <td>6</td>
+      <td><strong>Joseph Franz Hoffmann</strong> ★</td>
+      <td>~ 1766</td>
+      <td>3. 3. 1828</td>
+      <td>~62</td>
+      <td>Silberleut</td>
+      <td>I.</td>
+      <td>🐕 Ohnivý Pes</td>
+    </tr>
+    <!-- GEN II -->
+    <tr>
+      <td>2</td>
+      <td>Eleonora Katharina Gluß (Hoffmannová)</td>
+      <td>6. 10. 1793</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Silberleut</td>
+      <td>II.</td>
+      <td>♎ 🐂 Vodový Bůvol</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Katharina Marie Rudisch (Hoffmannová)</td>
+      <td>5. 10. 1795</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Silberleut č. 12</td>
+      <td>II.</td>
+      <td>♎ 🐇 Dřev. Králík</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Joseph Michael Hoffmann</td>
+      <td>17. 10. 1797</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Silberleut</td>
+      <td>II.</td>
+      <td>♎ 🐍 Ohnivý Had</td>
+    </tr>
+    <tr class="main-row">
+      <td>7</td>
+      <td><strong>Franz Xaveri Johann Hoffmann</strong> ★</td>
+      <td>29. 11. 1799</td>
+      <td>18. 12. 1867</td>
+      <td>68</td>
+      <td>Silwerleut → Bělouň 4</td>
+      <td>II.</td>
+      <td>Kovář · ♐ 🐐 Zem. Koza</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Augustinus Aloysius Hoffmann</td>
+      <td>13. 9. 1801</td>
+      <td>27. 1. 1817</td>
+      <td>15</td>
+      <td>Silwerleut č. 12</td>
+      <td>II.</td>
+      <td>♍ 🐓 Kov. Kohout</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Ignatius Bartholus Hoffmann</td>
+      <td>22. 8. 1803</td>
+      <td>25. 8. 1855</td>
+      <td>52</td>
+      <td>Silwerleut č. 12</td>
+      <td>II.</td>
+      <td>Hajný · ♌ 🐖 Vod. Prase</td>
+    </tr>
+    <tr class="died-infant">
+      <td>12</td>
+      <td>Jacobus Christophorus Hoffmann</td>
+      <td>24. 7. 1805</td>
+      <td>~ 1805</td>
+      <td>&lt;1</td>
+      <td>Silwerleut č. 12</td>
+      <td>II.</td>
+      <td>† · ♌ 🐂 Dřev. Bůvol</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Anna Catharina Hoffmannová</td>
+      <td>13. 4. 1807</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Silberleut č. 12</td>
+      <td>II.</td>
+      <td>♈ 🐇 Ohn. Králík</td>
+    </tr>
+    <tr class="died-infant">
+      <td>10</td>
+      <td>Josephus Joanes Hoffmann</td>
+      <td>23. 5. 1809</td>
+      <td>30. 11. 1811</td>
+      <td>2</td>
+      <td>Silwerleut č. 12</td>
+      <td>II.</td>
+      <td>† · ♊ 🐍 Zem. Had</td>
+    </tr>
+    <tr class="died-infant">
+      <td>14</td>
+      <td>Anton Norbertus Hoffmann</td>
+      <td>7. 5. 1811</td>
+      <td>18. 10. 1811</td>
+      <td>5m</td>
+      <td>Silwerleut č. 12</td>
+      <td>II.</td>
+      <td>† · ♉ 🐐 Kov. Koza</td>
+    </tr>
+    <tr class="died-infant">
+      <td>5</td>
+      <td>Rosalia Hofmannová</td>
+      <td>31. 8. 1813</td>
+      <td>1. 9. 1813</td>
+      <td>1d</td>
+      <td>Silberleut č. 12</td>
+      <td>II.</td>
+      <td>† · ♍ 🐓 Vod. Kohout</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Agnes Josepha Hoffmannová</td>
+      <td>26. 8. 1815</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Silberleut č. 12</td>
+      <td>II.</td>
+      <td>♍ 🐖 Dřev. Prase</td>
+    </tr>
+    <!-- GEN III -->
+    <tr class="main-row">
+      <td>8</td>
+      <td><strong>Franz Hofman</strong> ★</td>
+      <td>5. 6. 1825</td>
+      <td>4. 8. 1901</td>
+      <td>76</td>
+      <td>Bělouň 4 → Rtyně 27</td>
+      <td>III.</td>
+      <td>Podkovář · ♊ 🐓 Dřev. Kohout</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Joseph Hofman</td>
+      <td>29. 3. 1827</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Bělouň 4</td>
+      <td>III.</td>
+      <td>♈ 🐖 Ohn. Prase</td>
+    </tr>
+    <tr class="died-infant">
+      <td>36</td>
+      <td>Ignaz Hofman</td>
+      <td>25. 1. 1829</td>
+      <td>16. 3. 1830</td>
+      <td>1</td>
+      <td>Bělouň 4</td>
+      <td>III.</td>
+      <td>† · ♒ 🐂 Zem. Bůvol</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>Ignaz Hoffmann</td>
+      <td>7. 11. 1830</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Bělouň 4</td>
+      <td>III.</td>
+      <td>2. Ignaz · ♏ 🐅 Kov. Tygr</td>
+    </tr>
+    <tr class="died-infant">
+      <td>38</td>
+      <td>Františka Hoffmannová</td>
+      <td>6. 10. 1832</td>
+      <td>23. 3. 1834</td>
+      <td>1</td>
+      <td>Bělouň 4</td>
+      <td>III.</td>
+      <td>† · ♎ 🐉 Vod. Drak</td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>Anton Hofmann</td>
+      <td>14. 6. 1834</td>
+      <td>10. 6. 1925</td>
+      <td><strong>90</strong></td>
+      <td>Bělouň 4 → Rtyně 10</td>
+      <td>III.</td>
+      <td>Voják · ♊ 🐎 Dřev. Kůň</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>Johan Nepomucký Hofman</td>
+      <td>8. 10. 1836</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Bělouň 4</td>
+      <td>III.</td>
+      <td>♎ 🐒 Ohn. Opice</td>
+    </tr>
+    <!-- GEN IV -->
+    <tr>
+      <td>15</td>
+      <td>Anna Erman (Hoffmannová)</td>
+      <td>17. 7. 1852</td>
+      <td>~ 1909</td>
+      <td>~57</td>
+      <td>Rtyně 27 → Bělouň</td>
+      <td>IV.</td>
+      <td>Erman · ♋ 🐀 Vod. Krysa</td>
+    </tr>
+    <tr class="main-row">
+      <td>16</td>
+      <td><strong>Josef Hoffmann</strong> ★</td>
+      <td>12. 1. 1857</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Rtyně 27</td>
+      <td>IV.</td>
+      <td>♑ 🐉 Ohn. Drak</td>
+    </tr>
+    <tr class="died-infant">
+      <td>17</td>
+      <td>Jan Hoffmann</td>
+      <td>29. 6. 1859</td>
+      <td>3. 8. 1859</td>
+      <td>35d</td>
+      <td>Rtyně 27</td>
+      <td>IV.</td>
+      <td>† · ♋ 🐐 Zem. Koza</td>
+    </tr>
+    <tr class="died-infant">
+      <td>18</td>
+      <td>František Hoffmann</td>
+      <td>24. 4. 1862</td>
+      <td>14. 7. 1863</td>
+      <td>14m</td>
+      <td>Rtyně 27</td>
+      <td>IV.</td>
+      <td>Dvojče · ♉ 🐕 Vod. Pes</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Jan Hoffmann</td>
+      <td>24. 4. 1862</td>
+      <td>~ 1929</td>
+      <td>~67</td>
+      <td>Rtyně 27</td>
+      <td>IV.</td>
+      <td>Dvojče · ♉ 🐕 Vod. Pes</td>
+    </tr>
+    <tr class="died-infant">
+      <td>20</td>
+      <td>Marie Hoffmannová</td>
+      <td>20. 10. 1869</td>
+      <td>5. 1. 1883</td>
+      <td>13</td>
+      <td>Rtyně 27</td>
+      <td>IV.</td>
+      <td>† 13 let · ♎ 🐍 Zem. Had</td>
+    </tr>
+    <!-- GEN V -->
+    <tr>
+      <td>21</td>
+      <td>Maria Hamanová (Hoffmannová)</td>
+      <td>3. 10. 1892</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Rtyně 27</td>
+      <td>V.</td>
+      <td>Haman · ♎ 🐉 Vod. Drak</td>
+    </tr>
+    <tr class="main-row">
+      <td>22</td>
+      <td><strong>Josef Hoffmann</strong> ★</td>
+      <td>24. 12. 1894</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Rtyně 27</td>
+      <td>V.</td>
+      <td>Štědrý den · ♑ 🐎 Dřev. Kůň</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Marie Nýčová (Hofmanová)</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Rtyně 27</td>
+      <td>V.</td>
+      <td>Provdaná Nýč</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Václav Nýč</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td></td>
+      <td>V.–VI.</td>
+      <td>Větev Nýčů</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Miloš Nýč</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td></td>
+      <td>V.–VI.</td>
+      <td>Větev Nýčů</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Helena Nýčová</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td></td>
+      <td>V.–VI.</td>
+      <td>Větev Nýčů</td>
+    </tr>
+    <!-- GEN VI -->
+    <tr class="main-row">
+      <td>27</td>
+      <td><strong>Josef Hoffmann</strong> ★</td>
+      <td>13. 7. 1924</td>
+      <td>5. 3. 2000</td>
+      <td>75</td>
+      <td>Rtyně 27 → Praha</td>
+      <td>VI.</td>
+      <td>Policajt · ♋ 🐀 Dřev. Krysa</td>
+    </tr>
+    <tr>
+      <td>—</td>
+      <td>Miluše Hofmanová (roz. Hušková)</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td></td>
+      <td>VI.</td>
+      <td>∞ Josef policajt</td>
+    </tr>
+    <!-- GEN VII -->
+    <tr>
+      <td>28</td>
+      <td>Hana Hofmanová</td>
+      <td>12. 10. 1952</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Jaroměř</td>
+      <td>VII.</td>
+      <td>Min. vnitra · ♎ 🐉 Vod. Drak</td>
+    </tr>
+    <tr class="main-row">
+      <td>30</td>
+      <td><strong>Josef Hofman</strong> ★</td>
+      <td>20. 3. 1958</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Praha</td>
+      <td>VII.</td>
+      <td>∞ Magdalena · ♓ 🐕 Zem. Pes</td>
+    </tr>
+    <tr>
+      <td>—</td>
+      <td>Magdalena Hofmanová (roz. Novotná)</td>
+      <td>13. 2. 1967</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Jaroměř</td>
+      <td>VII.</td>
+      <td>♒ 🐐 Ohn. Koza</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Pavel Hofman</td>
+      <td>21. 7. 1963</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Jaroměř → USA → Praha</td>
+      <td>VII.</td>
+      <td>Opravář/technik · ♋ 🐇 Vod. Králík</td>
+    </tr>
+    <!-- GEN VIII -->
+    <tr style="background: rgba(184,151,58,0.1);">
+      <td>31</td>
+      <td><strong>Josef Hofman</strong> ★</td>
+      <td>29. 3. 1988</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Jaroměř → Praha</td>
+      <td>VIII.</td>
+      <td>6. Josef · ♈ 🐉 Zem. Drak</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Martin Hofman</td>
+      <td>10. 2. 1991</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Praha</td>
+      <td>VIII.</td>
+      <td>Psychoterapeut · ∞ Zuzana · ♒ 🐎</td>
+    </tr>
+    <tr>
+      <td>—</td>
+      <td>Zuzana Hofman (roz. Vachová)</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td></td>
+      <td>VIII.</td>
+      <td>Manželka Martina</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>Tereza Hofmanová</td>
+      <td>~ 2005</td>
+      <td>—</td>
+      <td>—</td>
+      <td></td>
+      <td>VIII.</td>
+      <td></td>
+    </tr>
+    <!-- GEN IX -->
+    <tr>
+      <td>—</td>
+      <td>Nola Hofman</td>
+      <td>21. 1. 2021</td>
+      <td>—</td>
+      <td>—</td>
+      <td></td>
+      <td>IX.</td>
+      <td>♒ Vodnář · 🐀 Kovová Krysa</td>
+    </tr>
+    <tr>
+      <td>—</td>
+      <td>Flora Hofman</td>
+      <td>6. 6. 2025</td>
+      <td>—</td>
+      <td>—</td>
+      <td></td>
+      <td>IX.</td>
+      <td>♊ Blíženci · 🐍 Dřevěný Had</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===== PŘÍMÁ LINIE ===== -->
+<h2 class="section-title" style="margin-top:60px;">🔗 Přímá linie — 6× Josef</h2>
+
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 20px 0;">
+  <div style="background: var(--card-bg); border: 2px solid var(--gold); border-radius: 10px; padding: 14px 18px; text-align: center;">
+    <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Joseph Franz</div>
+    <div style="font-size: 0.7rem; color: var(--text-muted);">~ 1766</div>
+    <div style="font-size: 0.65rem; color: var(--text-muted);">Silberleut</div>
+  </div>
+  <div style="color: var(--gold); font-size: 1.5rem;">→</div>
+  <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 14px 18px; text-align: center;">
+    <div style="font-family: 'Playfair Display', serif; color: var(--text); font-size: 1rem;">Franz Xaveri</div>
+    <div style="font-size: 0.7rem; color: var(--text-muted);">1799 · Kovář</div>
+    <div style="font-size: 0.65rem; color: var(--text-muted);">Silberleut → Bělouň</div>
+  </div>
+  <div style="color: var(--gold); font-size: 1.5rem;">→</div>
+  <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 14px 18px; text-align: center;">
+    <div style="font-family: 'Playfair Display', serif; color: var(--text); font-size: 1rem;">Franz</div>
+    <div style="font-size: 0.7rem; color: var(--text-muted);">1825 · Podkovář</div>
+    <div style="font-size: 0.65rem; color: var(--text-muted);">Bělouň → Rtyně</div>
+  </div>
+  <div style="color: var(--gold); font-size: 1.5rem;">→</div>
+  <div style="background: var(--card-bg); border: 2px solid var(--gold); border-radius: 10px; padding: 14px 18px; text-align: center;">
+    <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Josef</div>
+    <div style="font-size: 0.7rem; color: var(--text-muted);">1857</div>
+    <div style="font-size: 0.65rem; color: var(--text-muted);">Rtyně</div>
+  </div>
+  <div style="color: var(--gold); font-size: 1.5rem;">→</div>
+  <div style="background: var(--card-bg); border: 2px solid var(--gold); border-radius: 10px; padding: 14px 18px; text-align: center;">
+    <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Josef</div>
+    <div style="font-size: 0.7rem; color: var(--text-muted);">1894 · Štědrý den</div>
+    <div style="font-size: 0.65rem; color: var(--text-muted);">Rtyně</div>
+  </div>
+  <div style="color: var(--gold); font-size: 1.5rem;">→</div>
+  <div style="background: var(--card-bg); border: 2px solid var(--gold); border-radius: 10px; padding: 14px 18px; text-align: center;">
+    <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Josef</div>
+    <div style="font-size: 0.7rem; color: var(--text-muted);">1924 · Policajt</div>
+    <div style="font-size: 0.65rem; color: var(--text-muted);">Rtyně → Praha</div>
+  </div>
+  <div style="color: var(--gold); font-size: 1.5rem;">→</div>
+  <div style="background: var(--card-bg); border: 2px solid var(--gold); border-radius: 10px; padding: 14px 18px; text-align: center;">
+    <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Josef</div>
+    <div style="font-size: 0.7rem; color: var(--text-muted);">1958</div>
+    <div style="font-size: 0.65rem; color: var(--text-muted);">Praha</div>
+  </div>
+  <div style="color: var(--gold); font-size: 1.5rem;">→</div>
+  <div style="background: linear-gradient(135deg, var(--card-bg) 0%, #1a2340 100%); border: 2px solid var(--gold); border-radius: 10px; padding: 14px 18px; text-align: center;">
+    <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Josef</div>
+    <div style="font-size: 0.7rem; color: var(--text-muted);">1988 · Developer</div>
+    <div style="font-size: 0.65rem; color: var(--text-muted);">Jaroměř → Praha</div>
+  </div>
+</div>
+
+<!-- ===== TRADICE JMEN ===== -->
+<h2 class="section-title" style="margin-top:60px;">🔄 Tradice a vzorce v rodě</h2>
+
+<div class="context-grid">
+  <div class="context-card">
+    <h3>Josef — 6× v přímé linii!</h3>
+    <p>Jméno <strong>Josef</strong> se v přímé otcovské linii opakuje <strong>šestkrát</strong> v 8 generacích: Joseph Franz (~1766) → Josef (1857) → Josef (1894) → Josef (1924) → Josef (1958) → Josef (1988). Generace II a III nesou jméno Franz, ale od Gen. IV je Josef v každé generaci bez přerušení. Mimořádná kontinuita.</p>
+  </div>
+  <div class="context-card">
+    <h3>Kovářská dynastie</h3>
+    <p><strong>Franz Xaveri Johann</strong> (Gen. II) — kovář a chalupník. Jeho syn <strong>Franz</strong> (Gen. III) — <em>Hufschmiedemeister</em>, mistr podkovářský. Dvě generace u kovadliny. V době bez aut bylo kování koní klíčové řemeslo — podkovář byl na vesnici nepostradatelný.</p>
+  </div>
+  <div class="context-card">
+    <h3>Dětská úmrtnost — krutá realita</h3>
+    <p>Z 12 dětí Josepha Franze (Gen. II) zemřelo <strong>5 v dětství</strong> — Rosalia po 1 dni, Anton Norbertus po 5 měsících, Josephus Joanes ve 2,5 letech. Z 6 dětí Franze (Gen. IV) zemřely <strong>3 mladé</strong> — Jan po 35 dnech, František ve 14 měsících, Marie ve 13 letech. Kojenecká úmrtnost v českých zemích 19. století dosahovala 25–30 %.</p>
+  </div>
+  <div class="context-card">
+    <h3>Náhradní jména — Ignaz 2×</h3>
+    <p>Když <strong>Ignaz Hofman</strong> (nar. 1829) zemřel v 1 roce, další syn dostal opět jméno <strong>Ignaz</strong> (nar. 1830). Totéž u Franze Hofmana: po smrti <strong>Jana</strong> (1859, † 35 dní) dostala dvojčata (1862) opět jméno <strong>Jan</strong> (+ František). Tradice „náhradních jmen" — pocta zemřelému sourozenci.</p>
+  </div>
+  <div class="context-card">
+    <h3>Hoffmann → Hofman</h3>
+    <p>Příjmení se postupně zjednodušovalo: <strong>Hoffmann</strong> (německý pravopis, dvojité F + N) → v matrikách se střídá s <strong>Hofmann</strong>, <strong>Hofman</strong> → definitivně <strong>Hofman</strong> (český pravopis, jedno F, jedno N). Proces probíhal zejména po roce 1918 a zesílil po 1945.</p>
+  </div>
+  <div class="context-card">
+    <h3>Silberleut → Bělouň → Rtyně → Praha</h3>
+    <p>Geografická migrace přes 260 let: z <strong>Sylvárova č. 12</strong> u Dvora Králové (Gen. I–II) do <strong>Běluně č. 4</strong> u Jaroměře (Gen. II–III), pak do <strong>Rtyně č. 27</strong> u Zaloňova (Gen. III–VI), přes <strong>Jaroměř</strong> (Gen. VII) do <strong>Prahy</strong> (Gen. VII–VIII). Pozoruhodné: Jaroměř je pouhé 3 km od Běluně — rodina se po 150 letech vrátila k počátkům!</p>
+  </div>
+</div>
+
+<!-- ===== ZAJÍMAVOSTI ===== -->
+<h2 class="section-title" style="margin-top:60px;">✨ Zajímavosti a postřehy</h2>
+
+<div class="context-grid">
+  <div class="context-card">
+    <h3>🎄 Vánoční Josef (1894)</h3>
+    <p>Josef Hoffmann (Gen. V) se narodil <strong>24. 12. 1894 — na Štědrý den</strong>. V katolické tradici bylo dítě narozené o Vánocích považováno za zvláštní požehnání. Vzhledem k tomu, že Josef je otcem Ježíšovým, bylo jméno Josef v tomto případě téměř povinné.</p>
+  </div>
+  <div class="context-card">
+    <h3>👴 Anton — 90 let v 19. století!</h3>
+    <p><strong>Anton Hofmann</strong> (1834–1925) se dožil neuvěřitelných <strong>90 let</strong>. Narozen za vlády Františka I., zemřel v Československé republice. Zažil 7 císařů/prezidentů, vznik Rakouska-Uherska i jeho rozpad, obě průmyslové revoluce a 1. světovou válku. Průměrný věk dožití muže v jeho době byl ~40 let.</p>
+  </div>
+  <div class="context-card">
+    <h3>👶👶 Dvojčata (1862)</h3>
+    <p><strong>František a Jan</strong> se narodili stejný den 24. 4. 1862 — dvojčata! František zemřel ve 14 měsících, Jan přežil a dožil se ~67 let. Dvojčata bez moderní medicíny byla riziková — přežití jednoho z nich bylo vlastně dobrý výsledek.</p>
+  </div>
+  <div class="context-card">
+    <h3>⚔️ IR 36 — „Immer vorwärts"</h3>
+    <p><strong>Anton Hofmann</strong> sloužil u <strong>IR 36</strong> (36. pěší pluk, zal. 1683) pod Grafem Degenfeld-Schönburg. Pluk rekrutoval z Mladé Boleslavi, byl z <strong>95 % český</strong> a bojoval v <strong>238 bitvách</strong>. V roce 1866 IV. prapor bránil u <strong>České Skalice</strong> — pouhých <strong>15 km od Běluně</strong>! Anton mohl bojovat doslova u vlastního prahu. Tragický konec pluku: v květnu 1915 zajat Rusy u Sieniawy, císař František Josef I. nařídil <strong>trvalé rozpuštění za zbabělost</strong> — jen 2 pluky v historii monarchie takto potrestány.</p>
+  </div>
+  <div class="context-card">
+    <h3>🏰 Od kováře k developerovi</h3>
+    <p>Řemeslná DNA rodiny: <strong>Franz Xaveri</strong> — kovář (Gen. II) → <strong>Franz</strong> — mistr podkovářský (Gen. III) → <strong>Josef</strong> — policista (Gen. VI) → <strong>Josef</strong> — frontend developer (Gen. VIII). Od kovadliny ke klávesnici. Řemeslná preciznost a řešení problémů přetrvává — jen materiál se změnil z oceli na kód.</p>
+  </div>
+  <div class="context-card">
+    <h3>📛 Hofman = #1 okres Náchod</h3>
+    <p>V ČR žije <strong>2 317 Hofmanů</strong> (s jedním N). Okres <strong>Náchod má 108 Hofmanů</strong> — nejvíc v celé republice mimo Prahu! Trutnov dalších 82. Trojúhelník Náchod–Trutnov–Hradec Králové je absolutní epicentrum příjmení. Český ekvivalent: <strong>Dvořák</strong> (dvůr = Hof). Zdroj: <a href="https://www.kdejsme.cz/prijmeni/Hofman/" style="color:var(--accent-blue);">kdejsme.cz</a></p>
+  </div>
+  <div class="context-card">
+    <h3>🏠 Číslo popisné jako rodový identifikátor</h3>
+    <p>V datech se opakují konkrétní čísla domů: <strong>Silberleut č. 12</strong> (Gen. I–II, 1766–1815), <strong>Bělouň č. 4</strong> (Gen. II–III, 1799–1836), <strong>Rtyně č. 27</strong> (Gen. III–VI, 1852–1924). Každý dům sloužil rodině 50–100 let. Rtyně č. 27 — dům mistra podkováře — byl domovem rodu celých <strong>72 let</strong>.</p>
+  </div>
+  <div class="context-card">
+    <h3>🌹 Rosalia — jeden den na světě</h3>
+    <p>Nejsmutnější záznam v rodokmenu: <strong>Rosalia Hofmannová</strong>, narozena 31. 8. 1813, zemřela 1. 9. 1813. Žila <strong>pouhý jeden den</strong>. Byla pokřtěna — v té době se křtilo okamžitě po narození, protože riziko smrti bylo vysoké. Její jméno Rosalia (Růžena) se v rodokmenu již neobjevuje.</p>
+  </div>
+  <div class="context-card">
+    <h3>📏 260 let v okruhu 15 km</h3>
+    <p>Prvních 6 generací (1766–1924) se celá rodina pohybovala v <strong>okruhu pouhých 15 km</strong>: Sylvárov u Dvora Králové → Běluň u Jaroměře (~12 km) → Rtyně u Zaloňova (~5 km od Jaroměře). Teprve <strong>Josef policajt</strong> (Gen. VI) v polovině 20. století odešel do Prahy. A pozoruhodné: <strong>Jaroměř</strong>, kde se narodili Hana, Pavel i Josef (1988), je pouhé 3 km od Běluně — rodina se po 150 letech vrátila téměř přesně tam, kde začínala.</p>
+  </div>
+  <div class="context-card">
+    <h3>🌍 Jazyková hranice — České Rtyně vs. německý Zaloňov</h3>
+    <p>Rtyně, kde rodina žila 72 let, bylo <strong>etnicky české</strong> — i v roce 1930. Ale sousední Zaloňov, pod který Rtyně spadá, byl v roce 1930 z <strong>~95 % německojazyčný</strong>. Rodina Hoffmannů žila přímo na česko-německé jazykové hranici. Německé příjmení, ale česká vesnice — dokonalý odraz dvojí identity regionu.</p>
+  </div>
+  <div class="context-card">
+    <h3>🇺🇸 Pavel — Hofman v Americe</h3>
+    <p><strong>Pavel Hofman</strong> (Gen. VII, nar. 1963) emigroval do USA — pracoval jako opravář na <strong>východním pobřeží</strong>. Pak se vrátil do Prahy a stal se revizním technikem. Je tak zatím jediným členem rodu, který žil mimo Česko. Od Sylvárova po New York — 260 let a 6 000 km.</p>
+  </div>
+  <div class="context-card">
+    <h3>👮 Miluše Hušková — žena policajta</h3>
+    <p><strong>Miluše Hofmanová</strong> (roz. Hušková) — manželka Josefa policajta (Gen. VI). Příjmení <strong>Hušek/Hušková</strong> je typicky české, z jihoslovanského „gušt" (chuť) nebo od slovesa „hučet". Další potvrzení, že Hoffmannové se ve 20. století plně integrovali do českého prostředí.</p>
+  </div>
+</div>
+
+<!-- ===== HISTORICKÝ KONTEXT ===== -->
+<h2 class="section-title" style="margin-top:60px;">🏛️ Historický kontext — co prožívaly jednotlivé generace</h2>
+
+<div class="timeline">
+
+  <div class="timeline-item history-event">
+    <div class="year">~ 1766 · I. generace — Joseph Franz se rodí</div>
+    <div class="event">Vládne Marie Terezie. Sedmiletá válka právě skončila (1763). Joseph Franz Hoffmann se rodí v Sylvárově (Silberleut) u Dvora Králové nad Labem — oblast východních Čech na pomezí českého a německého osídlení. Agrární společnost s cechovním řádem a feudálním poddanstvím.</div>
+  </div>
+
+  <div class="timeline-item family-event">
+    <div class="year">1793–1815 · II. generace se rodí v Silberleut</div>
+    <div class="event">Za 22 let se Josephu Franzovi narodí <strong>12 dětí</strong>. Napoleonské války zmítají Evropou — bitva u Slavkova (1805), Vídeňský kongres (1815). Pět dětí zemře v dětství. Franz Xaveri Johann (1799) se stane kovářem a přesídlí do Bělouně.</div>
+  </div>
+
+  <div class="timeline-item history-event">
+    <div class="year">3. 3. 1828 · Joseph Franz umírá</div>
+    <div class="event">Zakladatel linie umírá v Silberleut ve věku ~62 let. Jeho syn Franz Xaveri (28 let) už má vlastní rodinu v Bělouní. Syn Ignatius (24 let) je hajným. Předbřeznové Rakousko — doba Metternichova absolutismu.</div>
+  </div>
+
+  <div class="timeline-item family-event">
+    <div class="year">1825–1836 · III. generace — kováři z Bělouně</div>
+    <div class="event">Franz Xaveri Johann zakládá rodinu v Bělouní č. 4. Syn <strong>Franz</strong> (1825) se vyučí podkovářem. Syn <strong>Anton</strong> (1834) nastoupí vojenskou službu. Opět tragédie: Ignaz umírá v 1 roce, Františka v 1,5 roce.</div>
+  </div>
+
+  <div class="timeline-item history-event">
+    <div class="year">1848 · Revoluce a zrušení poddanství</div>
+    <div class="event">Revoluční rok — Franz Xaveri má 49 let, syn Franz je 23letý podkovářský tovaryš. Zrušení poddanství zásadně mění venkov — poddaní se stávají svobodnými občany. Řemeslníci jako Hoffmannové mohou volně podnikat.</div>
+  </div>
+
+  <div class="timeline-item family-event">
+    <div class="year">~ 1850s · Franz se stává Mistrem a přesídluje do Rtyně</div>
+    <div class="event"><strong>Franz Hofman</strong> získává titul Hufschmiedemeister (mistr podkovářský) a usazuje se v <strong>Rtyni č. 27</strong>. Tento dům se stane domovem rodu na dalších 72 let. Nejstarší dcera Anna se rodí 1852.</div>
+  </div>
+
+  <div class="timeline-item family-event">
+    <div class="year">24. 4. 1862 · Dvojčata František a Jan</div>
+    <div class="event">Mistru podkováři Franzovi se rodí <strong>dvojčata</strong>. František zemře ve 14 měsících, Jan přežije. V roce 1859 už ztratili syna Jana (35 dní) — dvojče Jan je pojmenováno po zemřelém bratrovi.</div>
+  </div>
+
+  <div class="timeline-item history-event">
+    <div class="year">1867 · Rakousko-Uherské vyrovnání</div>
+    <div class="event">Vzniká Rakousko-Uhersko. Franz Xaveri Johann umírá 18. 12. 1867 v Bělouní ve věku 68 let — necelé 4 měsíce po vyrovnání. Syn Franz (42 let) je prosperující mistr podkovářský v Rtyni.</div>
+  </div>
+
+  <div class="timeline-item family-event">
+    <div class="year">4. 8. 1901 · Smrt Mistra Franze v Rtyni</div>
+    <div class="event"><strong>Franz Hofman</strong>, mistr podkovářský, umírá v Rtyni č. 27 ve věku 76 let. Dožil se jako výměnkář — tradiční forma důchodu, kdy starý hospodář předá usedlost synovi výměnou za doživotní bydlení a stravu.</div>
+  </div>
+
+  <div class="timeline-item war-event">
+    <div class="year">1914–1918 · 1. světová válka</div>
+    <div class="event"><strong>Josefovi</strong> (Gen. V, nar. 1894) je 20 let — ideální věk pro odvedení do rakousko-uherské armády. Strýc <strong>Anton</strong> (Gen. III, 80 let) je příliš starý, ale mohl ztratit vnuky. 36. pluk, u kterého sloužil Anton, bojoval na srbské a italské frontě.</div>
+  </div>
+
+  <div class="timeline-item history-event">
+    <div class="year">1918 · Vznik Československa</div>
+    <div class="event">28. října 1918 vzniká Československo. Rtyně se stává součástí nového státu. Rodina Hoffmannů začíná proces počešťování příjmení.</div>
+  </div>
+
+  <div class="timeline-item family-event">
+    <div class="year">13. 7. 1924 · Josef policajt se rodí</div>
+    <div class="event"><strong>Josef Hoffmann</strong> (Gen. VI) se rodí v Rtyni č. 27 — poslední generace narozená v domě mistra podkováře. Stane se policistou a přesídlí do Prahy. Prožije protektorát, komunismus i sametovou revoluci.</div>
+  </div>
+
+  <div class="timeline-item history-event">
+    <div class="year">10. 6. 1925 · Anton umírá ve věku 90 let</div>
+    <div class="event"><strong>Anton Hofmann</strong>, voják a zahradník, umírá v Rtyni č. 10. Narozen 1834 za císaře Františka I., zemřel 1925 v Československé republice. Přežil 4 panovníky, viděl parní stroj, telegraf, telefon, auto i letadlo.</div>
+  </div>
+
+  <div class="timeline-item war-event">
+    <div class="year">Říjen 1938 · Mnichovská dohoda a Sudety</div>
+    <div class="event"><strong>Sylvárov zabrán Německem</strong> — i když Dvůr Králové zůstal český, nádraží, Sylvárov a Žirecká Podstráň byly zabrány. Rodný kraj Hoffmannů rozdělen. Josefovi (Gen. VI) je 14 let. Dvůr Králové ztratil 32 z 47 obcí okresu. Po březnu 1939 celá oblast pod Protektorátem. Po válce příjmení definitivně počeštěno na <strong>Hofman</strong>.</div>
+  </div>
+
+  <div class="timeline-item family-event">
+    <div class="year">1952–1963 · VII. generace se rodí</div>
+    <div class="event">Josef policajt a jeho žena mají tři děti: <strong>Hanu</strong> (1952, Jaroměř), <strong>Josefa</strong> (1958, Praha), <strong>Pavla</strong> (1963, Jaroměř). Rodina se pohybuje mezi Jaroměří a Prahou. Příjmení je definitivně <strong>Hofman</strong>.</div>
+  </div>
+
+  <div class="timeline-item family-event">
+    <div class="year">29. 3. 1988 · Josef Hofman — VIII. generace</div>
+    <div class="event">V Jaroměři se rodí <strong>Josef Hofman</strong> — šestý Josef v přímé linii. Za rok padne komunismus. Vyroste v demokratickém Česku, stane se frontend developerem. Od kovadliny Franze Xaveri ke klávesnici Josefa — 189 let.</div>
+  </div>
+
+  <div class="timeline-item family-event">
+    <div class="year">5. 3. 2000 · Josef policajt umírá v Praze</div>
+    <div class="event"><strong>Josef Hoffmann</strong> (Gen. VI) umírá v Praze ve věku 75 let. Poslední člen rodu narozený v Rtyni č. 27 — domě, který rodina obývala od ~1852.</div>
+  </div>
+
+</div>
+
+<!-- ===== MÍSTA ===== -->
+<h2 class="section-title" style="margin-top:60px;">📍 Místa rodu</h2>
+
+<div class="context-grid">
+  <div class="context-card">
+    <h3>🏠 Sylvárov (Silberleut) č. 12</h3>
+    <p>
+      <strong>Období:</strong> ~ 1766–1815 (Gen. I–II)<br>
+      <strong>Německy:</strong> Silberleut, Silberleit, Silwerleut, Sylwarleut<br>
+      <strong>Dnes:</strong> Zaniklá osada, katastrální území <strong>Dvora Králové nad Labem</strong>, okr. Trutnov<br>
+      <strong>Vzdálenost:</strong> ~13 km SZ od Rtyně u Zaloňova, ~8 km od Jaroměře<br><br>
+      Domov zakladatele Josepha Franze a jeho 12 dětí. Dnes je Sylvárov vstřebaný do Dvora Králové — původní osada prakticky zanikla. Variabilní pravopis v matrikách (Silberleut / Silberleit / Silwerleut) — každý farář psal jinak. Matriky v <strong>SOA Zámrsk</strong>, farnost Dvůr Králové.
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>🏠 Běluň (Bělouň) č. 4</h3>
+    <p>
+      <strong>Období:</strong> 1799–1836 (Gen. II–III)<br>
+      <strong>Německy:</strong> Bielaun / Belaun<br>
+      <strong>Dnes:</strong> Pravděpodobně <strong>Běluň u Heřmanic</strong>, okr. Náchod — 3 km severně od Jaroměře<br>
+      <strong>Alternativa:</strong> Běluň u Brzic (~12 km jižně od Rtyně)<br><br>
+      Franz Xaveri Johann sem přesídlil ze Sylvárova a založil kovářskou dílnu. Zde se narodilo 7 dětí. Zajímavost: Heřmanice, pod které Běluň spadá, jsou <strong>rodištěm Albrechta z Valdštejna</strong> (1583) — jednoho z nejmocnějších mužů třicetileté války. Hoffmannové žili doslova ve stínu Valdštejnovy tvrze.
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>🏠 Rtyně č. 27 (místní část Zaloňova)</h3>
+    <p>
+      <strong>Období:</strong> ~ 1852–1924 (<strong>72 let!</strong>, Gen. III–VI)<br>
+      <strong>Německy:</strong> Ertin (dříve i Hertin)<br>
+      <strong>Obec:</strong> Zaloňov · <strong>Okres:</strong> Náchod · <strong>Kraj:</strong> Královéhradecký<br>
+      <strong>Farnost:</strong> Zaloňov (kostel sv. Petra a Pavla, zmíněn 1363)<br>
+      <strong>Vzdálenost:</strong> ~5 km SZ od Jaroměře<br><br>
+      Dům mistra podkováře Franze Hofmana. Nejdéle obývaný dům rodu — <strong>4 generace!</strong> Zde se narodili Josef (1857), dvojčata František a Jan (1862), Marie (1869), Maria (1892), Josef (1894) i poslední Josef (1924). <strong>Rtyně bylo etnicky české</strong>, zatímco sousední Zaloňov byl v roce 1930 z ~95 % německojazyčný — rodina žila přímo na jazykové hranici. Pouhých 5 km od Jaroměře.
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>🏠 Rtyně č. 10</h3>
+    <p>
+      <strong>Anton Hofmann</strong> (1834–1925) zde zemřel ve věku 90 let. Jiný dům než č. 27 — zřejmě vlastní nebo u příbuzných po návratu z vojenské služby u IR 36 a zahradničení v Lišicích.
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>📍 Lišice č. 7</h3>
+    <p>
+      <strong>Okres:</strong> Hradec Králové · ~30 km jihozápadně od Jaroměře<br>
+      <strong>Německy:</strong> Lischitz<br>
+      <strong>Obyvatel:</strong> ~160<br><br>
+      <strong>Anton Hofmann</strong> zde pracoval jako zahradník po vojenské službě u IR 36. Malá obec v Polabí — úrodnější krajina než kopcovitý Náchodsko. Po zahradničení se vrátil do Rtyně u Zaloňova.
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>📍 Jaroměř → USA → Praha</h3>
+    <p>
+      <strong>Období:</strong> 1952–současnost (Gen. VII–VIII)<br><br>
+      Josef policajt (Gen. VI) a <strong>Miluše</strong> (roz. Hušková) přesídlili z Rtyně do Prahy. Děti se rodily v Jaroměři (Hana 1952, Pavel 1963, Josef 1988) i v Praze (Josef 1958, Martin 1991). <strong>Hana</strong> pracovala na Ministerstvu vnitra. <strong>Pavel</strong> emigroval do USA — opravář na východním pobřeží — a vrátil se do Prahy jako revizní technik. <strong>Jaroměř je pouhé 3 km od Běluně</strong> — rodina se po 150 letech vrátila do blízkosti svých kořenů!
+    </p>
+  </div>
+</div>
+
+<!-- ===== ZDROJE ===== -->
+<h2 class="section-title" style="margin-top:60px;">🔍 Jak pokračovat v bádání</h2>
+
+<div class="context-grid">
+  <div class="context-card">
+    <h3>1. SOA Zámrsk — digitalizované matriky</h3>
+    <p>
+      <a href="https://aron.vychodoceskearchivy.cz" style="color:var(--accent-blue);" target="_blank">aron.vychodoceskearchivy.cz</a><br>
+      Všechny relevantní farnosti jsou pod <strong>SOA Zámrsk</strong> (Státní oblastní archiv Hradec Králové):<br>
+      • <strong>Farnost Dvůr Králové n. L.</strong> — pro Sylvárov/Silberleut<br>
+      • <strong>Farnost Heřmanice / Jaroměř</strong> — pro Běluň<br>
+      • <strong>Farnost Zaloňov</strong> — pro Rtyně č. 27 (kostel sv. Petra a Pavla, zmíněn 1363). Pro starší záznamy hledej i „Semonice"<br>
+      Záznamy od ~16. století, psané latinsky a německy. Volně přístupné online.
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>2. Sčítání lidu na FamilySearch — NEJLEPŠÍ START!</h3>
+    <p>
+      <a href="https://www.familysearch.org/en/search/catalog/2101223" style="color:var(--accent-blue);" target="_blank">FamilySearch — Trutnov census 1869–1921</a><br>
+      Sčítací archy jsou <strong>řazené podle čísla domu</strong> — stačí najít Rtyně č. 27 a vidíš všechny obyvatele za 50+ let! Jména, data narození, povolání, rodiště, náboženství. <strong>Toto je nejrychlejší cesta k chybějícím manželkám.</strong><br>
+      Také: <a href="https://archivnimapy.cuzk.cz/" style="color:var(--accent-blue);" target="_blank">ČÚZK archivní mapy</a> — indikační skici z 1840s uvádějí <strong>jména vlastníků</strong> u každého pozemku.
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>3. Vojenské záznamy — IR 36</h3>
+    <p>
+      <a href="https://www.statearchives.gv.at/family-research/kriegsarchiv.html" style="color:var(--accent-blue);" target="_blank">Rakouský státní archiv</a> → Kriegsarchiv<br>
+      <strong>IR 36</strong> (36. pěší pluk) — Anton Hofmann sloužil pod <strong>Grafem Augustem von Degenfeld-Schönburg</strong> (Inhaber 1852–1876). Nábor z <strong>Mladé Boleslavi</strong>, pluk z 95 % český. <strong>Grundbuchblatt</strong> (osobní vojenský list) obsahuje celou služební historii. Také viz <a href="https://nas-pluk-36.webnode.cz" style="color:var(--accent-blue);" target="_blank">nas-pluk-36.webnode.cz</a>.
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>4. Genealogické portály</h3>
+    <p>
+      <a href="https://www.familysearch.org" style="color:var(--accent-blue);" target="_blank">familysearch.org</a> — hledej „Hoffmann" + Dvůr Králové / Rtyně<br>
+      <a href="http://gov.genealogy.net/SILEUTJO70VK" style="color:var(--accent-blue);" target="_blank">GOV Genealogy</a> — potvrzený záznam Silberleut = Sylvárov<br>
+      <a href="https://www.portafontium.eu" style="color:var(--accent-blue);" target="_blank">Porta Fontium</a> — další digitalizované matriky
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>5. WWI — Verlustlisten (seznamy ztrát)</h3>
+    <p>
+      <a href="https://des.genealogy.net/ou1wk/search" style="color:var(--accent-blue);" target="_blank">Verlustlisten O-U</a> — 2,7 mil. záznamů, zdarma<br>
+      <a href="https://www.radixindex.com/en/databases/8" style="color:var(--accent-blue);" target="_blank">RadixIndex</a> — alternativní databáze<br>
+      Hledej: Nachname = „Hoffmann", Heimatort = „<strong>Hertin</strong>" (německé jméno pro Rtyně). Také zkus „Rtyně", „Königinhof". Josef (nar. 1894) mohl sloužit u IR 36 nebo IR 18 (Hradec Králové).
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>6. Manželky — 3 známe, 4 hledáme</h3>
+    <p>
+      <strong>Známé:</strong> Miluše Hušková (∞ Josef 1924), Magdalena Novotná (∞ Josef 1958), Zuzana Vachová (∞ Martin 1991).<br>
+      <strong>Hledáme:</strong> ženy Josepha Franze (~1766), Franze Xaveri (1799), Franze podkováře (1825), Josefa (1857). Matriční knihy oddaných (<em>Trauungsbücher</em>) v SOA Zámrsk. Sňatek Franze Xaveri pravděpodobně kolem 1818.
+    </p>
+  </div>
+</div>
+
+<!-- ===== OTEVŘENÉ OTÁZKY ===== -->
+<h2 class="section-title" style="margin-top:60px;">❓ Otevřené otázky pro další bádání</h2>
+
+<div class="context-grid">
+  <div class="context-card">
+    <h3>1. ✅ Silberleut = Sylvárov (vyřešeno!)</h3>
+    <p>Silberleut / Silberleit / Silwerleut = <strong>Sylvárov</strong>, dnes katastrální území Dvora Králové nad Labem, okres Trutnov. Osada prakticky zanikla. Matriky hledej ve farnosti Dvůr Králové v SOA Zámrsk. Zbývá: existuje ještě dům č. 12? Zachovaly se místní kroniky?</p>
+  </div>
+  <div class="context-card">
+    <h3>2. Kdo byly manželky? (částečně vyřešeno)</h3>
+    <p><strong>Známe:</strong> Miluše Hušková (∞ Josef policajt 1924), Magdalena Novotná (∞ Josef 1958), Zuzana Vachová (∞ Martin 1991).<br><strong>Neznáme:</strong> manželky Josepha Franze (~1766), Franze Xaveri (1799), Franze podkováře (1825), Josefa (1857) a Josefa (1894). Matriční knihy oddaných v SOA Zámrsk by mohly odhalit celé nové větve rodu.</p>
+  </div>
+  <div class="context-card">
+    <h3>3. Josef (1894) a WWI</h3>
+    <p>V roce 1914 mu bylo 20 let — narukoval? Pokud ano, u kterého pluku? Přežil? Datum jeho smrti neznáme. Verlustlisten (seznamy ztrát) dostupné online na rakouském vojenském archivu.</p>
+  </div>
+  <div class="context-card">
+    <h3>4. Větev Nýčů</h3>
+    <p>Marie Hofmanová se provdala za Nýče. Potomci: Václav, Miloš, Helena — bez dat. Kde žili? Spojení na další žijící příbuzné?</p>
+  </div>
+</div>
+
+<!-- ===== ARCHIVNÍ VÝZKUM ===== -->
+<h2 class="section-title" style="margin-top:60px;">📜 Archivní výzkum — co jsme zjistili</h2>
+
+<div class="research-note">
+  <strong>Hloubkový průzkum</strong> online archivů, vojenských databází, matrik, sčítacích archů a historických map. Výzkum provedený 4. dubna 2026 — 40+ zdrojů, 3 výzkumní agenti.
+</div>
+
+<!-- IR 36 -->
+<h3 style="font-family: 'Playfair Display', serif; color: var(--gold); margin: 30px 0 16px;">⚔️ Pěší pluk č. 36 — „Immer vorwärts"</h3>
+
+<div class="context-grid">
+  <div class="context-card">
+    <h3>Identita pluku</h3>
+    <p>
+      <strong>Plný název:</strong> K.u.K. Infanterieregiment Reichsgraf Browne Nr. 36<br>
+      <strong>Přezdívka:</strong> „Palombinaci" (po veliteli Palombinim, 1817–1850)<br>
+      <strong>Heslo:</strong> Immer vorwärts (Vždy vpřed)<br>
+      <strong>Složení (1914):</strong> 95 % Čechů, 5 % ostatních<br>
+      <strong>Límce:</strong> bledě červené, bílé knoflíky<br>
+      <strong>Založen:</strong> 2. ledna 1683 hrabětem Jacobem Lesliem<br>
+      <strong>Posádka:</strong> Mladá Boleslav (Jungbunzlau)<br>
+      <strong>Celkem bitev:</strong> 238 za 200+ let
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>Klíčové kampaně</h3>
+    <p>
+      <strong>1848–49:</strong> Pražské povstání, boje s uherskými rebely<br>
+      <strong>1852–54:</strong> Transylvánie a Halič (krymská krize)<br>
+      <strong>1866 — Custozza:</strong> Hlavní síly porazily Italy<br>
+      <strong>1866 — Skalice:</strong> IV. prapor bránil u <strong>České Skalice</strong> — 15 km od Běluně! Pokud Anton sloužil v IV. praporu, bojoval doslova u vlastního prahu.<br>
+      <strong>WWI (1914–15):</strong> Haličská fronta proti Rusku
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>Tragický konec — rozpuštění 1915</h3>
+    <p>
+      <strong>27. května 1915:</strong> Ruský překvapivý útok u <strong>Sieniawy</strong> (Polsko) — pluk z velké části zajat.<br>
+      <strong>16. června 1915:</strong> Císař František Josef I. osobně nařídil <strong>trvalé rozpuštění za zbabělost před nepřítelem</strong>.<br>
+      Jen <strong>2 pluky</strong> v celé historii monarchie takto potrestány (druhý byl IR 28).<br>
+      Přeživší vojáci přeřazeni k jiným jednotkám. Pokud Josef (1894) narukoval k IR 36, mohl být u Sieniawy.
+    </p>
+  </div>
+</div>
+
+<!-- SYLVÁROV A 1938 -->
+<h3 style="font-family: 'Playfair Display', serif; color: var(--gold); margin: 30px 0 16px;">🏚️ Sylvárov (Silberleut) — osud rodného místa</h3>
+
+<div class="context-grid">
+  <div class="context-card">
+    <h3>Dvůr Králové = „České Manchester"</h3>
+    <p>
+      Německy: Königinhof an der Elbe. První zmínka 1270. V 19. století důležité textilní centrum — přezdívka „České Manchester". Železnice 1858, první textilky 1880s. Sylvárov (Silberleut) byl jedním z 8 katastrálních území města.<br><br>
+      <strong>Etnické složení 1930:</strong> okres Dvůr Králové: 23 666 Čechů a 12 703 Němců — smíšená oblast.
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>Říjen 1938 — Sylvárov zabrán</h3>
+    <p>
+      Po Mnichovské dohodě bylo <strong>Sylvárov přímo zabráno Německem</strong> — i když Dvůr Králové samotný zůstal český. Zabrány byly: nádraží, Sylvárov a Žirecká Podstráň.<br><br>
+      <strong>Dvůr Králové ztratil 32 z 47 obcí</strong> svého soudního okresu. Po březnu 1939 celá oblast pod Protektorátem.<br><br>
+      Pokud měla rodina v Sylvárově ještě vazby, byla přímo zasažena.
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>Sylvárov dnes</h3>
+    <p>
+      Dnes průmyslová zóna na okraji Dvora Králové. Původní osada prakticky zanikla. Podrobná historie: <a href="https://kralovskavennamesta.cz/vystupy2022/HA_Dvur_Kralove_TISK/historicky_uvod_Dvur_K_n_L.pdf" style="color:var(--accent-blue);" target="_blank">Historický atlas Dvůr Králové (PDF)</a>.
+    </p>
+  </div>
+</div>
+
+<!-- RTYNĚ A BĚLUŇ -->
+<h3 style="font-family: 'Playfair Display', serif; color: var(--gold); margin: 30px 0 16px;">🏘️ Rtyně a Běluň — podrobná historie</h3>
+
+<div class="context-grid">
+  <div class="context-card">
+    <h3>Rtyně (Ertin) u Zaloňova — historie</h3>
+    <p>
+      <strong>Obec:</strong> Místní část Zaloňova, okres Náchod<br>
+      <strong>Německy:</strong> Ertin (dříve i Hertin)<br>
+      <strong>1387:</strong> První písemná zmínka („in villis Hrtynye")<br>
+      <strong>Farnost:</strong> Zaloňov — kostel sv. Petra a Pavla (zmíněn 1363)<br>
+      <strong>~5 km</strong> severozápadně od Jaroměře<br><br>
+      Rtyně bylo <strong>etnicky české</strong>, zatímco sousední Zaloňov měl v roce 1930 <strong>~95 % německy mluvících obyvatel</strong>. Rodina Hoffmannů žila přímo na jazykové hranici. Pozor: <em>nezaměňovat s Rtyní v Podkrkonoší</em> (okres Trutnov) — to je jiná vesnice!
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>Běluň (Heřmanice) — Valdštejnovo rodiště</h3>
+    <p>
+      Běluň je jedním ze 4 sídel obce Heřmanice (další: Brod, Heřmanice, Slotov). Německy: Hermanitz.<br><br>
+      <strong>Historická perla:</strong> Na heřmanické tvrzi se 14. září 1583 narodil <strong>Albrecht z Valdštejna</strong> — jeden z nejmocnějších mužů třicetileté války.<br><br>
+      Kostel sv. Máří Magdalény (poškozený požárem 1882, přestavěn). Obyvatel: 889 (1869) → ~425 (2025). Hoffmannové žili ve stínu Valdštejnovy tvrze.
+    </p>
+  </div>
+</div>
+
+<!-- PŘÍJMENÍ -->
+<h3 style="font-family: 'Playfair Display', serif; color: var(--gold); margin: 30px 0 16px;">📊 Distribuce příjmení Hofman/Hoffmann v ČR</h3>
+
+<table class="stats-table">
+  <thead>
+    <tr>
+      <th>Varianta</th>
+      <th>Celkem v ČR</th>
+      <th>Top okresy</th>
+      <th>Poznámka</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Hofman</strong> (1×F, 1×N)</td>
+      <td>2 317</td>
+      <td>Praha (254), <strong>Náchod (108)</strong>, <strong>Trutnov (82)</strong>, HK (68)</td>
+      <td>Počeštěná forma — Náchod je #1 mimo Prahu!</td>
+    </tr>
+    <tr>
+      <td><strong>Hoffmann</strong> (2×F, 2×N)</td>
+      <td>1 038</td>
+      <td>Praha (162), Kladno (33), Brno (29), Teplice (26)</td>
+      <td>Německý pravopis — rozptýlenější</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="research-note">
+  <strong>Okres Náchod = epicentrum Hofmanů.</strong> 108 lidí s příjmením Hofman v jednom okresu — statisticky výjimečné. Trojúhelník <strong>Náchod–Trutnov–Hradec Králové</strong> je absolutní jádro výskytu. To potvrzuje hluboké kořeny rodiny přesně v této oblasti. Zdroj: <a href="https://www.kdejsme.cz/prijmeni/Hofman/" style="color:var(--accent-blue);">kdejsme.cz</a>
+</div>
+
+<!-- ONLINE NÁSTROJE -->
+<h3 style="font-family: 'Playfair Display', serif; color: var(--gold); margin: 30px 0 16px;">🔧 Online nástroje pro genealogický výzkum</h3>
+
+<table class="stats-table">
+  <thead>
+    <tr>
+      <th>Nástroj</th>
+      <th>URL</th>
+      <th>K čemu</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ARON — SOA Zámrsk</strong></td>
+      <td><a href="https://aron.vychodoceskearchivy.cz/" style="color:var(--accent-blue);">aron.vychodoceskearchivy.cz</a></td>
+      <td>Matriky, sčítání lidu — hlavní zdroj!</td>
+    </tr>
+    <tr>
+      <td><strong>FamilySearch</strong></td>
+      <td><a href="https://www.familysearch.org/" style="color:var(--accent-blue);">familysearch.org</a></td>
+      <td>Sčítání, církevní knihy, rodokmeny</td>
+    </tr>
+    <tr>
+      <td>FamilySearch — sčítání Trutnov</td>
+      <td><a href="https://www.familysearch.org/en/search/catalog/2101223" style="color:var(--accent-blue);">catalog/2101223</a></td>
+      <td>Sčítací archy 1869–1921 řazené po domech!</td>
+    </tr>
+    <tr>
+      <td>FamilySearch — Dvůr Králové</td>
+      <td><a href="https://www.familysearch.org/en/search/catalog/1968417" style="color:var(--accent-blue);">catalog/1968417</a></td>
+      <td>Matriky farnosti Dvůr Králové (Sylvárov)</td>
+    </tr>
+    <tr>
+      <td><strong>ČÚZK archivní mapy</strong></td>
+      <td><a href="https://archivnimapy.cuzk.cz/" style="color:var(--accent-blue);">archivnimapy.cuzk.cz</a></td>
+      <td>Katastrální mapy 1840s — jména vlastníků!</td>
+    </tr>
+    <tr>
+      <td>KdeJsme.cz</td>
+      <td><a href="https://www.kdejsme.cz/" style="color:var(--accent-blue);">kdejsme.cz</a></td>
+      <td>Distribuce příjmení na mapě ČR</td>
+    </tr>
+    <tr>
+      <td>Fotohistorie.cz</td>
+      <td><a href="https://www.fotohistorie.cz/" style="color:var(--accent-blue);">fotohistorie.cz</a></td>
+      <td>Historické fotografie obcí</td>
+    </tr>
+    <tr>
+      <td><strong>Verlustlisten O-U</strong></td>
+      <td><a href="https://des.genealogy.net/ou1wk/search" style="color:var(--accent-blue);">des.genealogy.net</a></td>
+      <td>2,7 mil. ztrát WWI — hledej Hoffmann + Hertin</td>
+    </tr>
+    <tr>
+      <td>RadixIndex</td>
+      <td><a href="https://www.radixindex.com/en/databases/8" style="color:var(--accent-blue);">radixindex.com</a></td>
+      <td>Alternativní WWI databáze</td>
+    </tr>
+    <tr>
+      <td>Verlustlisten.at</td>
+      <td><a href="http://www.verlustlisten.at/" style="color:var(--accent-blue);">verlustlisten.at</a></td>
+      <td>Skenované originály seznamů ztrát</td>
+    </tr>
+    <tr>
+      <td>Kriegsarchiv Vídeň</td>
+      <td><a href="https://www.statearchives.gv.at/family-research/kriegsarchiv.html" style="color:var(--accent-blue);">statearchives.gv.at</a></td>
+      <td>Vojenské záznamy — Grundbuchblätter</td>
+    </tr>
+    <tr>
+      <td>GOV Genealogy</td>
+      <td><a href="http://gov.genealogy.net/SILEUTJO70VK" style="color:var(--accent-blue);">gov.genealogy.net</a></td>
+      <td>Potvrzený záznam Silberleut = Sylvárov</td>
+    </tr>
+    <tr>
+      <td>Genea.cz</td>
+      <td><a href="http://www.genea.cz/" style="color:var(--accent-blue);">genea.cz</a></td>
+      <td>Databáze farností a lokalit</td>
+    </tr>
+    <tr>
+      <td>Badatelna.eu</td>
+      <td><a href="http://www.badatelna.eu/" style="color:var(--accent-blue);">badatelna.eu</a></td>
+      <td>České archivní pomůcky</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- FYZICKÉ ARCHIVY -->
+<h3 style="font-family: 'Playfair Display', serif; color: var(--gold); margin: 30px 0 16px;">🏛️ Fyzické archivy</h3>
+
+<table class="stats-table">
+  <thead>
+    <tr>
+      <th>Archiv</th>
+      <th>Adresa</th>
+      <th>Obsahuje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>SOA Hradec Králové (Zámrsk)</strong></td>
+      <td>Zámrsk 1, 565 43 Zámrsk</td>
+      <td>Matriky, pozemkové knihy, sčítání</td>
+    </tr>
+    <tr>
+      <td>SOkA Trutnov</td>
+      <td>Komenského 770, 541 01 Trutnov</td>
+      <td>Okresní záznamy, školní matriky</td>
+    </tr>
+    <tr>
+      <td>SOkA Náchod</td>
+      <td>Náchod</td>
+      <td>Záznamy pro Heřmanice/Běluň</td>
+    </tr>
+    <tr>
+      <td><strong>Kriegsarchiv Wien</strong></td>
+      <td>Nottendorfer Gasse 2, 1030 Wien</td>
+      <td>Vojenské záznamy (Grundbuchblätter)</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- KONTAKTY -->
+<div class="context-grid" style="margin-top: 20px;">
+  <div class="context-card">
+    <h3>Kontakty pro výzkum</h3>
+    <p>
+      <a href="https://www.muzeumrtyne.cz/" style="color:var(--accent-blue);">Muzeum Rtyně</a> — mohou mít lokální info o Hoffmannech<br>
+      <a href="https://muzeumdk.cz/" style="color:var(--accent-blue);">Muzeum Dvůr Králové</a> — historie Sylvárova<br>
+      <a href="https://www.genealogie.cz/" style="color:var(--accent-blue);">Česká genealogická společnost</a> — pomoc s výzkumem
+    </p>
+  </div>
+  <div class="context-card">
+    <h3>Doporučený postup — 4 kroky</h3>
+    <p>
+      <strong>1.</strong> FamilySearch sčítání Trutnov 1869–1921 → hledej <strong>Rtyně č. 27</strong> podle čísla domu<br>
+      <strong>2.</strong> Verlustlisten → „Hoffmann" + Heimatort „<strong>Hertin</strong>"<br>
+      <strong>3.</strong> ARON → matriky farnosti Zaloňov, Dvůr Králové, Jaroměř<br>
+      <strong>4.</strong> ČÚZK indikační skici → jména vlastníků pozemků u Rtyně č. 27
+    </p>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  <p>Rodokmen rodiny Hoffmann / Hofman — 44 osob, 9 generací, 260 let · Královéhradecký kraj</p>
+  <p>Zpracováno z originální fotografie rodinného stromu (foto 24. 2. 2019)</p>
+  <p>Aktualizováno 4. dubna 2026 · Kompletní přepis s ověřenými daty · Lokace identifikované: Sylvárov, Běluň, Rtyně (Zaloňov), Lišice</p>
+  <p style="margin-top: 10px; color: var(--gold); font-family: 'Playfair Display', serif;">
+    „Kdo nezná svou minulost, nemá budoucnost."
+  </p>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,539 @@
+0 HEAD
+1 SOUR Codex
+2 NAME Codex GEDCOM Generator
+1 DEST MYHERITAGE
+1 DATE 04 APR 2026
+1 CHAR UTF-8
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 LANG Czech
+0 @I1@ INDI
+1 NAME Joseph Franz /Hoffmann/
+2 GIVN Joseph Franz
+2 SURN Hoffmann
+1 SEX M
+1 BIRT
+2 DATE ABT 1766
+1 DEAT
+2 DATE 3 MAR 1828
+2 PLAC Silberleut
+1 FAMS @F1@
+1 NOTE Nejstarsi dolozeny predek. Silberleut = Sylvarov, dnes soucast Dvora Kralove nad Labem.
+0 @I2@ INDI
+1 NAME Eleonora Katharina /Gluss/
+2 GIVN Eleonora Katharina
+2 SURN Gluss
+1 SEX F
+1 BIRT
+2 DATE 6 OCT 1793
+2 PLAC Silberleut
+1 FAMC @F1@
+1 NOTE Roz. Hoffmannova, provd. Gluss.
+0 @I3@ INDI
+1 NAME Katharina Marie /Rudisch/
+2 GIVN Katharina Marie
+2 SURN Rudisch
+1 SEX F
+1 BIRT
+2 DATE 5 OCT 1795
+2 PLAC Silberleut c. 12
+1 FAMC @F1@
+1 NOTE Roz. Hoffmannova, provd. Rudisch.
+0 @I4@ INDI
+1 NAME Joseph Michael /Hoffmann/
+2 GIVN Joseph Michael
+2 SURN Hoffmann
+1 SEX M
+1 BIRT
+2 DATE 17 OCT 1797
+1 FAMC @F1@
+1 NOTE Dalsi osud neznamy.
+0 @I5@ INDI
+1 NAME Franz Xaveri Johann /Hoffmann/
+2 GIVN Franz Xaveri Johann
+2 SURN Hoffmann
+1 SEX M
+1 BIRT
+2 DATE 29 NOV 1799
+2 PLAC Silwerleut c. 12
+1 DEAT
+2 DATE 18 DEC 1867
+2 PLAC Beloun 4
+1 OCCU Chalupnik, kovar, polni zahradnik
+1 FAMC @F1@
+1 FAMS @F2@
+1 NOTE Hlavni linie. Presidlil ze Silberleut do Beloune c. 4.
+0 @I6@ INDI
+1 NAME Augustinus Aloysius /Hoffmann/
+2 GIVN Augustinus Aloysius
+2 SURN Hoffmann
+1 SEX M
+1 BIRT
+2 DATE 13 SEP 1801
+2 PLAC Silwerleut c. 12
+1 DEAT
+2 DATE 27 JAN 1817
+1 FAMC @F1@
+0 @I7@ INDI
+1 NAME Ignatius Bartholus /Hoffmann/
+2 GIVN Ignatius Bartholus
+2 SURN Hoffmann
+1 SEX M
+1 BIRT
+2 DATE 22 AUG 1803
+2 PLAC Silwerleut c. 12
+1 DEAT
+2 DATE 25 AUG 1855
+1 OCCU Polni zahradnik, hajny
+1 FAMC @F1@
+0 @I8@ INDI
+1 NAME Jacobus Christophorus /Hoffmann/
+2 GIVN Jacobus Christophorus
+2 SURN Hoffmann
+1 SEX M
+1 BIRT
+2 DATE 24 JUL 1805
+2 PLAC Silwerleut c. 12
+1 DEAT
+2 DATE ABT 1805
+1 FAMC @F1@
+1 NOTE Datum umrti necitelne.
+0 @I9@ INDI
+1 NAME Anna Catharina /Hoffmannova/
+2 GIVN Anna Catharina
+2 SURN Hoffmannova
+1 SEX F
+1 BIRT
+2 DATE 13 APR 1807
+2 PLAC Silberleut c. 12
+1 FAMC @F1@
+0 @I10@ INDI
+1 NAME Josephus Joanes /Hoffmann/
+2 GIVN Josephus Joanes
+2 SURN Hoffmann
+1 SEX M
+1 BIRT
+2 DATE 23 MAY 1809
+2 PLAC Silwerleut c. 12
+1 DEAT
+2 DATE 30 NOV 1811
+1 FAMC @F1@
+0 @I11@ INDI
+1 NAME Anton Norbertus /Hoffmann/
+2 GIVN Anton Norbertus
+2 SURN Hoffmann
+1 SEX M
+1 BIRT
+2 DATE 7 MAY 1811
+2 PLAC Silwerleut c. 12
+1 DEAT
+2 DATE 18 OCT 1811
+1 FAMC @F1@
+0 @I12@ INDI
+1 NAME Rosalia /Hofmannova/
+2 GIVN Rosalia
+2 SURN Hofmannova
+1 SEX F
+1 BIRT
+2 DATE 31 AUG 1813
+2 PLAC Silberleut c. 12
+1 DEAT
+2 DATE 1 SEP 1813
+1 FAMC @F1@
+0 @I13@ INDI
+1 NAME Agnes Josepha /Hoffmannova/
+2 GIVN Agnes Josepha
+2 SURN Hoffmannova
+1 SEX F
+1 BIRT
+2 DATE 26 AUG 1815
+2 PLAC Silberleut c. 12
+1 FAMC @F1@
+0 @I14@ INDI
+1 NAME Franz /Hofman/
+2 GIVN Franz
+2 SURN Hofman
+1 SEX M
+1 BIRT
+2 DATE 5 JUN 1825
+2 PLAC Beloun 4
+1 DEAT
+2 DATE 4 AUG 1901
+2 PLAC Rtyne 27
+1 OCCU Mistr podkovarsky, vymenkar
+1 FAMC @F2@
+1 FAMS @F3@
+1 NOTE Hufschmiedemeister. Hlavni linie.
+0 @I15@ INDI
+1 NAME Joseph /Hofman/
+2 GIVN Joseph
+2 SURN Hofman
+1 SEX M
+1 BIRT
+2 DATE 29 MAR 1827
+2 PLAC Beloun 4
+1 FAMC @F2@
+1 NOTE Dalsi osud neznamy.
+0 @I16@ INDI
+1 NAME Ignaz /Hofman/
+2 GIVN Ignaz
+2 SURN Hofman
+1 SEX M
+1 BIRT
+2 DATE 25 JAN 1829
+2 PLAC Beloun 4
+1 DEAT
+2 DATE 16 MAR 1830
+1 FAMC @F2@
+0 @I17@ INDI
+1 NAME Ignaz /Hoffmann/
+2 GIVN Ignaz
+2 SURN Hoffmann
+1 SEX M
+1 BIRT
+2 DATE 7 NOV 1830
+2 PLAC Beloun 4
+1 FAMC @F2@
+1 NOTE Druhy Ignaz po smrti prvniho.
+0 @I18@ INDI
+1 NAME Frantiska /Hoffmannova/
+2 GIVN Frantiska
+2 SURN Hoffmannova
+1 SEX F
+1 BIRT
+2 DATE 6 OCT 1832
+2 PLAC Beloun 4
+1 DEAT
+2 DATE 23 MAR 1834
+1 FAMC @F2@
+0 @I19@ INDI
+1 NAME Anton /Hofmann/
+2 GIVN Anton
+2 SURN Hofmann
+1 SEX M
+1 BIRT
+2 DATE 14 JUN 1834
+2 PLAC Beloun 4
+1 DEAT
+2 DATE 10 JUN 1925
+2 PLAC Rtyne 10
+1 OCCU Vojak IR 36, zahradnik v Lisicich 7
+1 FAMC @F2@
+1 NOTE Slouzil u 36. pesiho pluku hrabete Degenfeld-Schonburga.
+0 @I20@ INDI
+1 NAME Johan Nepomucky /Hofman/
+2 GIVN Johan Nepomucky
+2 SURN Hofman
+1 SEX M
+1 BIRT
+2 DATE 8 OCT 1836
+2 PLAC Beloun 4
+1 FAMC @F2@
+0 @I21@ INDI
+1 NAME Anna /Erman/
+2 GIVN Anna
+2 SURN Erman
+1 SEX F
+1 BIRT
+2 DATE 17 JUL 1852
+2 PLAC Rtyne 27
+1 DEAT
+2 DATE ABT 1909
+2 PLAC Beloun
+1 FAMC @F3@
+1 NOTE Roz. Hoffmannova, provd. Erman.
+0 @I22@ INDI
+1 NAME Josef /Hoffmann/
+2 GIVN Josef
+2 SURN Hoffmann
+1 SEX M
+1 BIRT
+2 DATE 12 JAN 1857
+2 PLAC Rtyne 27
+1 FAMC @F3@
+1 FAMS @F4@
+1 NOTE Hlavni linie. Datum umrti nezname.
+0 @I23@ INDI
+1 NAME Jan /Hoffmann/
+2 GIVN Jan
+2 SURN Hoffmann
+1 SEX M
+1 BIRT
+2 DATE 29 JUN 1859
+2 PLAC Rtyne 27
+1 DEAT
+2 DATE 3 AUG 1859
+1 FAMC @F3@
+0 @I24@ INDI
+1 NAME Frantisek /Hoffmann/
+2 GIVN Frantisek
+2 SURN Hoffmann
+1 SEX M
+1 BIRT
+2 DATE 24 APR 1862
+2 PLAC Rtyne 27
+1 DEAT
+2 DATE 14 JUL 1863
+1 FAMC @F3@
+1 NOTE Dvojce s Janem.
+0 @I25@ INDI
+1 NAME Jan /Hoffmann/
+2 GIVN Jan
+2 SURN Hoffmann
+1 SEX M
+1 BIRT
+2 DATE 24 APR 1862
+2 PLAC Rtyne 27
+1 DEAT
+2 DATE ABT 1929
+1 FAMC @F3@
+1 NOTE Dvojce s Frantiskem, prezil.
+0 @I26@ INDI
+1 NAME Marie /Hoffmannova/
+2 GIVN Marie
+2 SURN Hoffmannova
+1 SEX F
+1 BIRT
+2 DATE 20 OCT 1869
+2 PLAC Rtyne 27
+1 DEAT
+2 DATE 5 JAN 1883
+1 FAMC @F3@
+0 @I27@ INDI
+1 NAME Maria /Hamanova/
+2 GIVN Maria
+2 SURN Hamanova
+1 SEX F
+1 BIRT
+2 DATE 3 OCT 1892
+2 PLAC Rtyne 27
+1 FAMC @F4@
+1 NOTE Roz. Hoffmannova, provd. Hamanova.
+0 @I28@ INDI
+1 NAME Josef /Hoffmann/
+2 GIVN Josef
+2 SURN Hoffmann
+1 SEX M
+1 BIRT
+2 DATE 24 DEC 1894
+2 PLAC Rtyne 27
+1 FAMC @F4@
+1 FAMS @F9@
+1 NOTE Hlavni linie. Narozen na Stedry den.
+0 @I29@ INDI
+1 NAME Marie /Nycova/
+2 GIVN Marie
+2 SURN Nycova
+1 SEX F
+1 BIRT
+2 PLAC Rtyne 27
+1 FAMC @F4@
+1 FAMS @F5@
+1 NOTE Roz. Hofmanova, provd. Nycova.
+0 @I30@ INDI
+1 NAME Vaclav /Nyc/
+2 GIVN Vaclav
+2 SURN Nyc
+1 SEX M
+1 FAMC @F5@
+1 NOTE Blizsi data neznama.
+0 @I31@ INDI
+1 NAME Milos /Nyc/
+2 GIVN Milos
+2 SURN Nyc
+1 SEX M
+1 FAMC @F5@
+1 NOTE Blizsi data neznama.
+0 @I32@ INDI
+1 NAME Helena /Nycova/
+2 GIVN Helena
+2 SURN Nycova
+1 SEX F
+1 FAMC @F5@
+1 NOTE Blizsi data neznama.
+0 @I33@ INDI
+1 NAME Josef /Hoffmann/
+2 GIVN Josef
+2 SURN Hoffmann
+1 SEX M
+1 BIRT
+2 DATE 13 JUL 1924
+2 PLAC Rtyne 27
+1 DEAT
+2 DATE 5 MAR 2000
+2 PLAC Praha
+1 OCCU Policista
+1 FAMC @F9@
+1 FAMS @F6@
+1 NOTE Hlavni linie. Presidlil do Prahy.
+0 @I34@ INDI
+1 NAME Miluse /Hofmanova/
+2 GIVN Miluse
+2 SURN Hofmanova
+1 SEX F
+1 FAMS @F6@
+1 NOTE Roz. Huskova, provd. Hofmanova.
+0 @I35@ INDI
+1 NAME Hana /Hofmanova/
+2 GIVN Hana
+2 SURN Hofmanova
+1 SEX F
+1 BIRT
+2 DATE 12 OCT 1952
+2 PLAC Jaromer
+1 OCCU Administrativa, Ministerstvo vnitra
+1 FAMC @F6@
+0 @I36@ INDI
+1 NAME Josef /Hofman/
+2 GIVN Josef
+2 SURN Hofman
+1 SEX M
+1 BIRT
+2 DATE 20 MAR 1958
+2 PLAC Praha
+1 FAMC @F6@
+1 FAMS @F7@
+1 NOTE Hlavni linie. Prijmeni pocesteno na Hofman.
+0 @I37@ INDI
+1 NAME Magdalena /Hofmanova/
+2 GIVN Magdalena
+2 SURN Hofmanova
+1 SEX F
+1 BIRT
+2 DATE 13 FEB 1967
+2 PLAC Jaromer
+1 FAMS @F7@
+1 NOTE Roz. Novotna, provd. Hofmanova.
+0 @I38@ INDI
+1 NAME Pavel /Hofman/
+2 GIVN Pavel
+2 SURN Hofman
+1 SEX M
+1 BIRT
+2 DATE 21 JUL 1963
+2 PLAC Jaromer
+1 OCCU Opravar, revizni technik
+1 FAMC @F6@
+0 @I39@ INDI
+1 NAME Josef /Hofman/
+2 GIVN Josef
+2 SURN Hofman
+1 SEX M
+1 BIRT
+2 DATE 29 MAR 1988
+2 PLAC Jaromer
+1 OCCU Frontend developer
+1 FAMC @F7@
+1 NOTE Sesty Josef v prime linii.
+0 @I40@ INDI
+1 NAME Martin /Hofman/
+2 GIVN Martin
+2 SURN Hofman
+1 SEX M
+1 BIRT
+2 DATE 10 FEB 1991
+2 PLAC Praha
+1 OCCU Psychoterapeut
+1 FAMC @F7@
+1 FAMS @F8@
+0 @I41@ INDI
+1 NAME Zuzana /Hofman/
+2 GIVN Zuzana
+2 SURN Hofman
+1 SEX F
+1 FAMS @F8@
+1 NOTE Roz. Vachova.
+0 @I42@ INDI
+1 NAME Tereza /Hofmanova/
+2 GIVN Tereza
+2 SURN Hofmanova
+1 SEX F
+1 BIRT
+2 DATE ABT 2005
+1 FAMC @F7@
+0 @I43@ INDI
+1 NAME Nola /Hofman/
+2 GIVN Nola
+2 SURN Hofman
+1 SEX F
+1 BIRT
+2 DATE 21 JAN 2021
+1 FAMC @F8@
+0 @I44@ INDI
+1 NAME Flora /Hofman/
+2 GIVN Flora
+2 SURN Hofman
+1 SEX F
+1 BIRT
+2 DATE 6 JUN 2025
+1 FAMC @F8@
+0 @F1@ FAM
+1 HUSB @I1@
+1 CHIL @I2@
+1 CHIL @I3@
+1 CHIL @I4@
+1 CHIL @I5@
+1 CHIL @I6@
+1 CHIL @I7@
+1 CHIL @I8@
+1 CHIL @I9@
+1 CHIL @I10@
+1 CHIL @I11@
+1 CHIL @I12@
+1 CHIL @I13@
+1 NOTE Deti Josepha Franze Hoffmanna; jmeno manzelky neni ve zdroji uvedeno.
+0 @F2@ FAM
+1 HUSB @I5@
+1 CHIL @I14@
+1 CHIL @I15@
+1 CHIL @I16@
+1 CHIL @I17@
+1 CHIL @I18@
+1 CHIL @I19@
+1 CHIL @I20@
+1 NOTE Deti Franze Xaveri Johanna Hoffmanna; jmeno manzelky neni ve zdroji uvedeno.
+0 @F3@ FAM
+1 HUSB @I14@
+1 CHIL @I21@
+1 CHIL @I22@
+1 CHIL @I23@
+1 CHIL @I24@
+1 CHIL @I25@
+1 CHIL @I26@
+1 NOTE Deti Franze Hofmana; jmeno manzelky neni ve zdroji uvedeno.
+0 @F4@ FAM
+1 HUSB @I22@
+1 CHIL @I27@
+1 CHIL @I28@
+1 CHIL @I29@
+1 NOTE Deti Josefa Hoffmanna; jmeno manzelky neni ve zdroji uvedeno.
+0 @F5@ FAM
+1 WIFE @I29@
+1 CHIL @I30@
+1 CHIL @I31@
+1 CHIL @I32@
+1 NOTE Vetev Nycu; jmeno manzela Marie Nycove neni ve zdroji uvedeno.
+0 @F6@ FAM
+1 HUSB @I33@
+1 WIFE @I34@
+1 CHIL @I35@
+1 CHIL @I36@
+1 CHIL @I38@
+0 @F7@ FAM
+1 HUSB @I36@
+1 WIFE @I37@
+1 CHIL @I39@
+1 CHIL @I40@
+1 CHIL @I42@
+0 @F8@ FAM
+1 HUSB @I40@
+1 WIFE @I41@
+1 CHIL @I43@
+1 CHIL @I44@
+0 @F9@ FAM
+1 HUSB @I28@
+1 CHIL @I33@
+1 NOTE Rodina Josefa (1894) - jmeno manzelky neznamo.
+0 TRLR
+0 TRLR
