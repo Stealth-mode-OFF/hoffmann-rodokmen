@@ -45,12 +45,24 @@ Máš nastavené 2 MCP servery (Gramps + FamilySearch) a kompletní infrastruktu
 6. **FamilySearch census** — sčítání Trutnov 1869-1921 (catalog/2101223) — hledej Rtyně č. 27 podle čísla domu. Najdeš tam všechny obyvatele za 50 let!
 
 ### Klíčové lokace
+⚠️ **POZOR:** Rtyně v rodokmenu = **Rtyně u Velichovek / Rtyně u Zaloňova** (obec Zaloňov, u Jaroměře), NE Rtyně v Podkrkonoší (u Trutnova)! Stejné německé jméno "Hertin" pro obě obce.
+
 | Matrika | Moderní název | Okres | Farnost |
 |---------|--------------|-------|---------|
-| Silberleut/Silwerleut | **Sylvárov** | Trutnov | Dvůr Králové n. L. |
+| Silberleut/Silwerleut | **Sylvárov** (Dvůr Králové) | Trutnov | Dvůr Králové n. L. |
 | Bělouň/Bielaun | **Běluň** (Heřmanice) | Náchod | Jaroměř |
-| Rtyně/Ertin | **Rtyně** (Zaloňov) | Náchod | Zaloňov |
+| Rtyně/Hertin č. 27 | **Rtyně u Zaloňova** (obec Zaloňov) | Náchod | **Zaloňov** (od 1785) |
+| Vesce/Vestec | **Vesce** (obec Zaloňov) | Náchod | Zaloňov |
 | Lišice/Lischitz | **Lišice** | Hradec Králové | — |
+
+### Nalezené matriční knihy (digitalizované, SOA Zámrsk)
+| Signatura | Farnost | Typ | Roky | Pokrývá |
+|-----------|---------|-----|------|---------|
+| 66-9 | Jaroměř | Narození | 1822-1834 | Děti F. Xaveri v Běluně |
+| 66-10 | Jaroměř | Narození | 1835-1841 | Děti F. Xaveri v Běluně |
+| 66-29 | Jaroměř | Oddací | 1810-1834 | Sňatek F. Xaveri ~1824 |
+| 181A-4224 | Zaloňov | Oddací | 1839-1895 | Sňatek Franze ~1851 + Josefa ~1891 |
+| 181A-4213 | Zaloňov | Narození | 1839-1895 | Děti v Rtyni č. 27 |
 
 ### Pravidla
 - Všechno česky (rodokmen, noty, komentáře)
