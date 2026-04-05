@@ -85,6 +85,30 @@
     letter-spacing: 1px;
   }
 
+  /* ===== NAV ===== */
+  .hero-nav {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .hero-nav a {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.78rem;
+    transition: all 0.2s;
+  }
+  .hero-nav a:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
   /* ===== CONTAINER ===== */
   .container {
     max-width: 1400px;
@@ -446,6 +470,159 @@
     color: #fff;
   }
 
+  /* ===== STORIES ===== */
+  .stories-section {
+    margin-top: 60px;
+  }
+  .story-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .story-card[open] {
+    border-color: var(--gold);
+  }
+  .story-card summary {
+    padding: 20px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    list-style: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: #fff;
+    transition: background 0.2s;
+  }
+  .story-card summary::-webkit-details-marker { display: none; }
+  .story-card summary::after {
+    content: '▸';
+    margin-left: auto;
+    color: var(--gold);
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+  }
+  .story-card[open] summary::after {
+    transform: rotate(90deg);
+  }
+  .story-card summary:hover {
+    background: rgba(201,168,76,0.05);
+  }
+  .story-card .story-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    width: 48px;
+    text-align: center;
+  }
+  .story-card .story-meta {
+    display: flex;
+    flex-direction: column;
+  }
+  .story-card .story-title {
+    font-weight: 700;
+  }
+  .story-card .story-period {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+  }
+  .story-body {
+    padding: 0 24px 24px;
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.8;
+  }
+  .story-body p {
+    margin-bottom: 14px;
+  }
+  .story-body .story-highlight {
+    background: rgba(201,168,76,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem;
+  }
+  .story-body .story-highlight strong { color: var(--gold); }
+  .story-body .story-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.82rem;
+  }
+  .story-body .story-table th {
+    text-align: left;
+    padding: 8px 12px;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .story-body .story-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .story-body h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1rem;
+    margin: 20px 0 10px;
+  }
+  .story-body a {
+    color: var(--accent-blue);
+    text-decoration: underline;
+    text-decoration-color: rgba(66,153,225,0.3);
+  }
+  .story-body a:hover {
+    text-decoration-color: var(--accent-blue);
+  }
+  .story-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 20px 0;
+    opacity: 0.4;
+  }
+
+  /* ===== FAMILYSEARCH DISCOVERY ===== */
+  .discovery-card {
+    background: linear-gradient(135deg, rgba(22,33,62,0.9) 0%, rgba(26,26,46,0.9) 100%);
+    border: 1px solid var(--accent-blue);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+  .discovery-card h4 {
+    color: var(--accent-blue);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 8px;
+  }
+  .discovery-card .disc-detail {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .discovery-card .disc-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    background: rgba(66,153,225,0.15);
+    color: var(--accent-blue);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .discovery-card .disc-link:hover {
+    background: rgba(66,153,225,0.25);
+  }
+
   /* ===== FOOTER ===== */
   .footer {
     text-align: center;
@@ -510,9 +687,17 @@
       <div class="label">Josef v přímé linii</div>
     </div>
   </div>
+  <nav class="hero-nav">
+    <a href="#rodokmen">🌳 Rodokmen</a>
+    <a href="#pribehy">📖 Příběhy</a>
+    <a href="#timeline">🕰️ Timeline</a>
+    <a href="#mista">📍 Místa</a>
+    <a href="#zdroje">🔍 Zdroje</a>
+    <a href="#archiv">📜 Archiv</a>
+  </nav>
 </div>
 
-<div class="container">
+<div class="container" id="rodokmen">
 
 <!-- ===== GENERACE I ===== -->
 <div class="generation">
@@ -1714,7 +1899,7 @@
 </div>
 
 <!-- ===== HISTORICKÝ KONTEXT ===== -->
-<h2 class="section-title" style="margin-top:60px;">🏛️ Historický kontext — co prožívaly jednotlivé generace</h2>
+<h2 class="section-title" style="margin-top:60px;" id="timeline">🏛️ Historický kontext — co prožívaly jednotlivé generace</h2>
 
 <div class="timeline">
 
@@ -1805,8 +1990,323 @@
 
 </div>
 
+<!-- ===== PŘÍBĚHY RODU ===== -->
+<div class="stories-section" id="pribehy">
+<h2 class="section-title">📖 Příběhy rodu — devět generací na jazykové hranici</h2>
+
+<div class="research-note">
+  <strong>Narativní zpráva</strong> zpracovaná z matričních knih, vojenských archivů, FamilySearch, SOA Zámrsk a dalších zdrojů. Klikněte na příběh pro rozbalení.
+</div>
+
+<!-- PŘÍBĚH 1: KRAJINA -->
+<details class="story-card">
+  <summary>
+    <span class="story-icon">🏔️</span>
+    <span class="story-meta">
+      <span class="story-title">Krajina — barokní les, kde kováři kuli</span>
+      <span class="story-period">Geografie rodu · Sylvárov → Běluň → Rtyně</span>
+    </span>
+  </summary>
+  <div class="story-body">
+    <p>Pokud byste se v roce 1830 postavili na práh domu č. 4 v Běluně — malé osadě v obci Heřmanice u Jaroměře — viděli byste na sever les, kde z pískovcových skal vystupovaly sochy poustevníků. Dva kilometry za nimi stál hospitál <strong>Kuks</strong>, dílo hraběte Františka Antonína Šporka, s lékárnou „U granátového jablka" a alegorií ctností a neřestí od Matyáše Bernarda Brauna.</p>
+    <p>V tomhle domě žil <strong>Franz Xaveri Johann Hoffmann</strong> (1799–1867), kovář a chalupník, se svou rodinou. Příjmení německé, řeč postupně česká, ruce zčernalé od kovadliny.</p>
+
+    <table class="story-table">
+      <thead><tr><th>Období</th><th>Místo</th><th>Dům č.</th><th>Farnost</th><th>Charakter</th></tr></thead>
+      <tbody>
+        <tr><td>~1766–1828</td><td><strong>Sylvárov</strong> (Silberleut)</td><td>12</td><td>Dvůr Králové</td><td>Německá osada, dnes průmyslová zóna</td></tr>
+        <tr><td>~1824–1867</td><td><strong>Běluň</strong> (Beloun)</td><td>4</td><td>Jaroměř</td><td>Česko-německá, 3 km od Kuksu</td></tr>
+        <tr><td>~1850–dodnes</td><td><strong>Rtyně</strong> (Hertin)</td><td>27</td><td>Zaloňov</td><td>Česká vesnice v německé obci</td></tr>
+      </tbody>
+    </table>
+
+    <div class="story-highlight">
+      <strong>⚠️ Pozor:</strong> Rtyně v rodokmenu NENÍ Rtyně v Podkrkonoší (okres Trutnov). Je to <strong>Rtyně u Zaloňova</strong> — malá vesnice severozápadně od Jaroměře, dnes část obce Zaloňov, okres Náchod.
+    </div>
+
+    <p>Hoffmannové žili v jedné z <strong>nejbohatších barokních krajin střední Evropy</strong> — v obci kde se narodil Valdštejn, 3 km od Kuksu, na panství proměněném třicetiletou válkou — ale jako prostí kováři a chalupníci byli od tohoto světa odděleni nepropustnou stavovskou bariérou. Sochy viděli, ale hospitál nebyl pro ně.</p>
+  </div>
+</details>
+
+<!-- PŘÍBĚH 2: ZAKLADATEL -->
+<details class="story-card">
+  <summary>
+    <span class="story-icon">👴</span>
+    <span class="story-meta">
+      <span class="story-title">Zakladatel — Joseph Franz a dvanáct dětí</span>
+      <span class="story-period">~1766–1828 · Sylvárov (Silberleut) č. 12</span>
+    </span>
+  </summary>
+  <div class="story-body">
+    <p><strong>Joseph Franz Hoffmann</strong> (~1766–3. března 1828) je nejstarší známý člen rodu. O jeho původu nevíme nic — rodné jméno, rodiče ani přesné datum narození. Žil v domě č. 12 v Silberleut (Sylvárově).</p>
+    <p>Sylvárov byl malá osada na okraji Dvora Králové nad Labem, dnes zcela pohlcená průmyslovou zástavbou. Z původního domu č. 12 nezbylo nic.</p>
+
+    <h4>Dvanáct dětí — statistika přežití</h4>
+    <p>Za 22 let (1793–1815) se Josephu Franzovi narodilo <strong>dvanáct dětí</strong>:</p>
+
+    <div class="story-highlight">
+      <strong>Kojenecká úmrtnost: 4 z 12 (33 %).</strong> To přesně odpovídá dobovým statistikám — v Čechách 18.–19. století se první rok nedožilo 20–30 % narozených dětí a do pátých narozenin nepřežilo 40–50 % všech narozených. Rosalia žila pouhý <strong>1 den</strong>. Anton Norbertus 5 měsíců.
+    </div>
+
+    <p>Příčiny: <em>souchotiny</em> (tuberkulóza), <em>psotník</em> (křeče — matriční „diagnóza" pokrývající desítky skutečných stavů), průjmová onemocnění, neštovice, spalničky.</p>
+
+    <h4>Jména jako kulturní kód</h4>
+    <p>Křestní jména jsou fascinujícím ukazatelem identity. Všechna jsou v <strong>latinské</strong> podobě (Augustinus, Ignatius, Jacobus) — tak byla zapisována do matrik farnosti Dvůr Králové, vedených katolickými kněžími v latině nebo němčině. Dvojitá a trojitá jména (Franz Xaveri Johann, Ignatius Bartholus) odráží barokní zvyk pojmenovávat po více patronech.</p>
+    <p>Pozorujeme praxi <strong>opakování jmen po mrtvých dětech</strong>: v další generaci se Ignaz (1829, †1830) nahrazuje dalším Ignazem (1830, přežil). Toto nebylo bezcitné — byl to projev naděje i víry.</p>
+    <p>Dcery se provdaly za muže s příjmeními <strong>Gluß</strong> a <strong>Rudisch</strong> — obě jednoznačně německá. To odpovídá tomu, že Sylvárov ležel v německojazyčné oblasti.</p>
+  </div>
+</details>
+
+<!-- PŘÍBĚH 3: KOVÁŘ -->
+<details class="story-card">
+  <summary>
+    <span class="story-icon">⚒️</span>
+    <span class="story-meta">
+      <span class="story-title">Kovář a jeho stěhování — Franz Xaveri Johann</span>
+      <span class="story-period">1799–1867 · Sylvárov → Běluň č. 4</span>
+    </span>
+  </summary>
+  <div class="story-body">
+    <p>Franz Xaveri Johann Hoffmann se narodil 29. listopadu 1799 v Sylvárově č. 12. Trojité křestní jméno — po sv. Františku Xaverském (patronu misií) — bylo typické pro přelom 18. a 19. století.</p>
+
+    <h4>Proč se přestěhoval?</h4>
+    <p>Někdy kolem roku 1824 Franz Xaveri opouští Sylvárov a usazuje se v <strong>Běluně č. 4</strong>. Proč?</p>
+    <p><strong>1. Sňatek</strong> — nejpravděpodobnější vysvětlení. Oženil se s ženou z okolí Běluně/Jaroměře. <strong>2. Smrt otce</strong> (1828) — dům č. 12 mohl připadnout staršímu bratrovi. <strong>3. Práce</strong> — Jaroměř nabízela kovářskému řemeslu lepší uplatnění. <strong>4. Kuks</strong> — hospitál 3 km od Běluně mohl být zdrojem zakázek.</p>
+
+    <h4>Kovářské řemeslo — sociální status</h4>
+    <p>Být kovářem v české vesnici 19. století znamenalo zaujímat <strong>klíčové postavení</strong> v lokální ekonomice. Kovář nebyl rolník — byl <strong>řemeslník</strong> (<em>Handwerker</em>), člen cechu, stojící společensky nad nádeníky a čeledíny.</p>
+    <p>Franz Xaveri začínal ještě v podmínkách <strong>cechovního systému</strong>: učedník → tovaryš → mistr. Jeho syn Franz zažil <strong>zrušení cechů</strong> v roce 1859 — od té doby mohl řemeslo vykonávat kdokoli s živnostenským listem.</p>
+
+    <div class="discovery-card">
+      <h4>🔍 Objev na FamilySearch (5. 4. 2026)</h4>
+      <div class="disc-detail">
+        Nalezen záznam: <strong>Franz Hoffmann</strong>, Marriage <strong>1 Mar 1829</strong>, Jaroměř, Königinhof an der Elbe, Böhmen.<br>
+        Věk 28 (→ nar. ~1801). Rodiče: Franz Hoffmann + Katharina Gabriel. Manželka: <strong>Dorothea Hoffmann</strong>.<br>
+        Zdroj: Czech Republic, Church Books, 1552–1981. Tento záznam může patřit našemu Franzi Xaveri nebo příbuznému.
+      </div>
+      <a href="https://www.familysearch.org/ark:/61903/1:1:6PWP-JXSB" target="_blank" class="disc-link">→ Zobrazit na FamilySearch</a>
+    </div>
+
+    <p>V Běluně č. 4 se Franzi Xaveri narodilo <strong>sedm dětí</strong> (1825–1836), z nichž dvě zemřely v kojeneckém věku. Franz Xaveri umírá 18. prosince 1867 v Běluně č. 4 ve věku 68 let.</p>
+  </div>
+</details>
+
+<!-- PŘÍBĚH 4: DVOJČATA -->
+<details class="story-card">
+  <summary>
+    <span class="story-icon">👶👶</span>
+    <span class="story-meta">
+      <span class="story-title">Dvojčata a jazyková proměna — Franz podkovář</span>
+      <span class="story-period">1825–1901 · Běluň → Rtyně č. 27</span>
+    </span>
+  </summary>
+  <div class="story-body">
+    <p><strong>Franz Hofman</strong> se narodil 5. června 1825 v Běluně č. 4. V matrikách je veden jako <em>podkovář</em> (Hufschmied). Kolem roku 1850 se přestěhoval do <strong>Rtyně č. 27</strong>, kde strávil zbytek života.</p>
+
+    <h4>Přechod na jazykovou hranici</h4>
+    <p>Tohle stěhování je klíčový moment v dějinách rodu. Rtyně patřila pod farnost <strong>Zaloňov</strong> — a ten byl z 85–95 % německy mluvící. Rtyně sama ale byla <strong>česká enkláva</strong> uvnitř německého území.</p>
+
+    <table class="story-table">
+      <thead><tr><th>Generace</th><th>Místo</th><th>Jazyk matrik</th><th>Jména dětí</th></tr></thead>
+      <tbody>
+        <tr><td>I–II (1793–1815)</td><td>Sylvárov</td><td>Latina/němčina</td><td>Augustinus, Ignatius, Jacobus</td></tr>
+        <tr><td>III (1825–1836)</td><td>Běluň</td><td>Němčina</td><td>Franz, Joseph, Ignaz</td></tr>
+        <tr><td>IV (1852–1869)</td><td>Rtyně</td><td><strong>Čeština</strong></td><td>Josef, Jan, František, Marie, Anna</td></tr>
+      </tbody>
+    </table>
+
+    <h4>Dvojčata z 24. dubna 1862</h4>
+    <p>Mezi šesti dětmi Franze najdeme pozoruhodný záznam: <strong>Jan</strong> a <strong>František</strong> se oba narodili <strong>24. dubna 1862</strong> v Rtyni č. 27. Jsou to <strong>dvojčata</strong> — v podmínkách venkovské Čechie 60. let 19. století mimořádně riskantní porod.</p>
+    <p>František umírá 14. července 1863 ve věku 15 měsíců. Jan přežívá a dožívá se přibližně roku 1929 (~67 let). Dvojčata bez lékařské pomoci, v domě venkovského kováře — porodní bába, žádná anestezie, vysoké riziko komplikací. Že obě děti přežily porod, je samo o sobě statisticky pozoruhodné.</p>
+
+    <div class="story-highlight">
+      <strong>Pravopis příjmení:</strong> Hoffmann (dvojité n) → <strong>Hofman</strong> (jednoduché n, česká varianta). Okres Náchod je s <strong>108 Hofmany</strong> absolutní jedničkou mimo Prahu — potvrzení hlubokých kořenů rodu v regionu.
+    </div>
+  </div>
+</details>
+
+<!-- PŘÍBĚH 5: SELSKÉ POVSTÁNÍ -->
+<details class="story-card">
+  <summary>
+    <span class="story-icon">🔥</span>
+    <span class="story-meta">
+      <span class="story-title">Selské povstání 1775 — epicentrum u Rtyně</span>
+      <span class="story-period">Březen 1775 · Náchod–Trutnov–Dvůr Králové</span>
+    </span>
+  </summary>
+  <div class="story-body">
+    <p>V březnu 1775 propuklo v severovýchodních Čechách <strong>největší selské povstání v českých dějinách</strong>. Epicentrem byl přesně trojúhelník <strong>Náchod–Trutnov–Dvůr Králové</strong> — území, kde žili (nebo brzy budou žít) Hoffmannové.</p>
+    <p>Povstalci — rolníci drcení robotou (až 3 dny nucené práce týdně pro vrchnost) — pochodovali směrem na Prahu. Mezi vůdci byl <strong>Antonín Nývlt</strong> z Trutnova. Povstání bylo vojensky potlačeno v bitvě u Chlumce nad Cidlinou, ale vyvolalo reformy: <strong>1781</strong> císař Josef II. zrušil nevolnictví.</p>
+    <p><strong>Alois Jirásek</strong> (1851–1930), jeden z nejslavnějších českých spisovatelů, pocházel z nedalekého Hronova a ve svých románech zachytil právě tuto oblast. Hoffmannové žili v kulisách Jiráskova literárního světa.</p>
+
+    <div class="story-highlight">
+      Joseph Franz Hoffmann se narodil kolem <strong>1766</strong> — pouhých devět let po povstání. Jeho rodiče ho zažili na vlastní kůži. Kovář v tomto kraji nebyl jen řemeslník — mohl být i tím, kdo koval zbraně pro povstalce.
+    </div>
+  </div>
+</details>
+
+<!-- PŘÍBĚH 6: BITVA U SADOVÉ -->
+<details class="story-card">
+  <summary>
+    <span class="story-icon">⚔️</span>
+    <span class="story-meta">
+      <span class="story-title">Bitva u Sadové — válka před domem</span>
+      <span class="story-period">3. července 1866 · 10–15 km od Rtyně</span>
+    </span>
+  </summary>
+  <div class="story-body">
+    <p>3. července 1866 se na polích mezi Sadovou a Chlumem, pouhých <strong>10–15 km jižně od Rtyně</strong>, odehrála jedna z nejkrvavějších bitev 19. století. <strong>Bitva u Hradce Králové</strong> (Königgrätz) rozhodla prusko-rakouskou válku.</p>
+
+    <p><strong>Franzi podkováři bylo v roce 1866 jednačtyřicet let.</strong> Jeho syn Josef (budoucí pokračovatel rodu) byl devítiletý chlapec.</p>
+
+    <h4>„Pruská cholera" — dopady na civilisty</h4>
+    <p><strong>27. června 1866</strong> vyrazil rakouský X. sbor generála Gablenze ze svých pozic <strong>mezi Jaroměří a Dubencem</strong> směrem k Trutnovu. Vojáci pochodovali přímo přes území, kde žili Hoffmannové.</p>
+    <p><strong>Pevnost Josefov</strong> (součást Jaroměře) se stala polním lazaretem pro přibližně <strong>4 000 raněných a nemocných vojáků</strong>.</p>
+
+    <div class="story-highlight">
+      Pruské vojsko zavleklo do Čech <strong>choleru</strong>. Epidemie 1866–1867 si vyžádala odhadem <strong>přes 100 000 mrtvých</strong> v českých zemích. K tomu zničená úroda — pruská vojska rozšlapala pole a zkonfiskovala dobytek. A to po katastrofální neúrodě roku 1865.
+    </div>
+
+    <p>Pro kováře měla válka paradoxně i praktickou stránku: obrovská poptávka po opravách — podkovy, nápravy vozů, zbraně. Franz podkovář mohl být v těchto týdnech jedním z nejžádanějších řemeslníků v okolí. Ale za jakou cenu.</p>
+  </div>
+</details>
+
+<!-- PŘÍBĚH 7: KUKS -->
+<details class="story-card">
+  <summary>
+    <span class="story-icon">🏛️</span>
+    <span class="story-meta">
+      <span class="story-title">Kuks a Valdštejn — barokní sousedé</span>
+      <span class="story-period">Hospitál Kuks · 3 km od Běluně</span>
+    </span>
+  </summary>
+  <div class="story-body">
+    <p>Hospitál <strong>Kuks</strong>, založený hrabětem Šporkem v letech 1692–1715, stojí pouhé <strong>3 km od Běluně</strong>. A <strong>Braunův Betlém</strong> — sochy poustevníků vytesané přímo do skal v lese u Žirče — leží 2 km severně od hospitálu.</p>
+    <p>Jezuité ze Žirče (kteří ovládali Zaloňov od roku 1635 do zrušení řádu 1773) byli přímými sousedy Hoffmannovy rodiny. Zaloňovský kostel sv. Petra a Pavla, kde byly vedeny matriky Hoffmannových dětí, byl původně zničen za husitských válek a obnoven právě jezuity v roce 1725.</p>
+
+    <div class="story-highlight">
+      <strong>Albrecht z Valdštejna</strong> — nejslavnější vojevůdce třicetileté války — se narodil <strong>14. září 1583 na heřmanické tvrzi</strong>. Ve stejné obci, kde o 240 let později Franz Xaveri Hoffmann koval podkovy. Hrobky <strong>obou jeho rodičů</strong> jsou dodnes zazděny ve zdech kostela sv. Máří Magdaleny v Heřmanicích.
+    </div>
+
+    <p>Franz Xaveri Hoffmann chodil kolem Valdštejnových hrobek pokaždé, když šel do kostela. V roce <strong>1882</strong> zničil požár právě tento kostel — shořela i tvrz a devět dalších budov. Mnoho historických záznamů mohlo být ztraceno.</p>
+  </div>
+</details>
+
+<!-- PŘÍBĚH 8: SUDETY -->
+<details class="story-card">
+  <summary>
+    <span class="story-icon">🔻</span>
+    <span class="story-meta">
+      <span class="story-title">Sudety — česká rodina s německým jménem</span>
+      <span class="story-period">1938–1945 · Zaloňov anektován Německem</span>
+    </span>
+  </summary>
+  <div class="story-body">
+    <p>V říjnu 1938 byl Zaloňov s 85–95 % německy mluvícím obyvatelstvem <strong>anektován nacistickým Německem</strong> jako součást Sudet. Rtyně, česká enkláva uvnitř obce, se ocitla v mezní situaci.</p>
+
+    <h4>Volksliste — existenční dilemma</h4>
+    <p>Rodina nesla jednoznačně <strong>německé příjmení</strong> (Hoffmann/Hofman), ale byla <strong>česky mluvící</strong> a po generace žila v české vesnici. Nacistické úřady tlačily obyvatele s německými příjmeními k podpisu <strong>Volksliste</strong> — přihlášení se jako etničtí Němci.</p>
+
+    <table class="story-table">
+      <thead><tr><th>Volba</th><th>Za války</th><th>Po 1945</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Podepsat</strong> Volksliste</td><td>Příděly, ochrana</td><td>Odsun, konfiskace, vězení</td></tr>
+        <tr><td><strong>Odmítnout</strong></td><td>Diskriminace, práce</td><td>Na správné straně</td></tr>
+      </tbody>
+    </table>
+
+    <p>V roce 1945 byli z Zaloňova <strong>vysídleni</strong> prakticky všichni němečtí obyvatelé. Hoffmanové — Češi navzdory jménu — <strong>zůstali</strong>.</p>
+
+    <div class="story-highlight">
+      <strong>Demografický šok:</strong> Zaloňov měl v roce 1930 ~199 obyvatel, z toho ~85 % německy mluvících. Po odsunu zbyla hrstka. Rtyně (česká) měla ~228 obyvatel — a ti zůstali. Hoffmanové se z okraje dostali do centra. <strong>Rodina dodnes vlastní pole v okolí.</strong>
+    </div>
+  </div>
+</details>
+
+<!-- PŘÍBĚH 9: KOLEKTIVIZACE -->
+<details class="story-card">
+  <summary>
+    <span class="story-icon">🌾</span>
+    <span class="story-meta">
+      <span class="story-title">Kolektivizace — Františka Hušková a JZD</span>
+      <span class="story-period">1949–1989 · Rtyně / Zaloňov</span>
+    </span>
+  </summary>
+  <div class="story-body">
+    <p>V roce 1949, pouhé čtyři roky po válce, začala <strong>násilná kolektivizace zemědělství</strong>. Zákon o JZD z 23. února 1949 znamenal likvidaci soukromého hospodaření.</p>
+
+    <h4>Rodina Huškova</h4>
+    <p>Příjmení <strong>Hušek/Huška</strong> má v okrese Hradec Králové vůbec <strong>nejvyšší koncentraci</strong> v celé ČR (115 nositelů z celkových 905) — přesně v regionu, kde žili Hoffmannové.</p>
+    <p><strong>Františka Hušková</strong> — prababička Josefa — pracovala v JZD po mnoho let. Její otec Huška byl podle rodinné paměti násilnický alkoholik — temnější stránka vesnického života, kterou oficiální kroniky nezaznamenávají.</p>
+
+    <h4>Sedm proměn vlastnictví</h4>
+    <table class="story-table">
+      <thead><tr><th>Období</th><th>Režim vlastnictví</th></tr></thead>
+      <tbody>
+        <tr><td>Do 1848</td><td>Panské poddanství — robota a desátek</td></tr>
+        <tr><td>1848</td><td>Zrušení poddanství — výkup půdy</td></tr>
+        <tr><td>1848–1938</td><td>Soukromé vlastnictví</td></tr>
+        <tr><td>1938–1945</td><td>Sudetská krize — německá správa</td></tr>
+        <tr><td>1945</td><td>Odsun — nové parcely pro zbylé Čechy</td></tr>
+        <tr><td>1949–1989</td><td><strong>Kolektivizace</strong> — JZD obdělává pole</td></tr>
+        <tr><td>1991–dodnes</td><td>Restituce — pole zpět soukromníkům</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+<!-- PŘÍBĚH 10: PŘÍJMENÍ -->
+<details class="story-card">
+  <summary>
+    <span class="story-icon">✍️</span>
+    <span class="story-meta">
+      <span class="story-title">Příjmení jako dějiny — od Hoffmann k Hofman</span>
+      <span class="story-period">260 let jazykové proměny</span>
+    </span>
+  </summary>
+  <div class="story-body">
+    <p>Proměna příjmení je mikrohistorií česko-německých vztahů:</p>
+
+    <table class="story-table">
+      <thead><tr><th>Období</th><th>Podoba</th><th>Kontext</th></tr></thead>
+      <tbody>
+        <tr><td>~1766–1830</td><td><strong>Hoffmann</strong> (2× f, 2× n)</td><td>Německá podoba, latinské matriky</td></tr>
+        <tr><td>~1830–1870</td><td>Hoffmann / Hofman</td><td>Přechodné období, záleží na faráři</td></tr>
+        <tr><td>~1870–dodnes</td><td><strong>Hofman</strong> (1× f, 1× n)</td><td>Počeštěná podoba</td></tr>
+      </tbody>
+    </table>
+
+    <p>Příjmení <strong>Hofman</strong> (s jedním n) má v Česku <strong>2 317 nositelů</strong>. Hofman = Hof (dvůr) + Mann (muž) = „dvořák" — člověk ze dvora, od panského statku.</p>
+
+    <div class="story-highlight">
+      Tento paradox — české příjmení německého původu, česká rodina žijící v německé obci, která přežije všechny historické zvraty a zůstane na místě — je v podstatě příběhem <strong>celého českého pohraničí</strong>.
+    </div>
+  </div>
+</details>
+
+<!-- FAMILYSEARCH NÁLEZY -->
+<h3 style="font-family: 'Playfair Display', serif; color: var(--accent-blue); margin: 30px 0 16px;">🔍 Nálezy na FamilySearch (5. dubna 2026)</h3>
+
+<div class="context-grid">
+  <div class="discovery-card">
+    <h4>Matriční záznamy v Czech Church Books (1552–1981)</h4>
+    <div class="disc-detail">
+      Prohledáno <strong>2 615 záznamů</strong> „Hoffmann" v oblasti Dvůr Králové / Jaroměř. Nalezeno 209 záznamů pro „Franz Xaver Hoffmann" (nar. 1795–1805).<br><br>
+      <strong>Klíčové nálezy:</strong><br>
+      • Franz Hoffmann — Marriage 1 Mar 1829, Jaroměř, manželka Dorothea<br>
+      • Franz Hoffmann — Marriage 21 May 1833, Jaroměř, rodiče Joseph Hoffmann + Marie Brusnitzky<br>
+      • Frantz Joann Hoffmann — Baptism, Jaroměř, nar. 8 Apr 1801, rodiče Frantz Hoffmann + Kateřina<br>
+      • Franz Hoffmann jako otec — děti Josef, Johann, Anna, Katharina (farnost Jaroměř)<br><br>
+      Záznamy obsahují náhledy originálních stránek matričních knih.
+    </div>
+    <a href="https://www.familysearch.org/search/record/results?q.surname=Hoffmann&q.birthLikePlace=Dvur%20Kralove&q.birthLikeDate.from=1750&q.birthLikeDate.to=1900&f.collectionId=1804263" target="_blank" class="disc-link">→ Procházet záznamy na FamilySearch</a>
+  </div>
+</div>
+
+</div>
+
 <!-- ===== MÍSTA ===== -->
-<h2 class="section-title" style="margin-top:60px;">📍 Místa rodu</h2>
+<h2 class="section-title" style="margin-top:60px;" id="mista">📍 Místa rodu</h2>
 
 <div class="context-grid">
   <div class="context-card">
@@ -1865,7 +2365,7 @@
 </div>
 
 <!-- ===== ZDROJE ===== -->
-<h2 class="section-title" style="margin-top:60px;">🔍 Jak pokračovat v bádání</h2>
+<h2 class="section-title" style="margin-top:60px;" id="zdroje">🔍 Jak pokračovat v bádání</h2>
 
 <div class="context-grid">
   <div class="context-card">
@@ -1957,7 +2457,7 @@
 </div>
 
 <!-- ===== ARCHIVNÍ VÝZKUM ===== -->
-<h2 class="section-title" style="margin-top:60px;">📜 Archivní výzkum — co jsme zjistili</h2>
+<h2 class="section-title" style="margin-top:60px;" id="archiv">📜 Archivní výzkum — co jsme zjistili</h2>
 
 <div class="research-note">
   <strong>Hloubkový průzkum</strong> online archivů, vojenských databází, matrik, sčítacích archů a historických map. Výzkum provedený 4. dubna 2026 — 40+ zdrojů, 3 výzkumní agenti.
@@ -2230,7 +2730,7 @@
 <div class="footer">
   <p>Rodokmen rodiny Hoffmann / Hofman — 44 osob, 9 generací, 260 let · Královéhradecký kraj</p>
   <p>Zpracováno z originální fotografie rodinného stromu (foto 24. 2. 2019)</p>
-  <p>Aktualizováno 4. dubna 2026 · Kompletní přepis s ověřenými daty · Lokace identifikované: Sylvárov, Běluň, Rtyně (Zaloňov), Lišice</p>
+  <p>Aktualizováno 5. dubna 2026 · Kompletní přepis s ověřenými daty + příběhy rodu · FamilySearch research · Lokace: Sylvárov, Běluň, Rtyně (Zaloňov), Lišice</p>
   <p style="margin-top: 10px; color: var(--gold); font-family: 'Playfair Display', serif;">
     „Kdo nezná svou minulost, nemá budoucnost."
   </p>
