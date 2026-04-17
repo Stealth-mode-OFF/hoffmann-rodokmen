@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="cs" data-lang-system="cs" class="no-js ">
+	<head>
+
+
+
+		<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=EDGE"><![endif]-->
+			<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+			<meta name="robots" content="index,follow" />
+			<meta name="author" content="Antee s.r.o." />
+			<meta name="description" content="Obec leží v severovýchodních Čechách nedaleko města Dvora Králové n. L. Jsme součástí Mikroregionu Hustířanka." />
+			<meta name="keywords" content="Obec Zaloňov, Mikroregion Hustířanka" />
+			<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+<title>Historie | Obec Zaloňov</title>
+
+		<link rel="stylesheet" type="text/css" href="https://cdn.antee.cz/jqueryui/1.8.20/css/smoothness/jquery-ui-1.8.20.custom.css?v=2" integrity="sha384-969tZdZyQm28oZBJc3HnOkX55bRgehf7P93uV7yHLjvpg/EMn7cdRjNDiJ3kYzs4" crossorigin="anonymous" />
+		<link rel="stylesheet" type="text/css" href="/style.php?nid=QUdDRw==&amp;ver=1776166189" />
+		<link rel="stylesheet" type="text/css" href="/css/libs.css?ver=1776172485" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.antee.cz/genericons/genericons/genericons.css?v=2" integrity="sha384-DVVni0eBddR2RAn0f3ykZjyh97AUIRF+05QPwYfLtPTLQu3B+ocaZm/JigaX0VKc" crossorigin="anonymous" />
+
+		<script src="/js/jquery/jquery-3.0.0.min.js" ></script>
+		<script src="/js/jquery/jquery-migrate-3.1.0.min.js" ></script>
+		<script src="/js/jquery/jquery-ui.min.js" ></script>
+		<script src="/js/jquery/jquery.ui.touch-punch.min.js" ></script>
+		<script src="/js/libs.min.js?ver=1776172485" ></script>
+		<script src="/js/ipo.min.js?ver=1776172473" ></script>
+			<script src="/js/locales/cs.js?ver=1776166189" ></script>
+
+			<script src='https://www.google.com/recaptcha/api.js?hl=cs&render=explicit' ></script>
+
+		<link href="/aktuality?action=atom" type="application/atom+xml" rel="alternate" title="Aktuality">
+		<link href="/uredni-deska?action=atom" type="application/atom+xml" rel="alternate" title="Úřední deska">
+		<link href="/akce-vylety-aktualne?action=atom" type="application/atom+xml" rel="alternate" title="Akce/výlety aktuálně">
+		<link href="/rozpocty-a-financni-dokumenty?action=atom" type="application/atom+xml" rel="alternate" title="Rozpočty a finanční dokumenty">
+<meta name="format-detection" content="telephone=no">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&amp;display=fallback" rel="stylesheet">
+<link href="/image.php?nid=2429&amp;oid=10000208&amp;width=32" rel="icon" type="image/png">
+<link rel="shortcut icon" href="/image.php?nid=2429&amp;oid=10000208&amp;width=32">
+<script>
+ipo.api.live("body", function(el){
+//přesun vyhledávání
+$(el).find(".elasticSearchForm").appendTo(".header-fulltext");
+//funkce pro zobrazování, skrývání vyhledávání a ovládání na desktopu
+$(el).find(".elasticSearchForm input[type='text']").on("click change focus", function() {
+if ( $(this).val() )
+{
+$(el).find(".elasticSearchForm").addClass("active");
+}
+else
+{
+$(el).find(".elasticSearchForm").removeClass("active");
+}
+});
+//funkce na přidání posuvníku
+function displayWhisperer()
+{
+if( !$(".elasticSearch-autocompleteResult").is(':empty')  )
+{
+$("body").addClass("apply-scroll");
+}
+else
+{
+$("body").removeClass("apply-scroll");
+}
+}
+$(".elasticSearchForm input[type='text']").keyup(function() {
+$.ajax({
+type: "POST",
+data: 'keyword=' + $(this).val(),
+beforeSend: function() {
+displayWhisperer();
+},
+success: function(data) {
+displayWhisperer();
+}
+});
+});
+});
+//funkce pro zobrazování a skrývání vyhledávání
+ipo.api.live(".header-fulltext > a", function(el){
+var ikonaLupa = $(el).find(".ikona-lupa");
+$(el).click(function(e) {
+e.preventDefault();
+$(this).toggleClass("search-active");
+$("body").toggleClass("search-active");
+if($(this).hasClass("search-active"))
+{
+$(ikonaLupa).text('X');
+$(ikonaLupa).attr("title","Zavřít vyhledávání");
+}
+else
+{
+$(this).removeClass("search-active");
+$("body").removeClass("search-active");
+if( $("body").hasClass("apply-scroll") )
+{
+$("body").removeClass("apply-scroll");
+}
+$(ikonaLupa).attr("title","Otevřít vyhledávání");
+$(".elasticSearchForm input[type=text]").val("");
+}
+$(".elasticSearchForm input[type=text]").focus();
+});
+});
+//posun h1
+ipo.api.live('h1', function(el) {
+if( (!document.getElementById('page9939719')) && $("#system-menu").length != 1 && !$(".error").length )
+{
+if (window.innerWidth >= 1025)
+{
+$(el).wrap("<div class='wrapper-h1 layout-container' />");
+$(".wrapper-h1").insertAfter("#iponavigation p");
+}
+}
+});
+//převod úvodní fotky na drobečkovou navigaci
+ipo.api.live('body', function(el) {
+if( ( !document.getElementById('page9939719') ) && ( !$(".error").length ) )
+{
+if( $(el).find(".subpage-background").length )
+{
+var image_back = $(el).find(".subpage-background .boxImage > div").attr("style");
+$(el).find("#iponavigation").attr("style", image_back);
+}
+}
+});
+//zjištění počet položek submenu
+ipo.api.live('#ipotopmenuwrapper ul.topmenulevel2', function(el) {
+$(el).find("> li").each(function( index, es ) {
+if(index == 9)
+{
+$(el).addClass("two-column");
+}
+});
+});
+//označení položek, které mají submenu
+ipo.api.live('#ipotopmenu ul.topmenulevel1 li.topmenuitem1', function(el) {
+var submenu = $(el).find("ul.topmenulevel2");
+if (window.innerWidth <= 1024)
+{
+if (submenu.length)
+{
+$(el).addClass("hasSubmenu");
+$(el).find("> a").after("<span class='open-submenu' />");
+}
+}
+});
+//wrapnutí spanu do poležek první úrovně
+ipo.api.live('#ipotopmenu ul.topmenulevel1 li.topmenuitem1 > a', function(el) {
+if (window.innerWidth <= 1024)
+{
+$(el).wrapInner("<span>");
+}
+});
+//rozbaleni menu
+$(function() {
+if (window.innerWidth <= 1024)
+{
+$(".topmenulevel1 > li.hasSubmenu").each(function( index, es ) {
+if( $(es).hasClass("active") )
+{
+$(".topmenulevel1 > li.hasSubmenu.active ul.topmenulevel2").css("display","block");
+$(".topmenulevel1 > li.hasSubmenu.active .open-submenu").addClass("see-more");
+}
+$(es).find(".open-submenu").click(function(e) {
+if( $(es).hasClass("active") && $(this).hasClass("see-more") )
+{
+$(this).removeClass("see-more");
+$(es).find("ul.topmenulevel2").css("display","none");
+}
+else{
+$(this).toggleClass("see-more");
+if($(this).hasClass("see-more")) {
+$("ul.topmenulevel2").css("display","none");
+$(this).next("ul.topmenulevel2").css("display","block");
+$(".topmenulevel1 > li > a").removeClass("see-more");
+$(this).addClass("see-more");
+} else {
+$(this).removeClass("see-more");
+$(this).next("ul.topmenulevel2").css("display","none");
+}
+}
+});
+});
+}
+});
+//doplnění odkazu pomocí galerie
+ipo.api.live('.link-logo', function(el) {
+var link = $(el).attr("data-link");
+$(el).attr("href", link);
+$(el).removeAttr("data-link");
+if( $(el).attr('href') == '' )
+{
+$(el).find("img").unwrap();
+}
+});
+ipo.api.live("body", function(el){
+//zjištění zda se jedná o stránku 404
+if( $(el).find(".ipopagetext .error").length )
+{
+$(el).addClass("error-page");
+}
+//přesun patičky
+$(el).find("#ipocopyright").insertAfter("#ipocontainer");
+//přidání třídy action-button
+$(el).find(".backlink").addClass("action-button");
+});
+</script>
+
+<link rel="preload" href="/image.php?nid=2429&amp;oid=10000220&amp;width=111" as="image">
+	</head>
+
+	<body id="page265117" class="subpage265117 subpage4945945"
+			
+			data-nid="2429"
+			data-lid="CZ"
+			data-oid="265117"
+			data-layout-pagewidth="1024"
+			
+			data-slideshow-timer="3"
+			
+						
+				
+				data-layout="responsive" data-viewport_width_responsive="1024"
+			>
+
+
+
+							<div id="snippet-cookiesConfirmation-euCookiesSnp">			<div id="cookieChoiceInfo" class="cookie-choices-info template_1">
+					<p>Tato webová stránka potřebuje váš souhlas pro používání cookies, které slouží pro personalizaci obsahu a reklam, analýzy návštěvnosti a 
+						<a class="cookie-button more" href="https://navody.antee.cz/cookies" target="_blank">další účely.</a>
+					</p>
+					<p>
+						Souhlas se všemi cookies udělíte kliknutím na tlačítko „Přijmout vše“. Chcete-li přijímat pouze technicky nezbytné cookies, klikněte na tlačítko „Jen nezbytné“.
+					</p>
+				<div class="buttons">
+					<a class="cookie-button action-button ajax" id="cookieChoiceButton" rel=”nofollow” href="/historie?do=cookiesConfirmation-acceptAll">Přijmout vše</a>
+					<a class="cookie-button cookie-button--settings action-button ajax" rel=”nofollow” href="/historie?do=cookiesConfirmation-onlyNecessary">Jen nezbytné</a>
+					<a class="cookie-button cookie-button--settings action-button ajax" rel=”nofollow” href="/historie?do=cookiesConfirmation-openSettings">Nastavení</a>
+				</div>
+			</div>
+</div>				<div id="ipocontainer">
+
+			<div class="menu-toggler">
+
+				<span>Menu</span>
+				<span class="genericon genericon-menu"></span>
+			</div>
+
+			<span id="back-to-top">
+
+				<i class="fa fa-angle-up"></i>
+			</span>
+
+			<div id="ipoheader">
+
+				<div class="header-inner__container">
+	<div class="row header-inner flex-container layout-container">
+		<div class="logo">
+			<a title="Obec Zaloňov" href="/" class="header-logo"><img src="/image.php?nid=2429&amp;oid=12490710&amp;width=111&amp;height=132" width="111" height="132" alt="Obec Zalaňov"><span class="obec-title">Obec Zaloňov</span></a>
+		</div>
+		<div class="header-kontakt flex-container">
+			<a title="+420 737 789 841" class="tooltip" href="tel:+420737789841">
+				<svg xmlns="http://www.w3.org/2000/svg" width="17.8" height="17.8" viewbox="0 0 17.8 17.8"><path d="m17.3 12.6-3.9-1.7a.8.8 0 0 0-1 .3l-1.7 2a13 13 0 0 1-6.1-6l2-1.8a.8.8 0 0 0 .3-1L5.2.5a.8.8 0 0 0-1-.5L.7 1a.8.8 0 0 0-.6.8 16.2 16.2 0 0 0 16.2 16.1.8.8 0 0 0 .8-.6l.8-3.6a.8.8 0 0 0-.5-1Z" fill="#fdd42d"></path></svg>
+				<span>+420 737 789 841</span>
+			</a>
+			<a title="ou.zalonov@cmail.cz" class="tooltip" href="mailto:ou.zalonov@cmail.cz">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16.9" height="11.7" viewbox="0 0 16.9 11.7"><g data-name="Icon ionic-ios-mail" fill="#fdd42d"><path data-name="Path 1" d="m20.1 10.3-4.4 4.5v.1l3.1 3.3a.5.5 0 0 1 0 .7.5.5 0 0 1-.7 0l-3-3.2h-.2l-.7.7a3.3 3.3 0 0 1-2.4 1 3.3 3.3 0 0 1-2.4-1l-.7-.7-3.1 3.2a.5.5 0 0 1-.8 0 .5.5 0 0 1 0-.7l3-3.3v-.1l-4.3-4.5-.1.1v8.9a1.3 1.3 0 0 0 1.3 1.3H19a1.3 1.3 0 0 0 1.3-1.3v-8.9H20Z" transform="translate(-3.4 -7.9) translate(0 -1)"></path><path data-name="Path 2" d="M12.2 15.3a2.2 2.2 0 0 0 1.6-.7L20 8.2a1.3 1.3 0 0 0-.8-.3H5a1.3 1.3 0 0 0-.8.3l6.4 6.4a2.2 2.2 0 0 0 1.6.7Z" transform="translate(-3.4 -7.9) translate(-.4)"></path></g></svg>
+				<span>ou.zalonov@cmail.cz</span>
+			</a>
+		</div>
+		<div class="header-fulltext">
+			<a href="#"><span title="Otevřít vyhledávání" class="ikona-lupa">Ikona</span></a>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="subpage-background">
+	
+		 
+		<div class="boxImage">
+			<div style="background-image:url(/image.php?oid=10000219&amp;nid=2429&amp;width=2000);">image</div>
+		</div>
+		 
+		
+	
+</div>			</div>
+
+			<div id="ipotopmenuwrapper">
+
+				<div id="ipotopmenu">
+<h4 class="hiddenMenu">Horní menu</h4>
+<ul class="topmenulevel1"><li class="topmenuitem1 noborder" id="ipomenu9939719"><a href="/">Úvod</a></li><li class="topmenuitem1" id="ipomenu264792"><a href="/obecni-urad">Obecní úřad</a><ul class="topmenulevel2"><li class="topmenuitem2" id="ipomenu264793"><a href="/zakladni-informace">Základní informace</a></li><li class="topmenuitem2" id="ipomenu264794"><a href="/popis-uradu">Popis úřadu</a></li><li class="topmenuitem2" id="ipomenu4908568"><a href="/povinne-informace">Povinně zveřejňované informace</a></li><li class="topmenuitem2" id="ipomenu264795"><a href="/poskytovani-informaci">Poskytování informací, příjem podání</a></li><li class="topmenuitem2" id="ipomenu3501061"><a href="/uredni-deska">Úřední deska</a></li><li class="topmenuitem2" id="ipomenu264796"><a href="/vyhlasky-zakony">Vyhlášky, zákony</a></li><li class="topmenuitem2" id="ipomenu264798"><a href="/e-podatelna">Elektronická podatelna</a></li><li class="topmenuitem2" id="ipomenu8390543"><a href="https://cro.justice.cz/" target="_blank">Registr oznámení</a></li><li class="topmenuitem2" id="ipomenu4908651"><a href="/verejne-zakazky">Veřejné zakázky</a></li></ul></li><li class="topmenuitem1 active" id="ipomenu4945945"><a href="/obec">Obec</a><ul class="topmenulevel2"><li class="topmenuitem2" id="ipomenu264799"><a href="/aktuality">Aktuality</a></li><li class="topmenuitem2" id="ipomenu4908671"><a href="/fotogalerie">Fotogalerie</a></li><li class="topmenuitem2 active" id="ipomenu265117"><a href="/historie">Historie</a></li><li class="topmenuitem2" id="ipomenu4945946"><a href="/spolky-kluby">Spolky</a><ul class="topmenulevel3"><li class="topmenuitem3" id="ipomenu265120"><a href="/hasici">Hasiči</a></li><li class="topmenuitem3" id="ipomenu265121"><a href="/zeny">Český svaz žen</a></li></ul></li><li class="topmenuitem2" id="ipomenu4910160"><a href="/mapa">Kde nás najdete</a></li></ul></li><li class="topmenuitem1" id="ipomenu4945948"><a href="/okoli">Okolí</a><ul class="topmenulevel2"><li class="topmenuitem2" id="ipomenu265140"><a href="http://www.velichovky.cz" target="_blank">Lázně Velichovky</a></li><li class="topmenuitem2" id="ipomenu265139"><a href="https://cs.wikipedia.org/wiki/Vodn%C3%AD_n%C3%A1dr%C5%BE_Les_Kr%C3%A1lovstv%C3%AD" target="_blank">Přehrada Les Království</a></li><li class="topmenuitem2" id="ipomenu265138"><a href="http://www.jaromer-josefov.cz" target="_blank">Jaroměř - Josefov</a></li><li class="topmenuitem2" id="ipomenu265137"><a href="http://www.ratiborice-babiccinoudoli.cz/" target="_blank">Babiččino údolí</a></li><li class="topmenuitem2" id="ipomenu265136"><a href="http://www.zoodk.cz" target="_blank">ZOO Dvůr Králové</a></li><li class="topmenuitem2" id="ipomenu265134"><a href="http://www.kuks.cz" target="_blank">Kuks</a></li><li class="topmenuitem2" id="ipomenu265133"><a href="https://www.karsitagro.cz/" target="_blank">Nová Amerika</a></li><li class="topmenuitem2" id="ipomenu265132"><a href="http://www.hustiranka.cz" target="_blank">Mikroregion Hustířanka</a></li></ul></li><li class="topmenuitem1" id="ipomenu9939718"><a href="/kontakty">Kontakty</a></li></ul>
+					<div class="cleartop"></div>
+				</div>
+			</div>
+			<div id="ipomain">
+				<div class="elasticSearchForm elasticSearch-container" id="elasticSearch-form-8387026" >
+	<h4 class="newsheader">Fulltextové vyhledávání</h4>
+	<div class="newsbody">
+<form action="/historie?do=mainSection-elasticSearchForm-8387026-form-submit" method="post" id="frm-mainSection-elasticSearchForm-8387026-form">
+<label hidden="" for="frmform-q">Fulltextové vyhledávání</label><input type="text" placeholder="Vyhledat v textu" autocomplete="off" name="q" id="frmform-q" value=""> 			<input type="submit" value="Hledat" class="action-button">
+			<div class="elasticSearch-autocomplete"></div>
+</form>
+	</div>
+</div>
+
+<script >
+
+	app.index.requireElasticSearchAutocomplete('frmform-q', "\/fulltextove-vyhledavani?do=autocomplete");
+</script>
+
+				<div id="ipomainframe">
+					<div id="ipopage">
+<div id="iponavigation">
+	<h5 class="hiddenMenu">Drobečková navigace</h5>
+	<p>
+			<a href="/">Úvod</a> <span class="separator">&gt;</span>
+			<a href="/obec">Obec</a> <span class="separator">&gt;</span>
+			<span class="currentPage">Historie</span>
+	</p>
+
+</div>
+						<div class="ipopagetext">
+							<div class="text view-default content">
+								
+
+<div id="snippet--flash"></div>
+								
+																	<div class="paragraph">
+<h1 style="text-align: center;">Zaloňov - stručná historie obce</h1>
+<p>Počátky obce Zaloňov, ležící v severovýchodních Čechách nedaleko města Dvora Králové nad Labem, nejsou blíže známy. První písemná zmínka in originali se datuje až k roku 1361, kdy tamní vesnice (v latinském originále „in Zalonow villa“) ležela v tehdejším Hradeckém kraji a spadala pod majetkovou správu opočenského hradu a kostela. Zanedlouho poté, roku 1363, je poprvé zmíněn místní kostel sv. Petra a Pavla, který podléhal plebánii v Semonicích. Po husitských válkách, zřejmě na přelomu 14. a 15. století, se ves Zaloňov, v soudobých pramenech nazývaná též Zaluňov, stala majetkovou součástí majitelů tvrze v Žirči. Jeden její držitel, Jiřík z Gerštorfu a na Cholticích, prodal r. 1539 tvrz, dvůr a ves Žireč, a dále okolní vsi Zaloňov, Hřibojedy a Dubenec panu Adamovi Zilvárovi z Pilníkova a na Břecštejně za 2500 kop grošů českých. Následně až do Bílé hory byla poddanská ves Zaloňov v majetku rodu ze Zilvárova (Sylvárova). Kvůli odbojné účasti jednoho člena tohoto rodu ve stavovském povstání byl celý statek Žireč (a tedy i ves Zaloňov) konfiskován a 8.7.1622 postoupen Marii Magdaléně Trčkové z Lobkovic, současné spolumajitelky opočenského panství, která o rok později (1623) obdržela i sousední konfiskovaná panství Náchod a Nové Město n. Met. Pro účast jejího syna Adama Erdmana Trčky z Lípy v připravovaném spiknutí císařského generála Albrechta z Valdštejna (oba zavražděni v únoru 1634 v Chebu), bylo toto žirečské zboží opět konfiskováno a císařem Ferdinandem III. následně darováno v letech 1635 - 1636 jezuitskému řádu, konkrétně jezuitské koleji u sv. Anny ve Vídni, která tento majetek vlastnila až do svého zrušení v roce 1773. Od poloviny 17. století se již vesnice Zaloňov označovala německým názvem Salmov nebo Salnay, když došlo k jejímu postupnému poněmčení. V soupisu berní ruly (z r. 1654) zde spolu se sousedním Kašovem bylo evidováno 12 chalupníků a 7 zahradníků. Jednalo se o zemědělsky chudou lokalitu, jak také dokládá tzv. tereziánský katastr z r. 1757, který evidoval v této „sloučené“ vesnici celkem 26 hospodářů, vesměs drobných chalupníků a zahradníků, obhospodařující své polnosti v průměrné výměře jednoho až pěti hektarů. Řemesla podomácku provozovali kovář a švec, dále zde byli čtyři tesaři, dva tkalci a punčochář.  Po zrušení jezuitského řádu bylo žirečské zboží prodáno nadačnímu fondu, od něhož ho r. 1828 koupil statkář Martin Wagner. Tehdejší již „samostatná“ ves Zaloňov (Salnai) se nacházela na mlýnském potoce při cestě do Dvora Králové a měla 55 domů a 331 obyvatel, lokální kostel sv. Petra a Pavla, školu a dva hospodářské dvory. K roku 1843 měla 57 domů a 349 obyvatel. Po zrušení poddanství v září 1848 a vydání prozatimního obecního zřízení v březnu 1849 a následně provedené územněsprávní reformě se původní poddanská ves Zaloňov stala samostatnou svobodnou obcí s vlastním obecním úřadem. V čele místní samosprávy stál zvolený starosta, jemuž byli nápomocni (podle platných předpisů) další dva radní a maximálně čtyři výboři, kteří tak dohromady tvořili obecní zastupitelstvo. Pozici místní samosprávy ještě více upevnilo obecní zřízení, vydané v dubnu 1864 a platné s několika novelami v období československé republiky. Podle jeho ustanovení se pak obec Zaloňov řídila ve své každodenní činnosti, když mj. volila ze svého středu své zástupce, kteří v zasedáních rady a zastupitelstva schvalovali rozpočet obce a projednávali veškeré obecní záležitosti, např. domovské právo, obecní majetek a stavby apod. Také zde, asi na přelomu šedesátých a sedmdesátých let 19. století, v souvislosti s vydanými zákony, zřídili dvoutřídní obecní školu. Tehdy obec Zaloňov, mající přibližně 215 ha vlastního katastrálního území, administrativně příslušela pod Okresní hejtmanství (od 1919 Okresní správu politickou a od 1928 Okresní úřad) ve Dvoře Králové n. L. a dále pod Okresní soud v Jaroměři. Tento stav prakticky trval až do osudného podzimu 1938. Počet obyvatel se pohyboval přibližně na stejné úrovni, od 284 v r. 1880 až po 199 v r. 1930. Mírný pokles byl zapříčiněn postupným odchodem místních lidí za prací do průmyslových měst, zejména sousedního Dvora Králové. Kolem roku 1930 v obci působily elektrárenské družstvo a záložna, otevřeny byly dva hostince, dvě trafiky a jeden obchod se smíšeným zbožím. V této době (podle úředního sčítání lidu k r. 1910 a 1930) zde žilo přibližně 95, resp. 85 procent obyvatel německé národnosti. Z toho důvodu byl Zaloňov (spolu s okolními obcemi) v důsledku rozhodnutí tzv. mnichovského diktátu vyjmut ze správy Československa a v říjnu 1938 přičleněn spolu se sudetským německým územím pod správu Německé říše, administrativně pod trutnovský soud. Po jejím rozpadu v květnu 1945 byl Zaloňov začleněn zpět pod správu československého státu, když administrativně byl znovu zařazen pod soudní okres Jaroměř a nově pod správu Okresního národního výboru Jaroměř, jenž byl oficiálně zřízen v říjnu 1945. Správu obce pak zajišťoval místní národní výbor. Kolem roku 1950 zde bylo ustaveno jednotné zemědělské družstvo.V rámci další územněsprávní reorganizace, s platností od 1.7.1960, se Zaloňov stal součástí dnešního okresu Náchod. Zároveň byly pod jeho správu začleněny okolní obce, dosud samostatné MNV Rtyně a Vestec, a dále osada Horní Dolce, jež byla předtím místní částí města Jaroměře. Zásluhou této územní integrace navýšil Zaloňov svou rozlohu na 932 hektarů a počet obyvatel přesahující hodnotu 300. Tento stav trval i v r. 1992.</p>
+<p>Nejstarší zpráva o farním kostelu sv. Petra a Pavla pochází z roku 1363. Za husitských  válek byl zcela zničen. Znovu byl vystavěn jezuity v r. 1725 a přifařen k Dubenci. V r. 1785 zde byla zřízena fara, do jejíhož obvodu náležely obce Horní Dolce, Kašov, Rtyně a Vestec. Katolická farnost čítala přes tisíc věřících a jejím přímým nadřízeným se stala královéhradecká diecéze. Barokní kostel byl r. 1893 zbořen a na jeho místě byl v letech 1898-1900 vystavěn nový chrám v pseudogotickém slohu (projekt od jaroměřského architekta Čermáka).</p>
+<p>Místní části Rtyně a Vestec se poprvé připomínají k r. 1387 („in villis Hrtynye“), resp. 1452 („v Vesci dvuor popl.“). Jejich historický vývoj byl obdobný. Poddanská ves Rtyně, nazývaná v pramenech Hertin nebo Ertin, byla v 16. a 17. století majetkovou součástí panství Smiřice, po jeho majetkovém „rozdělení“ součástí dílu Hoříněvěs. Poddanská ves Vestec, též zvaná Veslec nebo Vesce, byla zase v držení různých drobných vlastníků poplužního dvora. V období pobělohorských konfiskacích se dostala do majetku jezuitského řádu u sv. Klementa v Praze, který ji koncem 17. století přenechal jezuitským majitelům panství Žireč. Na počátku třicátých let 19. století měly tyto vesnice 41 domů a 228 obyvatel, resp. 35 domů a 242 obyvatel. Po r. 1850 se staly samostatnými obcemi s vlastním úřadem a spadaly do soudního okresu Jaroměř. Počet domů a obyvatelstva zůstal přibližně stejný (s mírným poklesem jako u Zaloňova), zatímco Rtyně byla vesměs českou obcí, ve Vestci žilo přibližně 80 procent populace německé národnosti.</p>
+<p>Horní Dolce a současně i Dolní Dolce se poprvé oficiálně připomínají až k roku 1790, kdy se jako hospodářský objekt (mlýn) staly územní a majetkovou součástí města Jaroměře. Ve třicátých letech 19. století zde celkem stálo 9 domů a žilo zde 60 lidí. Až do r. 1960 byly součástí města Jaroměře. </p>
+<p>Použitá literatura:</p>
+<ul dir="ltr">
+<li>Adresář republiky Československé pro průmysl, živnosti, ochod a  zemědělství. I. - Čechy. Praha 1932.</li>
+<li>Václav Kotyška: Úplný místopisný slovník království Českého. Praha 1909.</li>
+<li>Náchodský okres - správní rozdělení. Náchod 1976.</li>
+<li>František Palacký: Popis království českého. Praha 1843.</li>
+<li>Emanuel Poche: Soupis památek historických a uměleckých v okresu Královédvorském. Praha 1937.</li>
+<li>Antonín Profous: Místní jména v Čechách. III. díl. Praha 1951.</li>
+<li>Antonín Profous - Jan Svoboda: Místní jména v Čechách. IV. díl. Praha 1957.</li>
+<li>Retrospektivní lexikon obcí ČSSR 1850 - 1970. I/1. Praha 1978.</li>
+<li>August Sedláček: Hrady, zámky a tvrze království Českého. II. díl. Praha 1883.</li>
+<li>August Sedláček: Hrady, zámky a tvrze království Českého. V. díl. Praha 1887.</li>
+<li>Johann Gottfried Sommer: Das Königreich Böhmen. V. Königgrätzer Kreis. Praha 1836.</li>
+</ul>
+<p dir="ltr">PhDr. Jaroslav Čáp, odb. archivář<br>Státní okresní archiv Náchod</p></div>
+															</div>
+						</div>
+					</div>
+
+
+					
+
+					
+
+					<div class="hrclear"></div>
+					<div id="ipocopyright">
+<div class="copyright">
+	<div class="row copyright__inner flex-container layout-container">
+	<div class="copy-info">
+		<h5>Obec Zaloňov</h5>
+		<p>Zaloňov 46, 551 01 Jaroměř</p>
+		<div class="copy-info__wrapper flex-container">
+			<div class="copy-kontakt">
+				<h6>Kontakt</h6>
+				<p>
+					<a href="tel:+420737789841">
+						<svg xmlns="http://www.w3.org/2000/svg" width="38.6" height="38.6" viewbox="0 0 38.6 38.6"><path d="m37.5 27.3-8.4-3.6a1.8 1.8 0 0 0-2.2.5l-3.7 4.5A28 28 0 0 1 9.8 15.4l4.6-3.8a1.8 1.8 0 0 0 .5-2L11.3 1a1.8 1.8 0 0 0-2-1L1.3 1.8A1.8 1.8 0 0 0 0 3.6a35 35 0 0 0 35 35 1.8 1.8 0 0 0 1.7-1.4l1.9-7.8a1.8 1.8 0 0 0-1.1-2.1Z" fill="#fdd42d" opacity=".2"></path></svg>
+						<span>+420 737 789 841</span>
+					</a>
+				</p>
+				<p>
+					<a href="mailto:obec.zalonov@zalonov.cz">
+						<svg xmlns="http://www.w3.org/2000/svg" width="38.6" height="26.7" viewbox="0 0 38.6 26.7"><g data-name="Icon ionic-ios-mail" opacity=".2" fill="#fdd42d"><path data-name="Path 1" d="m41.7 10.4-10 10.1a.2.2 0 0 0 0 .3l7 7.4a1.2 1.2 0 0 1 0 1.7 1.2 1.2 0 0 1-1.7 0l-7-7.4a.2.2 0 0 0-.3 0L28 24.3a7.5 7.5 0 0 1-5.3 2.2 7.6 7.6 0 0 1-5.4-2.3l-1.7-1.7a.2.2 0 0 0-.2 0l-7 7.4a1.2 1.2 0 0 1-1.7 0 1.2 1.2 0 0 1 0-1.7l7-7.4a.2.2 0 0 0 0-.3l-10-10.1a.2.2 0 0 0-.3.1v20.3a3 3 0 0 0 3 3H39a3 3 0 0 0 3-3V10.5a.2.2 0 0 0-.3-.1Z" transform="translate(-3.4 -7)"></path><path data-name="Path 2" d="M22.4 24.9a5 5 0 0 0 3.6-1.6L40.6 8.5a3 3 0 0 0-1.8-.6H6a2.9 2.9 0 0 0-1.9.6l14.6 14.8a5 5 0 0 0 3.6 1.6Z" transform="translate(-3.1 -7.9)"></path></g></svg>
+						<span>obec.zalonov@zalonov.cz</span>
+					</a>
+				</p>
+			</div>
+			<div class="copy-hodiny">
+				<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewbox="0 0 48 48"><g data-name="Group 911" fill="#fdd42d" opacity=".2"><path data-name="Path 317" d="M24 10.5a1.5 1.5 0 0 0-3 0V27a1.5 1.5 0 0 0 .8 1.3l10.5 6a1.5 1.5 0 0 0 1.4-2.6L24 26.1Z"></path><path data-name="Path 318" d="M24 48A24 24 0 1 0 0 24a24 24 0 0 0 24 24Zm21-24A21 21 0 1 1 24 3a21 21 0 0 1 21 21Z"></path></g></svg>
+				<h6>Úřední hodiny</h6>
+				<p><span>Středa </span>17:00 - 19:00</p>
+			</div>
+		</div>
+	</div>
+	<div class="copy-mapa">
+		<a title="Zobrazit na mapě" href="https://mapy.cz/s/mokohamegu" target="_blank" rel="noopener noreferrer">
+			<span class="mapa-image">
+				<img src="/file.php?nid=2429&amp;oid=10000222&amp;width=360" width="360" height="207" alt="Mapa">
+			</span>
+			<span class="mapa-title">Zobrazit <br>na mapě</span>
+		</a>
+	</div>
+</div>
+
+<div class="row antee">
+	<div class="layout-container">
+		© 2026 Obec Zaloňov, <a href="mailto:ou.zalonov@cmail.cz">Kontaktovat webmastera</a>, <span id="links"><a href="/mapa-stranek">Mapa stránek</a>, <a href="/pristupnost">Prohlášení o přístupnosti</a>, <a href="/ochrana-osobnich-udaju-gdpr">Ochrana osobních údajů GDPR</a></span><br>ANTEE s.r.o. - <a href="https://www.antee.cz" rel="nofollow">Tvorba webových stránek</a>, Redakční systém IPO
+	</div>
+</div>
+</div>
+					</div>
+					<div id="ipostatistics">
+<script >
+	var _paq = _paq || [];
+	_paq.push(['disableCookies']);
+	_paq.push(['trackPageView']);
+	_paq.push(['enableLinkTracking']);
+	(function() {
+		var u="https://matomo.antee.cz/";
+		_paq.push(['setTrackerUrl', u+'piwik.php']);
+		_paq.push(['setSiteId', 3242]);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+	})();
+</script>
+<script >
+	$(document).ready(function() {
+		$('a[href^="mailto"]').on("click", function(){
+			_paq.push(['setCustomVariable', 1, 'Click mailto','Email='+this.href.replace(/^mailto:/i,'') + ' /Page = ' +  location.href,'page']);
+			_paq.push(['trackGoal', null]);
+			_paq.push(['trackPageView']);
+		});
+
+		$('a[href^="tel"]').on("click", function(){
+			_paq.push(['setCustomVariable', 1, 'Click telefon','Telefon='+this.href.replace(/^tel:/i,'') + ' /Page = ' +  location.href,'page']);
+			_paq.push(['trackPageView']);
+		});
+	});
+</script>
+					</div>
+
+					<div id="ipofooter">
+						<div class="loga__container">
+	<div class="row loga layout-container">
+		<div class="loga__wrapper grid-container">
+			
+				
+				<p>
+					<a class="link-logo" data-link="https://portal.gov.cz/" href="#" target="_blank" rel="noopener noreferrer">
+						<img src="/image.php?oid=10000213&amp;nid=2429&amp;height=77" alt="https://portal.gov.cz/">
+					</a>
+				</p>
+				<p>
+					<a class="link-logo" data-link="https://www.kr-kralovehradecky.cz/" href="#" target="_blank" rel="noopener noreferrer">
+						<img src="/image.php?oid=10000217&amp;nid=2429&amp;height=77" alt="https://www.kr-kralovehradecky.cz/">
+					</a>
+				</p>
+				<p>
+					<a class="link-logo" data-link="https://www.hustiranka.cz/" href="#" target="_blank" rel="noopener noreferrer">
+						<img src="/image.php?oid=10000216&amp;nid=2429&amp;height=77" alt="https://www.hustiranka.cz/">
+					</a>
+				</p>  
+		</div>
+	</div>
+</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
