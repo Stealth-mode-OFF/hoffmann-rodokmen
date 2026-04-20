@@ -8,139 +8,220 @@
   @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
   :root {
-    --gold: #B8944A;
-    --gold-light: #E6D4A2;
-    --dark: #1a1a2e;
-    --darker: #0f0f1a;
-    --card-bg: #16213e;
-    --card-border: #2a3a5e;
-    --text: #e8e8e8;
-    --text-muted: #a0a8b8;
-    --main-line: #B8944A;
-    --side-line: #4a5568;
-    --accent-blue: #4299e1;
-    --accent-green: #48bb78;
-    --accent-red: #fc8181;
-    --accent-purple: #9f7aea;
-    --infant: #e53e3e;
+    /* LIGHT THEME — archival / parchment */
+    --gold: #8B6F2B;
+    --gold-soft: #A58448;
+    --gold-light: #E8DAB4;
+    --gold-tint: #FBF7EC;
+    --ink: #1C1A16;
+    --ink-soft: #3F3C35;
+    --ink-muted: #6A665C;
+    --paper: #FBF8F1;
+    --paper-warm: #F5EFE2;
+    --surface: #ffffff;
+    --surface-raised: #ffffff;
+    --border: #E3DCC7;
+    --border-soft: #EEE7D3;
+    --card-bg: #ffffff;
+    --card-border: #E3DCC7;
+    --text: #1C1A16;
+    --text-muted: #6A665C;
+    --darker: #FBF8F1;
+    --dark: #F5EFE2;
+    --main-line: #8B6F2B;
+    --side-line: #C9BFA3;
+    --accent-blue: #2B6CB0;
+    --accent-blue-soft: #DCE7F5;
+    --accent-green: #2F855A;
+    --accent-green-soft: #DBEEDF;
+    --accent-red: #C53030;
+    --accent-purple: #6B46C1;
+    --accent-purple-soft: #E2DAF4;
+    --infant: #9B2C2C;
+    --shadow-sm: 0 1px 2px rgba(28,26,22,0.04), 0 1px 3px rgba(28,26,22,0.08);
+    --shadow-md: 0 4px 12px rgba(28,26,22,0.06), 0 2px 4px rgba(28,26,22,0.04);
+    --shadow-lg: 0 10px 30px rgba(28,26,22,0.08), 0 4px 8px rgba(28,26,22,0.04);
+    --shadow-gold: 0 4px 16px rgba(139,111,43,0.15);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  html { scroll-behavior: smooth; }
+
   body {
     font-family: 'Lora', Georgia, 'Times New Roman', serif;
-    background: var(--darker);
+    background: var(--paper);
+    background-image:
+      radial-gradient(ellipse at top left, rgba(232,218,180,0.25) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(139,111,43,0.05) 0%, transparent 50%);
     color: var(--text);
-    line-height: 1.65;
-    font-size: 16px;
+    line-height: 1.7;
+    font-size: 16.5px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
+
+  /* Scroll progress bar */
+  .scroll-progress {
+    position: fixed; top: 0; left: 0; right: 0; height: 3px;
+    background: transparent; z-index: 9999; pointer-events: none;
+  }
+  .scroll-progress-fill {
+    height: 100%; width: 0;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-soft) 100%);
+    transition: width 0.1s linear;
+    box-shadow: 0 0 8px rgba(139,111,43,0.3);
+  }
+
+  /* Selection color */
+  ::selection { background: var(--gold-light); color: var(--ink); }
+
+  /* Fade-in on scroll */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
 
   /* ===== HERO ===== */
   .hero {
     position: relative;
     text-align: center;
-    padding: 80px 20px 50px;
+    padding: 100px 20px 70px;
     background-image:
-      linear-gradient(180deg, rgba(10,10,20,0.55) 0%, rgba(15,15,26,0.65) 45%, rgba(15,15,26,0.88) 100%),
+      linear-gradient(180deg, rgba(28,26,22,0.68) 0%, rgba(28,26,22,0.55) 45%, rgba(28,26,22,0.78) 100%),
       url('./hero-matrika-1793.jpg');
     background-size: cover;
     background-position: center 30%;
     background-repeat: no-repeat;
-    border-bottom: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
   }
   .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center, transparent 0%, rgba(10,10,20,0.35) 75%);
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(28,26,22,0.25) 80%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg, transparent, transparent 20px,
+      rgba(255,255,255,0.015) 20px, rgba(255,255,255,0.015) 21px
+    );
     pointer-events: none;
   }
   .hero > * { position: relative; z-index: 1; }
   .hero h1 {
     font-family: 'EB Garamond', 'Garamond', Georgia, serif;
-    font-size: 3.4rem;
-    font-weight: 600;
-    color: var(--gold-light);
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.4);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 500;
+    color: #FAF6EC;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.7), 0 0 50px rgba(0,0,0,0.3);
   }
   .hero .subtitle {
-    font-size: 1.1rem;
-    color: var(--text-muted);
+    font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+    color: rgba(250,246,236,0.85);
     font-style: italic;
+    max-width: 780px;
+    margin: 0 auto;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.7);
   }
   .hero .crest {
-    font-size: 4rem;
-    margin-bottom: 16px;
-    opacity: 0.8;
+    font-size: 3.5rem;
+    margin-bottom: 18px;
+    opacity: 0.95;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
   }
   .hero .meta {
-    margin-top: 20px;
+    margin-top: 36px;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 14px;
     flex-wrap: wrap;
   }
   .hero .meta-item {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    padding: 12px 20px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: var(--radius-md);
+    padding: 14px 22px;
     text-align: center;
+    min-width: 110px;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  }
+  .hero .meta-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(232,218,180,0.5);
   }
   .hero .meta-item .num {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--gold);
+    font-size: 2rem;
+    font-weight: 600;
+    color: #FAF6EC;
     font-family: 'EB Garamond', Georgia, serif;
+    line-height: 1.1;
   }
   .hero .meta-item .label {
-    font-size: 0.75rem;
-    color: var(--text-muted);
+    font-size: 0.72rem;
+    color: rgba(250,246,236,0.75);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
   }
 
   /* ===== NAV ===== */
   .hero-nav {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: wrap;
-    margin-top: 24px;
+    margin-top: 32px;
   }
   .hero-nav a {
     display: inline-block;
-    padding: 6px 14px;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 20px;
-    color: var(--text-muted);
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 999px;
+    color: rgba(250,246,236,0.9);
     text-decoration: none;
-    font-size: 0.78rem;
-    transition: all 0.2s;
+    font-size: 0.82rem;
+    font-family: 'Lora', serif;
+    transition: all 0.25s ease;
   }
   .hero-nav a:hover {
-    border-color: var(--gold);
-    color: var(--gold);
+    background: rgba(250,246,236,0.95);
+    border-color: rgba(250,246,236,0.95);
+    color: var(--ink);
+    transform: translateY(-1px);
   }
 
   /* ===== CONTAINER ===== */
   .container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 50px 24px;
   }
 
   /* ===== SECTION HEADERS ===== */
   .section-title {
     font-family: 'EB Garamond', Georgia, serif;
-    font-size: 1.8rem;
-    color: var(--gold);
-    margin-bottom: 24px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--card-border);
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: -0.01em;
   }
 
   /* ===== FAMILY TREE ===== */
@@ -150,7 +231,7 @@
   }
 
   .generation {
-    margin-bottom: 40px;
+    margin-bottom: 48px;
     position: relative;
   }
   .gen-label {
@@ -159,24 +240,26 @@
     color: var(--gold);
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 12px;
+    font-weight: 600;
   }
   .gen-label::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: var(--card-border);
+    background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
   }
   .gen-label .era {
     font-family: 'Lora', Georgia, serif;
-    font-size: 0.7rem;
-    color: var(--text-muted);
+    font-size: 0.72rem;
+    color: var(--ink-muted);
     font-style: italic;
     letter-spacing: 0;
     text-transform: none;
+    font-weight: 400;
   }
 
   .gen-cards {
@@ -188,43 +271,58 @@
 
   /* ===== PERSON CARD ===== */
   .person {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 10px;
-    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 18px 22px;
     min-width: 260px;
     max-width: 340px;
     position: relative;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+                border-color 0.3s ease;
+    box-shadow: var(--shadow-sm);
   }
   .person:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--gold-light);
   }
   .person.main-line {
-    border-color: var(--gold);
-    border-width: 2px;
-    background: linear-gradient(135deg, var(--card-bg) 0%, #1a2340 100%);
+    border-color: var(--gold-soft);
+    border-width: 1.5px;
+    background:
+      linear-gradient(180deg, var(--surface) 0%, var(--gold-tint) 100%);
+    box-shadow: var(--shadow-md), 0 0 0 1px rgba(139,111,43,0.08);
   }
   .person.main-line::before {
-    content: '★';
+    content: '';
     position: absolute;
-    top: -8px;
-    right: 12px;
-    color: var(--gold);
-    font-size: 1rem;
+    top: -1.5px; left: -1.5px; right: -1.5px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-soft), var(--gold));
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
+  }
+  .person.unknown {
+    background: repeating-linear-gradient(
+      45deg, var(--surface) 0px, var(--surface) 10px,
+      var(--paper-warm) 10px, var(--paper-warm) 11px
+    );
+    border-style: dashed;
   }
 
   .person .name {
     font-family: 'EB Garamond', Georgia, serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 2px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 3px;
+    letter-spacing: -0.005em;
   }
   .person .née {
-    font-size: 0.75rem;
-    color: var(--text-muted);
+    font-size: 0.78rem;
+    color: var(--ink-muted);
     font-style: italic;
     margin-bottom: 8px;
   }
@@ -232,62 +330,71 @@
   .person .dates {
     display: flex;
     gap: 16px;
-    margin-bottom: 8px;
-    font-size: 0.85rem;
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    flex-wrap: wrap;
   }
   .person .dates .birth, .person .dates .death {
     display: flex;
     align-items: center;
     gap: 4px;
   }
-  .person .dates .birth::before { content: '★'; color: var(--accent-green); font-size: 0.7rem; }
-  .person .dates .death::before { content: '✝'; color: var(--accent-red); font-size: 0.7rem; }
+  .person .dates .birth::before { content: '✦'; color: var(--accent-green); font-size: 0.72rem; }
+  .person .dates .death::before { content: '✝'; color: var(--accent-red); font-size: 0.72rem; }
 
   .person .age-badge {
     display: inline-block;
-    background: rgba(201, 168, 76, 0.15);
+    background: var(--gold-tint);
     color: var(--gold);
-    font-size: 0.7rem;
-    padding: 2px 8px;
-    border-radius: 10px;
-    margin-bottom: 8px;
+    font-size: 0.72rem;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
     font-weight: 500;
+    border: 1px solid rgba(139,111,43,0.15);
   }
   .person .age-badge.infant {
-    background: rgba(229, 62, 62, 0.15);
-    color: var(--accent-red);
+    background: #FDECEC;
+    color: var(--infant);
+    border-color: rgba(155,44,44,0.2);
   }
 
   .person .detail {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    margin-top: 6px;
-    padding-top: 6px;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-soft);
+    line-height: 1.55;
   }
   .person .detail .icon { margin-right: 4px; }
+  .person .detail strong { color: var(--ink); }
 
   .person .tag {
     display: inline-block;
-    font-size: 0.65rem;
-    padding: 2px 6px;
-    border-radius: 4px;
-    margin-top: 4px;
+    font-size: 0.68rem;
+    padding: 3px 9px;
+    border-radius: 999px;
+    margin-top: 5px;
     margin-right: 4px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
   }
-  .tag.spouse { background: rgba(66,153,225,0.2); color: var(--accent-blue); }
-  .tag.location { background: rgba(72,187,120,0.2); color: var(--accent-green); }
-  .tag.military { background: rgba(252,129,129,0.2); color: var(--accent-red); }
-  .tag.occupation { background: rgba(159,122,234,0.2); color: var(--accent-purple); }
-  .tag.source { background: rgba(255,255,255,0.05); color: var(--text-muted); }
-  .tag.note { background: rgba(201,168,76,0.15); color: var(--gold); }
-  .tag.died-young { background: rgba(229,62,62,0.15); color: var(--accent-red); }
+  .tag.spouse { background: var(--accent-blue-soft); color: var(--accent-blue); }
+  .tag.location { background: var(--accent-green-soft); color: var(--accent-green); }
+  .tag.military { background: #FDE4E4; color: var(--accent-red); }
+  .tag.occupation { background: var(--accent-purple-soft); color: var(--accent-purple); }
+  .tag.source { background: var(--paper-warm); color: var(--ink-muted); border: 1px solid var(--border); }
+  .tag.note { background: var(--gold-tint); color: var(--gold); }
+  .tag.died-young { background: #FDECEC; color: var(--infant); }
 
   .connector {
     color: var(--gold);
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin: 0 8px;
     align-self: center;
+    font-family: 'EB Garamond', serif;
   }
 
   .couple {
@@ -308,7 +415,7 @@
     align-self: stretch;
     display: flex;
     align-items: center;
-    background: var(--gold);
+    background: var(--gold-soft);
     width: 3px;
     position: relative;
   }
@@ -318,11 +425,12 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background: var(--darker);
+    background: var(--paper);
     color: var(--gold);
     font-size: 1rem;
-    padding: 2px 4px;
-    border-radius: 4px;
+    padding: 2px 6px;
+    border-radius: 999px;
+    border: 1px solid var(--gold-soft);
   }
 
   /* ===== SIBLINGS GROUP ===== */
@@ -330,11 +438,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 12px;
-    padding: 12px;
-    background: rgba(255,255,255,0.02);
-    border: 1px dashed var(--card-border);
-    border-radius: 8px;
+    margin-top: 14px;
+    padding: 16px;
+    background: var(--paper-warm);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
   }
   .siblings-group .group-label {
     width: 100%;
@@ -373,22 +481,29 @@
   }
   .timeline-item {
     position: relative;
-    margin-bottom: 24px;
-    padding: 12px 16px;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 14px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .timeline-item:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
   }
   .timeline-item::before {
     content: '';
     position: absolute;
     left: -30px;
-    top: 18px;
+    top: 20px;
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background: var(--gold);
-    border: 2px solid var(--darker);
+    border: 2px solid var(--paper);
+    box-shadow: 0 0 0 1px var(--gold);
   }
   .timeline-item .year {
     font-family: 'EB Garamond', Georgia, serif;
@@ -413,76 +528,95 @@
     margin: 20px 0;
   }
   .context-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 10px;
-    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.3s cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .context-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
   }
   .context-card h3 {
     font-family: 'EB Garamond', Georgia, serif;
-    color: var(--gold);
-    margin-bottom: 8px;
-    font-size: 1.1rem;
+    color: var(--ink);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
   }
   .context-card p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
     line-height: 1.7;
   }
+  .context-card p strong { color: var(--ink); }
 
   /* ===== STATS TABLE ===== */
   .stats-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 24px 0;
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
   }
   .stats-table th {
     text-align: left;
-    padding: 10px 16px;
+    padding: 14px 18px;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--card-border);
+    color: var(--ink-muted);
+    border-bottom: 1px solid var(--border);
+    background: var(--paper-warm);
+    font-weight: 600;
   }
   .stats-table td {
-    padding: 10px 16px;
-    font-size: 0.85rem;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
+    padding: 12px 18px;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--border-soft);
   }
+  .stats-table tr:last-child td { border-bottom: none; }
   .stats-table tr:hover td {
-    background: rgba(201,168,76,0.05);
+    background: var(--gold-tint);
   }
   .stats-table tr.died-infant td {
-    opacity: 0.6;
+    opacity: 0.55;
   }
-  .stats-table .main-row {
-    background: rgba(201,168,76,0.05);
+  .stats-table .main-row td {
+    background: var(--gold-tint);
+    font-weight: 500;
+    color: var(--ink);
   }
 
   /* ===== MORTALITY CHART ===== */
   .mortality-bar {
     display: flex;
-    height: 32px;
-    border-radius: 6px;
+    height: 36px;
+    border-radius: var(--radius-sm);
     overflow: hidden;
-    margin: 12px 0;
+    margin: 14px 0;
+    box-shadow: var(--shadow-sm);
   }
   .mortality-bar .survived {
     background: var(--accent-green);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    color: #000;
+    color: #fff;
   }
   .mortality-bar .died {
     background: var(--accent-red);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: #fff;
   }
@@ -492,80 +626,94 @@
     margin-top: 60px;
   }
   .story-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    margin-bottom: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 14px;
     overflow: hidden;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    box-shadow: var(--shadow-sm);
+  }
+  .story-card:hover {
+    border-color: var(--gold-light);
+    box-shadow: var(--shadow-md);
   }
   .story-card[open] {
-    border-color: var(--gold);
+    border-color: var(--gold-soft);
+    box-shadow: var(--shadow-md);
   }
   .story-card summary {
-    padding: 20px 24px;
+    padding: 22px 26px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 18px;
     list-style: none;
     font-family: 'EB Garamond', Georgia, serif;
-    font-size: 1.15rem;
-    color: #fff;
+    font-size: 1.2rem;
+    color: var(--ink);
     transition: background 0.2s;
+    font-weight: 500;
   }
   .story-card summary::-webkit-details-marker { display: none; }
   .story-card summary::after {
-    content: '▸';
+    content: '→';
     margin-left: auto;
     color: var(--gold);
-    font-size: 1.2rem;
-    transition: transform 0.3s;
+    font-size: 1.3rem;
+    transition: transform 0.3s cubic-bezier(0.2,0.8,0.2,1);
+    font-weight: 300;
   }
   .story-card[open] summary::after {
     transform: rotate(90deg);
   }
   .story-card summary:hover {
-    background: rgba(201,168,76,0.05);
+    background: var(--gold-tint);
   }
   .story-card .story-icon {
     font-size: 1.8rem;
     flex-shrink: 0;
     width: 48px;
     text-align: center;
+    filter: drop-shadow(0 1px 2px rgba(28,26,22,0.1));
   }
   .story-card .story-meta {
     display: flex;
     flex-direction: column;
   }
   .story-card .story-title {
-    font-weight: 700;
+    font-weight: 600;
   }
   .story-card .story-period {
     font-family: 'Lora', Georgia, serif;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    margin-top: 2px;
-    letter-spacing: 0.5px;
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    margin-top: 3px;
+    letter-spacing: 0.3px;
+    font-style: italic;
   }
   .story-body {
-    padding: 0 24px 24px;
-    font-size: 0.9rem;
-    color: var(--text);
-    line-height: 1.8;
+    padding: 4px 26px 28px;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.85;
   }
   .story-body p {
-    margin-bottom: 14px;
+    margin-bottom: 16px;
   }
+  .story-body p strong { color: var(--ink); font-weight: 600; }
+  .story-body a { color: var(--accent-blue); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .story-body a:hover { color: var(--accent-purple); }
   .story-body .story-highlight {
-    background: rgba(201,168,76,0.08);
+    background: var(--gold-tint);
     border-left: 3px solid var(--gold);
-    padding: 12px 16px;
-    margin: 16px 0;
-    border-radius: 0 8px 8px 0;
-    font-size: 0.88rem;
+    padding: 14px 18px;
+    margin: 18px 0;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
   }
-  .story-body .story-highlight strong { color: var(--gold); }
+  .story-body .story-highlight strong { color: var(--ink); }
   .story-body .story-table {
     width: 100%;
     border-collapse: collapse;
@@ -574,97 +722,130 @@
   }
   .story-body .story-table th {
     text-align: left;
-    padding: 8px 12px;
-    color: var(--text-muted);
-    font-size: 0.7rem;
+    padding: 10px 14px;
+    color: var(--ink-muted);
+    font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--border);
+    background: var(--paper-warm);
   }
   .story-body .story-table td {
-    padding: 8px 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
+    padding: 10px 14px;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--border-soft);
   }
   .story-body h4 {
     font-family: 'EB Garamond', Georgia, serif;
-    color: var(--gold);
-    font-size: 1rem;
-    margin: 20px 0 10px;
-  }
-  .story-body a {
-    color: var(--accent-blue);
-    text-decoration: underline;
-    text-decoration-color: rgba(66,153,225,0.3);
-  }
-  .story-body a:hover {
-    text-decoration-color: var(--accent-blue);
+    color: var(--ink);
+    font-size: 1.08rem;
+    margin: 22px 0 10px;
+    font-weight: 600;
   }
   .story-divider {
     width: 60px;
     height: 2px;
-    background: var(--gold);
-    margin: 20px 0;
-    opacity: 0.4;
+    background: var(--gold-soft);
+    margin: 24px 0;
+    opacity: 0.7;
+    border-radius: 2px;
   }
 
   /* ===== FAMILYSEARCH DISCOVERY ===== */
   .discovery-card {
-    background: linear-gradient(135deg, rgba(22,33,62,0.9) 0%, rgba(26,26,46,0.9) 100%);
+    background: linear-gradient(135deg, var(--accent-blue-soft) 0%, #F0F5FB 100%);
     border: 1px solid var(--accent-blue);
-    border-radius: 12px;
-    padding: 20px 24px;
-    margin: 16px 0;
+    border-radius: var(--radius-md);
+    padding: 22px 26px;
+    margin: 18px 0;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .discovery-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
   }
   .discovery-card h4 {
     color: var(--accent-blue);
     font-family: 'EB Garamond', Georgia, serif;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    font-size: 1.15rem;
+    font-weight: 600;
   }
   .discovery-card .disc-detail {
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
     line-height: 1.7;
   }
   .discovery-card .disc-link {
     display: inline-block;
-    margin-top: 10px;
-    padding: 6px 14px;
-    background: rgba(66,153,225,0.15);
-    color: var(--accent-blue);
-    border-radius: 6px;
-    font-size: 0.8rem;
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: var(--accent-blue);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 0.82rem;
     text-decoration: none;
-    transition: background 0.2s;
+    font-weight: 500;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
   .discovery-card .disc-link:hover {
-    background: rgba(66,153,225,0.25);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
   }
 
   /* ===== FOOTER ===== */
   .footer {
     text-align: center;
-    padding: 40px 20px;
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    border-top: 1px solid var(--card-border);
-    margin-top: 60px;
+    padding: 50px 20px 60px;
+    color: var(--ink-muted);
+    font-size: 0.82rem;
+    border-top: 1px solid var(--border);
+    margin-top: 70px;
+    background: var(--paper-warm);
   }
+  .footer a { color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold-soft); }
+  .footer a:hover { color: var(--ink); border-bottom-style: solid; }
 
   /* ===== RESEARCH NOTE ===== */
   .research-note {
-    background: rgba(201,168,76,0.05);
+    background: var(--gold-tint);
     border-left: 3px solid var(--gold);
-    padding: 12px 16px;
-    margin: 16px 0;
-    border-radius: 0 8px 8px 0;
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    padding: 16px 20px;
+    margin: 18px 0;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
   }
-  .research-note strong { color: var(--gold); }
+  .research-note strong { color: var(--ink); font-weight: 600; }
 
-  .unknown {
-    opacity: 0.6;
-    border-style: dashed;
+  /* ===== BACK TO TOP ===== */
+  .back-to-top {
+    position: fixed;
+    right: 24px; bottom: 24px;
+    width: 44px; height: 44px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 50%;
+    border: 1px solid var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 100;
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .back-to-top:hover {
+    background: var(--gold);
+    border-color: var(--gold);
   }
 
   /* ===== RESPONSIVE ===== */
@@ -680,6 +861,12 @@
 </style>
 </head>
 <body>
+
+<!-- Scroll progress indicator -->
+<div class="scroll-progress"><div class="scroll-progress-fill" id="scrollProgress"></div></div>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="Zpět nahoru">↑</button>
 
 <!-- ===== HERO ===== -->
 <div class="hero">
@@ -946,6 +1133,22 @@
       <span class="tag note">♊ Blíženci · 🐓 Dřevěný Kohout</span>
       <div class="detail" style="margin-top:8px; font-size:0.78rem;">
         <strong>Hufschmiedemeister</strong> — mistr podkovářský. Nejvyšší cechovní hodnost — vlastní dílna, učni, mistrovská zkouška. Přesídlil z Bělouně do <strong>Rtyně č. 27</strong>, kde strávil zbytek života. Zemřel jako výměnkář (důchodce s doživotním právem na bydlení u hospodáře).
+      </div>
+    </div>
+
+    <div class="person main-line unknown">
+      <div class="name">Regina Tschenek</div>
+      <div class="née">provdaná Hofman</div>
+      <div class="dates">
+        <span class="birth">31. 3. 1828</span>
+        <span class="death">datum neznámé</span>
+      </div>
+      <div class="age-badge">∞ Franz Hofman</div>
+      <span class="tag spouse">Manželka Franze podkováře</span>
+      <span class="tag note">Matka Josefa (1857) + sourozenců</span>
+      <span class="tag died-young">Datum + místo úmrtí neznámé</span>
+      <div class="detail" style="margin-top:8px; font-size:0.78rem;">
+        Potvrzeno z MyHeritage (2026-04-17): <strong>Regina Tschenek</strong>, narozená 31. března 1828. Provdala se za <strong>Franze Hofmana</strong> (*1825), mistra podkovářského v Rtyni č. 27. Matka jejich dětí včetně <strong>Josefa (1857)</strong> — pradědy Josefa. Pravopisné varianty příjmení: Čenková, Tschenek, Tscheneck. Oddací matrika <strong>sign. 181A-4224</strong> Zaloňov (O 1839–1895, sňatek ~1851).
       </div>
     </div>
 
@@ -2352,10 +2555,11 @@
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 30px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
   }
   .map-wrap h3 {
-    color: #1a1a2e;
+    color: var(--ink);
     margin-bottom: 6px;
     font-family: 'EB Garamond', Georgia, serif;
   }
@@ -2950,12 +3154,76 @@
   <p>Rodokmen rodiny Hoffmann / Hofman — 44 osob, 9 generací, 260 let · Královéhradecký kraj</p>
   <p>Zpracováno z originální fotografie rodinného stromu (foto 24. 2. 2019)</p>
   <p>Aktualizováno 5. dubna 2026 · Kompletní přepis s ověřenými daty + příběhy rodu · FamilySearch research · Lokace: Sylvárov, Běluň, Rtyně (Zaloňov), Lišice</p>
-  <p style="margin-top: 10px; color: var(--gold); font-family: 'EB Garamond', Georgia, serif;">
+  <p style="margin-top: 10px; color: var(--gold); font-family: 'EB Garamond', Georgia, serif; font-size: 1.05rem; font-style: italic;">
     „Kdo nezná svou minulost, nemá budoucnost."
+  </p>
+  <p style="margin-top: 16px; font-size: 0.72rem; color: var(--ink-muted);">
+    <a href="https://github.com/Stealth-mode-OFF/hoffmann-rodokmen" target="_blank" rel="noopener">GitHub</a>
+    ·
+    <a href="https://aron.vychodoceskearchivy.cz/" target="_blank" rel="noopener">ARchiv ONline SOA Zámrsk</a>
+    ·
+    <a href="https://matriky.online/zamrsk/" target="_blank" rel="noopener">matriky.online</a>
   </p>
 </div>
 
 </div>
+
+<!-- Lightbox element (pre-built, shown via class toggle) -->
+<div id="lightbox" style="position:fixed;inset:0;background:rgba(15,15,20,0.92);z-index:9998;display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out;backdrop-filter:blur(4px);">
+  <img src="./hero-matrika-1793.jpg" style="max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,0.6);border-radius:6px;" alt="Matrika Žireč 1793">
+  <div style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:#fff;font-family:Lora,serif;font-size:0.85rem;background:rgba(0,0,0,0.4);padding:8px 16px;border-radius:20px;backdrop-filter:blur(8px);">Matrika oddaných, fara Žireč, sign. 188-3, str. 10 · rok 1793</div>
+</div>
+
+<script>
+(function(){
+  // Scroll progress bar
+  const fill = document.getElementById('scrollProgress');
+  const backBtn = document.getElementById('backToTop');
+  const lightbox = document.getElementById('lightbox');
+
+  function onScroll(){
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    if (fill) fill.style.width = pct + '%';
+    if (backBtn) backBtn.classList.toggle('visible', h.scrollTop > 400);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  if (backBtn) backBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Reveal-on-scroll (IntersectionObserver)
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+
+  document.querySelectorAll('.generation, .section-title, .context-card, .story-card, .timeline-item, .map-wrap, .stats-table, .research-note, .discovery-card').forEach(el => {
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+
+  // Lightbox for hero (show matrika full-screen)
+  const hero = document.querySelector('.hero');
+  if (hero && lightbox) {
+    hero.style.cursor = 'zoom-in';
+    hero.addEventListener('click', (e) => {
+      if (e.target.closest('a, button, .meta-item')) return;
+      lightbox.style.display = 'flex';
+    });
+    lightbox.addEventListener('click', () => { lightbox.style.display = 'none'; });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') lightbox.style.display = 'none';
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
