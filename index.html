@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rodokmen Hoffmann / Hofman — od roku 1766</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
   :root {
-    --gold: #C9A84C;
-    --gold-light: #F0E4C4;
+    --gold: #B8944A;
+    --gold-light: #E6D4A2;
     --dark: #1a1a2e;
     --darker: #0f0f1a;
     --card-bg: #16213e;
     --card-border: #2a3a5e;
     --text: #e8e8e8;
-    --text-muted: #8892a8;
-    --main-line: #C9A84C;
+    --text-muted: #a0a8b8;
+    --main-line: #B8944A;
     --side-line: #4a5568;
     --accent-blue: #4299e1;
     --accent-green: #48bb78;
@@ -28,25 +28,42 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Lora', Georgia, 'Times New Roman', serif;
     background: var(--darker);
     color: var(--text);
-    line-height: 1.6;
+    line-height: 1.65;
+    font-size: 16px;
   }
 
   /* ===== HERO ===== */
   .hero {
+    position: relative;
     text-align: center;
-    padding: 60px 20px 40px;
-    background: linear-gradient(180deg, #0a0a15 0%, var(--darker) 100%);
+    padding: 80px 20px 50px;
+    background-image:
+      linear-gradient(180deg, rgba(10,10,20,0.82) 0%, rgba(15,15,26,0.88) 55%, rgba(15,15,26,0.97) 100%),
+      url('./hero-matrika-1793.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
     border-bottom: 1px solid var(--card-border);
   }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(10,10,20,0.35) 75%);
+    pointer-events: none;
+  }
+  .hero > * { position: relative; z-index: 1; }
   .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: var(--gold);
-    margin-bottom: 8px;
-    letter-spacing: 2px;
+    font-family: 'EB Garamond', 'Garamond', Georgia, serif;
+    font-size: 3.4rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.4);
   }
   .hero .subtitle {
     font-size: 1.1rem;
@@ -76,7 +93,7 @@
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--gold);
-    font-family: 'Playfair Display', serif;
+    font-family: 'EB Garamond', Georgia, serif;
   }
   .hero .meta-item .label {
     font-size: 0.75rem;
@@ -118,7 +135,7 @@
 
   /* ===== SECTION HEADERS ===== */
   .section-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-size: 1.8rem;
     color: var(--gold);
     margin-bottom: 24px;
@@ -137,7 +154,7 @@
     position: relative;
   }
   .gen-label {
-    font-family: 'Playfair Display', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-size: 0.85rem;
     color: var(--gold);
     text-transform: uppercase;
@@ -154,7 +171,7 @@
     background: var(--card-border);
   }
   .gen-label .era {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Lora', Georgia, serif;
     font-size: 0.7rem;
     color: var(--text-muted);
     font-style: italic;
@@ -199,7 +216,7 @@
   }
 
   .person .name {
-    font-family: 'Playfair Display', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-size: 1.1rem;
     font-weight: 700;
     color: #fff;
@@ -374,7 +391,7 @@
     border: 2px solid var(--darker);
   }
   .timeline-item .year {
-    font-family: 'Playfair Display', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     color: var(--gold);
     font-size: 1rem;
     font-weight: 700;
@@ -402,7 +419,7 @@
     padding: 20px;
   }
   .context-card h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     color: var(--gold);
     margin-bottom: 8px;
     font-size: 1.1rem;
@@ -492,7 +509,7 @@
     align-items: center;
     gap: 16px;
     list-style: none;
-    font-family: 'Playfair Display', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-size: 1.15rem;
     color: #fff;
     transition: background 0.2s;
@@ -525,7 +542,7 @@
     font-weight: 700;
   }
   .story-card .story-period {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Lora', Georgia, serif;
     font-size: 0.75rem;
     color: var(--text-muted);
     margin-top: 2px;
@@ -569,7 +586,7 @@
     border-bottom: 1px solid rgba(255,255,255,0.03);
   }
   .story-body h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     color: var(--gold);
     font-size: 1rem;
     margin: 20px 0 10px;
@@ -600,7 +617,7 @@
   }
   .discovery-card h4 {
     color: var(--accent-blue);
-    font-family: 'Playfair Display', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     margin-bottom: 8px;
   }
   .discovery-card .disc-detail {
@@ -1785,49 +1802,49 @@
 
 <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 20px 0;">
   <div style="background: var(--card-bg); border: 2px solid var(--gold); border-radius: 10px; padding: 14px 18px; text-align: center;">
-    <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Joseph Franz</div>
+    <div style="font-family: 'EB Garamond', Georgia, serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Joseph Franz</div>
     <div style="font-size: 0.7rem; color: var(--text-muted);">~ 1766</div>
     <div style="font-size: 0.65rem; color: var(--text-muted);">Silberleut</div>
   </div>
   <div style="color: var(--gold); font-size: 1.5rem;">→</div>
   <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 14px 18px; text-align: center;">
-    <div style="font-family: 'Playfair Display', serif; color: var(--text); font-size: 1rem;">Franz Xaveri</div>
+    <div style="font-family: 'EB Garamond', Georgia, serif; color: var(--text); font-size: 1rem;">Franz Xaveri</div>
     <div style="font-size: 0.7rem; color: var(--text-muted);">1799 · Kovář</div>
     <div style="font-size: 0.65rem; color: var(--text-muted);">Silberleut → Bělouň</div>
   </div>
   <div style="color: var(--gold); font-size: 1.5rem;">→</div>
   <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 14px 18px; text-align: center;">
-    <div style="font-family: 'Playfair Display', serif; color: var(--text); font-size: 1rem;">Franz</div>
+    <div style="font-family: 'EB Garamond', Georgia, serif; color: var(--text); font-size: 1rem;">Franz</div>
     <div style="font-size: 0.7rem; color: var(--text-muted);">1825 · Podkovář</div>
     <div style="font-size: 0.65rem; color: var(--text-muted);">Bělouň → Rtyně</div>
   </div>
   <div style="color: var(--gold); font-size: 1.5rem;">→</div>
   <div style="background: var(--card-bg); border: 2px solid var(--gold); border-radius: 10px; padding: 14px 18px; text-align: center;">
-    <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Josef</div>
+    <div style="font-family: 'EB Garamond', Georgia, serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Josef</div>
     <div style="font-size: 0.7rem; color: var(--text-muted);">1857</div>
     <div style="font-size: 0.65rem; color: var(--text-muted);">Rtyně</div>
   </div>
   <div style="color: var(--gold); font-size: 1.5rem;">→</div>
   <div style="background: var(--card-bg); border: 2px solid var(--gold); border-radius: 10px; padding: 14px 18px; text-align: center;">
-    <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Josef</div>
+    <div style="font-family: 'EB Garamond', Georgia, serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Josef</div>
     <div style="font-size: 0.7rem; color: var(--text-muted);">1894 · Štědrý den</div>
     <div style="font-size: 0.65rem; color: var(--text-muted);">Rtyně</div>
   </div>
   <div style="color: var(--gold); font-size: 1.5rem;">→</div>
   <div style="background: var(--card-bg); border: 2px solid var(--gold); border-radius: 10px; padding: 14px 18px; text-align: center;">
-    <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Josef</div>
+    <div style="font-family: 'EB Garamond', Georgia, serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Josef</div>
     <div style="font-size: 0.7rem; color: var(--text-muted);">1924 · Policajt</div>
     <div style="font-size: 0.65rem; color: var(--text-muted);">Rtyně → Praha</div>
   </div>
   <div style="color: var(--gold); font-size: 1.5rem;">→</div>
   <div style="background: var(--card-bg); border: 2px solid var(--gold); border-radius: 10px; padding: 14px 18px; text-align: center;">
-    <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Josef</div>
+    <div style="font-family: 'EB Garamond', Georgia, serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Josef</div>
     <div style="font-size: 0.7rem; color: var(--text-muted);">1958</div>
     <div style="font-size: 0.65rem; color: var(--text-muted);">Praha</div>
   </div>
   <div style="color: var(--gold); font-size: 1.5rem;">→</div>
   <div style="background: linear-gradient(135deg, var(--card-bg) 0%, #1a2340 100%); border: 2px solid var(--gold); border-radius: 10px; padding: 14px 18px; text-align: center;">
-    <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Josef</div>
+    <div style="font-family: 'EB Garamond', Georgia, serif; color: var(--gold); font-size: 1rem; font-weight: 700;">Josef</div>
     <div style="font-size: 0.7rem; color: var(--text-muted);">1988 · Developer</div>
     <div style="font-size: 0.65rem; color: var(--text-muted);">Jaroměř → Praha</div>
   </div>
@@ -2304,7 +2321,7 @@
 </details>
 
 <!-- FAMILYSEARCH NÁLEZY -->
-<h3 style="font-family: 'Playfair Display', serif; color: var(--accent-blue); margin: 30px 0 16px;">🔍 Nálezy na FamilySearch (5. dubna 2026)</h3>
+<h3 style="font-family: 'EB Garamond', Georgia, serif; color: var(--accent-blue); margin: 30px 0 16px;">🔍 Nálezy na FamilySearch (5. dubna 2026)</h3>
 
 <div class="context-grid">
   <div class="discovery-card">
@@ -2326,6 +2343,189 @@
 
 <!-- ===== MÍSTA ===== -->
 <h2 class="section-title" style="margin-top:60px;" id="mista">📍 Místa rodu</h2>
+
+<!-- Interaktivní mapa migrací -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  .map-wrap {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+  .map-wrap h3 {
+    color: #1a1a2e;
+    margin-bottom: 6px;
+    font-family: 'EB Garamond', Georgia, serif;
+  }
+  .map-wrap .map-sub {
+    color: #555;
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+  }
+  #hoffmann-map {
+    height: 520px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #d0d5dd;
+    background: #f5f5f0;
+  }
+  .map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: #333;
+  }
+  .map-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .map-legend-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px #999;
+  }
+  .map-popup {
+    font-family: 'Lora', Georgia, serif;
+    color: #1a1a2e;
+    line-height: 1.4;
+  }
+  .map-popup-title {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #1a1a2e;
+  }
+  .map-popup-sub {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .map-popup-body {
+    font-size: 0.85rem;
+  }
+  .map-popup-gen {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: white;
+    margin-right: 6px;
+    margin-bottom: 4px;
+  }
+</style>
+
+<div class="map-wrap">
+  <h3>🗺️ Migrace rodu Hoffmann/Hofman — 1766 až dnes</h3>
+  <p class="map-sub">
+    Od Sylvárova (Silberleut) přes Běluň, Rtyni u Zaloňova, Jaroměř až do Prahy. Označeny obce spojené s 9 generacemi rodu (vzdušnou čárou).
+    Libotov je rodiště Heleny Haße (manželky zakladatele Josepha Franze). Klikni na marker pro detail.
+  </p>
+  <div id="hoffmann-map"></div>
+  <div class="map-legend">
+    <div class="map-legend-item"><span class="map-legend-dot" style="background:#C9A84C"></span>Gen. I–II · 1766–1815 (Sylvárov, Libotov)</div>
+    <div class="map-legend-item"><span class="map-legend-dot" style="background:#4299e1"></span>Gen. II–III · 1799–1852 (Běluň, Jaroměř)</div>
+    <div class="map-legend-item"><span class="map-legend-dot" style="background:#48bb78"></span>Gen. III–VI · 1852–1952 (Rtyně č. 27 — 72 let!)</div>
+    <div class="map-legend-item"><span class="map-legend-dot" style="background:#9f7aea"></span>Gen. VI–VIII · 1952–dnes (Jaroměř · Praha)</div>
+    <div class="map-legend-item"><span class="map-legend-dot" style="background:#6b7280"></span>Farnosti (Dubenec, Žireč, Zaloňov)</div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+  const map = L.map('hoffmann-map', { scrollWheelZoom: false, zoomControl: true });
+  // Světlé OSM-based dlaždice (CartoDB Positron)
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap · &copy; CartoDB',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(map);
+
+  const COLORS = {
+    gold: '#C9A84C', blue: '#4299e1', green: '#48bb78', purple: '#9f7aea', gray: '#6b7280'
+  };
+  function dotIcon(color, label) {
+    return L.divIcon({
+      className: 'hoffmann-dot',
+      html: `<div style="background:${color};width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:11px;font-family:'Inter',sans-serif;">${label||''}</div>`,
+      iconSize: [22, 22],
+      iconAnchor: [11, 11]
+    });
+  }
+
+  const places = [
+    // Hlavní bydliště (obarvené podle generací)
+    { coords:[50.4560,15.7622], name:'Libotov (Liebthal)', color:COLORS.gold, label:'♀',
+      period:'~ 1770 – 1793', gen:'Gen. I · manželka',
+      body:'<strong>Rodiště Heleny Haße</strong>, manželky Joseph Franze. Vesnice 172 obyvatel, okres Trutnov. Německy <em>Liebthal / Liebenthal</em>. Farnost <strong>Dubenec</strong> (matriky sign. 34-6, 34-7).' },
+    { coords:[50.4418,15.8087], name:'Sylvárov (Silberleut) č. 12', color:COLORS.gold, label:'I',
+      period:'~ 1766 – 1828+', gen:'Gen. I · II',
+      body:'<strong>Domov Joseph Franze Hoffmanna a 12 dětí.</strong> Joseph Franz †3.3.1828 Silberleut. Dnes katastrální území Dvora Králové n. L. Farnost <strong>Žireč</strong> (matriky sign. 188-3 O, 188-7115 N, 188-2, 188-4).' },
+    { coords:[50.3835,15.9420],  name:'Běluň č. 4', color:COLORS.blue, label:'II',
+      period:'~ 1818 – 1852', gen:'Gen. II · III',
+      body:'<strong>Kovářská dílna Franze Xaveri Johanna Hoffmanna.</strong> Běluň u Heřmanic, okres Náchod — 3 km od Jaroměře. Zde se narodilo 7 dětí. Heřmanice = rodiště Albrechta z Valdštejna (1583).' },
+    { coords:[50.3814,15.9419], name:'Rtyně č. 27 (Zaloňov)', color:COLORS.green, label:'III',
+      period:'~ 1852 – 1924 · 72 let!', gen:'Gen. III · IV · V · VI',
+      body:'<strong>Nejdéle obývaný dům — 4 generace!</strong> Dům mistra podkováře Franze Hofmana. Zde se narodili Josef (1857), dvojčata Franz + Jan (1862), Marie (1869), Maria (1892), Josef (1894) i poslední Josef (1924). Farnost <strong>Zaloňov</strong> (sign. 181A-4213/4224/4225).' },
+    { coords:[50.2444,15.6725], name:'Lišice č. 7', color:COLORS.blue, label:'·',
+      period:'~ 1880', gen:'Gen. III',
+      body:'<strong>Anton Hofmann</strong> (1834–1925) pracoval jako zahradník po vojenské službě u c.k. pěšího pluku 36. Poté návrat do Rtyně.' },
+    { coords:[50.3561,15.9213], name:'Jaroměř', color:COLORS.purple, label:'VI',
+      period:'~ 1952 – 1980s', gen:'Gen. VI · VII',
+      body:'<strong>Rodné město</strong> Hany (1952), Pavla (1963) a Josefa (1988). Pouze 3 km od Běluně — po 150 letech se rodina vrátila do blízkosti svých kořenů.' },
+    { coords:[50.0755,14.4378], name:'Praha', color:COLORS.purple, label:'VIII',
+      period:'~ 1958 – dnes', gen:'Gen. VII · VIII',
+      body:'<strong>Josef Hofman</strong> (1958) a potomci — rodinný přesun z Jaroměře. Hana pracovala na Ministerstvu vnitra. Josef (1988) — frontend developer. 222 let a 180 km od kováře v Silberleut.' },
+
+    // Farnosti (šedé, menší význam)
+    { coords:[50.4305,15.8336], name:'Dubenec (fara)', color:COLORS.gray, label:'†',
+      period:'1640 – 2006', gen:'Farnost',
+      body:'Farnost pro <strong>Libotov</strong> (Helenino rodiště) a ~10 okolních vsí. Římskokatolická, fond matrik 34 v SOA Zámrsk. Matriky 34-7 (NOZ 1758–1773) — křest Heleny; 34-6 (1700–1758) — její rodiče.' },
+    { coords:[50.4355,15.8519], name:'Žireč (fara)', color:COLORS.gray, label:'†',
+      period:'od 1782 samostatná', gen:'Farnost',
+      body:'Farnost pro <strong>Sylvárov/Silberleut</strong>. Původně filiálka Dubence, od 1782 samostatná. Matrika oddaných 188-3 (str. 10–11 = rok 1793) obsahuje <strong>svatbu Helena × Joseph Franz</strong>.' },
+    { coords:[50.3800,15.9515], name:'Zaloňov (fara)', color:COLORS.gray, label:'†',
+      period:'od 1785', gen:'Farnost',
+      body:'Farnost pro Rtyni č. 27 (kostel sv. Petra a Pavla, zmíněn 1363). Fond 181A. Matriky obsahují sňatky Franze (~1851) a Josefa (~1891) + všechny narozené v Rtyni č. 27.' },
+  ];
+
+  const layerGroup = L.layerGroup().addTo(map);
+  const mainCoords = [];
+  const mainOrder = ['Libotov (Liebthal)','Sylvárov (Silberleut) č. 12','Běluň č. 4','Rtyně č. 27 (Zaloňov)','Jaroměř','Praha'];
+
+  places.forEach(p => {
+    const m = L.marker(p.coords, { icon: dotIcon(p.color, p.label) }).addTo(layerGroup);
+    const popup = `<div class="map-popup"><div class="map-popup-title">${p.name}</div>` +
+                  `<div class="map-popup-sub">${p.period}</div>` +
+                  `<span class="map-popup-gen" style="background:${p.color};">${p.gen}</span>` +
+                  `<div class="map-popup-body">${p.body}</div></div>`;
+    m.bindPopup(popup, { maxWidth: 320 });
+    if (mainOrder.includes(p.name)) {
+      mainCoords[mainOrder.indexOf(p.name)] = p.coords;
+    }
+  });
+
+  // Migrační cesta (přerušovaná čára chronologicky)
+  L.polyline(mainCoords.filter(Boolean), {
+    color: '#C9A84C', weight: 3, opacity: 0.7, dashArray: '6 8'
+  }).addTo(map);
+
+  // Fit bounds na všechny markery
+  const bounds = L.latLngBounds(places.map(p => p.coords));
+  map.fitBounds(bounds, { padding: [40, 40] });
+
+  // Po kliknutí do mapy povolit scroll wheel zoom
+  map.on('click', () => map.scrollWheelZoom.enable());
+  map.on('mouseout', () => map.scrollWheelZoom.disable());
+})();
+</script>
 
 <div class="context-grid">
   <div class="context-card">
@@ -2483,7 +2683,7 @@
 </div>
 
 <!-- IR 36 -->
-<h3 style="font-family: 'Playfair Display', serif; color: var(--gold); margin: 30px 0 16px;">⚔️ Pěší pluk č. 36 — „Immer vorwärts"</h3>
+<h3 style="font-family: 'EB Garamond', Georgia, serif; color: var(--gold); margin: 30px 0 16px;">⚔️ Pěší pluk č. 36 — „Immer vorwärts"</h3>
 
 <div class="context-grid">
   <div class="context-card">
@@ -2521,7 +2721,7 @@
 </div>
 
 <!-- SYLVÁROV A 1938 -->
-<h3 style="font-family: 'Playfair Display', serif; color: var(--gold); margin: 30px 0 16px;">🏚️ Sylvárov (Silberleut) — osud rodného místa</h3>
+<h3 style="font-family: 'EB Garamond', Georgia, serif; color: var(--gold); margin: 30px 0 16px;">🏚️ Sylvárov (Silberleut) — osud rodného místa</h3>
 
 <div class="context-grid">
   <div class="context-card">
@@ -2548,7 +2748,7 @@
 </div>
 
 <!-- RTYNĚ A BĚLUŇ -->
-<h3 style="font-family: 'Playfair Display', serif; color: var(--gold); margin: 30px 0 16px;">🏘️ Rtyně a Běluň — podrobná historie</h3>
+<h3 style="font-family: 'EB Garamond', Georgia, serif; color: var(--gold); margin: 30px 0 16px;">🏘️ Rtyně a Běluň — podrobná historie</h3>
 
 <div class="context-grid">
   <div class="context-card">
@@ -2573,7 +2773,7 @@
 </div>
 
 <!-- PŘÍJMENÍ -->
-<h3 style="font-family: 'Playfair Display', serif; color: var(--gold); margin: 30px 0 16px;">📊 Distribuce příjmení Hofman/Hoffmann v ČR</h3>
+<h3 style="font-family: 'EB Garamond', Georgia, serif; color: var(--gold); margin: 30px 0 16px;">📊 Distribuce příjmení Hofman/Hoffmann v ČR</h3>
 
 <table class="stats-table">
   <thead>
@@ -2605,7 +2805,7 @@
 </div>
 
 <!-- ONLINE NÁSTROJE -->
-<h3 style="font-family: 'Playfair Display', serif; color: var(--gold); margin: 30px 0 16px;">🔧 Online nástroje pro genealogický výzkum</h3>
+<h3 style="font-family: 'EB Garamond', Georgia, serif; color: var(--gold); margin: 30px 0 16px;">🔧 Online nástroje pro genealogický výzkum</h3>
 
 <table class="stats-table">
   <thead>
@@ -2690,7 +2890,7 @@
 </table>
 
 <!-- FYZICKÉ ARCHIVY -->
-<h3 style="font-family: 'Playfair Display', serif; color: var(--gold); margin: 30px 0 16px;">🏛️ Fyzické archivy</h3>
+<h3 style="font-family: 'EB Garamond', Georgia, serif; color: var(--gold); margin: 30px 0 16px;">🏛️ Fyzické archivy</h3>
 
 <table class="stats-table">
   <thead>
@@ -2750,7 +2950,7 @@
   <p>Rodokmen rodiny Hoffmann / Hofman — 44 osob, 9 generací, 260 let · Královéhradecký kraj</p>
   <p>Zpracováno z originální fotografie rodinného stromu (foto 24. 2. 2019)</p>
   <p>Aktualizováno 5. dubna 2026 · Kompletní přepis s ověřenými daty + příběhy rodu · FamilySearch research · Lokace: Sylvárov, Běluň, Rtyně (Zaloňov), Lišice</p>
-  <p style="margin-top: 10px; color: var(--gold); font-family: 'Playfair Display', serif;">
+  <p style="margin-top: 10px; color: var(--gold); font-family: 'EB Garamond', Georgia, serif;">
     „Kdo nezná svou minulost, nemá budoucnost."
   </p>
 </div>
