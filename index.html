@@ -820,6 +820,52 @@
   }
   .research-note strong { color: var(--ink); font-weight: 600; }
 
+  /* ===== MATRIKA CLICKABLE BADGE ===== */
+  .person[data-matrika],
+  .context-card[data-matrika] {
+    cursor: zoom-in;
+    position: relative;
+  }
+  .person[data-matrika]::after,
+  .context-card[data-matrika]::after {
+    content: '📜 klikni pro matriku';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 0.65rem;
+    padding: 3px 8px;
+    border-radius: 999px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+    font-family: 'Lora', serif;
+    letter-spacing: 0.3px;
+    z-index: 2;
+  }
+  .person[data-matrika]:hover::after,
+  .context-card[data-matrika]:hover::after {
+    opacity: 0.95;
+  }
+  .person[data-matrika]::before {
+    content: '📜';
+    position: absolute;
+    top: 10px; right: 10px;
+    font-size: 0.9rem;
+    opacity: 0.4;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 1;
+  }
+  .person[data-matrika]:hover::before {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+  .person.main-line[data-matrika]::before {
+    top: 14px;
+    right: 14px;
+  }
+
   /* ===== BACK TO TOP ===== */
   .back-to-top {
     position: fixed;
@@ -916,7 +962,7 @@
   </div>
 
   <div class="gen-cards">
-    <div class="person main-line">
+    <div class="person main-line" data-matrika="34-5-p113-1766">
       <div class="name">Joseph Franz Hoffmann</div>
       <div class="dates">
         <span class="birth">~ 1766</span>
@@ -935,7 +981,7 @@
       </div>
     </div>
 
-    <div class="person main-line unknown">
+    <div class="person main-line unknown" data-matrika="188-2-p92-hasse">
       <div class="name">Helena Haße</div>
       <div class="dates">
         <span class="birth">Libotov (Liebthal), Čechy</span>
@@ -975,7 +1021,7 @@
   <div class="gen-cards">
 
     <!-- HLAVNÍ LINIE -->
-    <div class="person main-line">
+    <div class="person main-line" data-matrika="188-7115-p14">
       <div class="name">Franz Xaveri Johann Hoffmann</div>
       <div class="dates">
         <span class="birth">29. 11. 1799, Silwerleut č. 12</span>
@@ -991,7 +1037,7 @@
     </div>
 
     <!-- SOUROZENCI -->
-    <div class="person mini">
+    <div class="person mini" data-matrika="188-2-p80-1793">
       <div class="name">Eleonora Katharina Gluß</div>
       <div class="née">roz. Hoffmannová → provd. Gluß</div>
       <div class="dates">
@@ -1002,7 +1048,7 @@
       <span class="tag note">♎ Váhy · 🐂 Vodový Bůvol</span>
     </div>
 
-    <div class="person mini">
+    <div class="person mini" data-matrika="188-2-p86-1795">
       <div class="name">Katharina Marie Rudisch</div>
       <div class="née">roz. Hoffmannová → provd. Rudisch</div>
       <div class="dates">
@@ -2560,11 +2606,12 @@
 <h3 style="font-family: 'EB Garamond', Georgia, serif; color: var(--ink); margin: 30px 0 16px; font-size:1.25rem;">🧬 Rodina Haße — potvrzení existence</h3>
 
 <div class="context-grid">
-  <div class="context-card">
-    <h3>Alfabetický index matriky 188-2</h3>
+  <div class="context-card" data-matrika="188-2-p92-hasse">
+    <h3>📜 Alfabetický index matriky 188-2</h3>
     <p>
       <strong>Žireč N 1782–1795, Lit. H, fol. 92</strong><br>
-      V indexu doložena <strong>rodina Hoße (= Haße)</strong> jako usedlá ve farnosti Žireč. To definitivně <strong>vyvrací pochybnosti o existenci Heleny Haße</strong> — její rodina je archivně prokázána.
+      V indexu doložena <strong>rodina Hoße (= Haße)</strong> jako usedlá ve farnosti Žireč. To definitivně <strong>vyvrací pochybnosti o existenci Heleny Haße</strong> — její rodina je archivně prokázána.<br><br>
+      <em>Klikni pro originální scan matriky.</em>
     </p>
   </div>
   <div class="context-card">
@@ -3323,18 +3370,50 @@
 
 </div>
 
-<!-- Lightbox element (pre-built, shown via class toggle) -->
-<div id="lightbox" style="position:fixed;inset:0;background:rgba(15,15,20,0.92);z-index:9998;display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out;backdrop-filter:blur(4px);">
-  <img src="./hero-matrika-1793.jpg" style="max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,0.6);border-radius:6px;" alt="Matrika Žireč 1793">
-  <div style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:#fff;font-family:Lora,serif;font-size:0.85rem;background:rgba(0,0,0,0.4);padding:8px 16px;border-radius:20px;backdrop-filter:blur(8px);">Matrika oddaných, fara Žireč, sign. 188-3, str. 10 · rok 1793</div>
+<!-- Universal lightbox (dynamic src) -->
+<div id="lightbox" style="position:fixed;inset:0;background:rgba(15,15,20,0.94);z-index:9998;display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out;backdrop-filter:blur(6px);">
+  <img id="lightbox-img" src="" style="max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,0.6);border-radius:6px;" alt="Matrika">
+  <div id="lightbox-caption" style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:#fff;font-family:Lora,serif;font-size:0.88rem;background:rgba(0,0,0,0.5);padding:10px 18px;border-radius:20px;backdrop-filter:blur(10px);max-width:90%;text-align:center;">Matrika</div>
 </div>
 
 <script>
 (function(){
-  // Scroll progress bar
+  const MATRIKY = {
+    '188-2-p92-hasse': {
+      src: './matriky/matrika-188-2-p92-hasse-index.jpg',
+      caption: 'Matrika 188-2 Žireč N 1782–1795, fol. 92 — Lit. H (index rodiny Hoße/Haße)'
+    },
+    '188-2-p80-1793': {
+      src: './matriky/matrika-188-2-p80-eleonora-1793.jpg',
+      caption: 'Matrika 188-2 Žireč N 1782–1795, fol. 80 — rok 1793 (křest Eleonora Katharina?)'
+    },
+    '188-2-p86-1795': {
+      src: './matriky/matrika-188-2-p86-katharina-1795.jpg',
+      caption: 'Matrika 188-2 Žireč N 1782–1795, fol. 86 — rok 1795 (křest Katharina Marie?)'
+    },
+    '188-7115-p14': {
+      src: './matriky/matrika-188-7115-p14-joseph-hoffmann.jpg',
+      caption: 'Matrika 188-7115 Žireč N 1794–1908, fol. 14 — Joseph Hoffmann × Magdalena Barbara Baustedt (~1800)'
+    },
+    '34-5-p113-1766': {
+      src: './matriky/matrika-34-5-p113-rok-1766.jpg',
+      caption: 'Matrika 34-5 Žireč filial N 1756–1770, fol. 113 — rok 1766 (kandidáti Joseph Franz)'
+    },
+    '34-5-p110-liebtal': {
+      src: './matriky/matrika-34-5-p110-liebtal-1766.jpg',
+      caption: 'Matrika 34-5 Žireč filial N 1756–1770, fol. 110 — rok 1766 s Liebtal entry'
+    },
+    'hero-1793': {
+      src: './hero-matrika-1793.jpg',
+      caption: 'Matrika 188-3 Žireč O 1782–1814, fol. 10 — rok 1793 (svatba Helena × Joseph?)'
+    }
+  };
+
   const fill = document.getElementById('scrollProgress');
   const backBtn = document.getElementById('backToTop');
   const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbCap = document.getElementById('lightbox-caption');
 
   function onScroll(){
     const h = document.documentElement;
@@ -3349,7 +3428,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Reveal-on-scroll (IntersectionObserver)
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -3364,14 +3442,35 @@
     io.observe(el);
   });
 
-  // Lightbox for hero (show matrika full-screen)
+  function openLightbox(key){
+    const m = MATRIKY[key];
+    if (!m || !lbImg || !lbCap) return;
+    lbImg.src = m.src;
+    lbCap.textContent = m.caption;
+    lightbox.style.display = 'flex';
+  }
+
+  // Hero click → show 1793 svatba matrika
   const hero = document.querySelector('.hero');
   if (hero && lightbox) {
     hero.style.cursor = 'zoom-in';
     hero.addEventListener('click', (e) => {
       if (e.target.closest('a, button, .meta-item')) return;
-      lightbox.style.display = 'flex';
+      openLightbox('hero-1793');
     });
+  }
+
+  // Any element with data-matrika attribute → clickable
+  document.querySelectorAll('[data-matrika]').forEach(el => {
+    el.style.cursor = 'zoom-in';
+    el.addEventListener('click', (e) => {
+      if (e.target.closest('a, button')) return;
+      const key = el.getAttribute('data-matrika');
+      openLightbox(key);
+    });
+  });
+
+  if (lightbox) {
     lightbox.addEventListener('click', () => { lightbox.style.display = 'none'; });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') lightbox.style.display = 'none';
