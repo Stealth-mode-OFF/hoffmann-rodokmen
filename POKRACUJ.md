@@ -6,68 +6,69 @@ Zkopíruj a vlož do nové Claude Code session:
 
 ## Pokračuj v práci na rodokmenu Hoffmann/Hofman
 
-Máš nastavené 2 MCP servery (Gramps + FamilySearch) a kompletní infrastrukturu. Tady je co potřebuješ vědět:
+### Stav po swarm session 2026-04-22 (viz SWARM_RESEARCH_2026-04-22.md)
 
-### Co běží
-- **Gramps Web** na `localhost:5050` (Docker, user: josef / hoffmann2026) — 44 osob, 9 rodin importováno z GEDCOM
-- **Gramps MCP** — 16 nástrojů (find_type, find_anything, create_person, get_ancestors, get_descendants...). Zkus: `find_anything` s query "Hoffmann"
-- **FamilySearch MCP** — 9 nástrojů (search-records, search-persons, get-ancestors...). **POTŘEBUJE API KLÍČ** — registruj se na https://www.familysearch.org/developers/ a pak `configure` s Client ID
-- **Vercel** — https://hoffmann-rodokmen.vercel.app (live HTML rodokmen)
+**Nejstarší doložený předek stále:** Joseph Franz Hoffmann (\*~1766, †3. 3. 1828 Silberleut č. 12) + Helena Haße (Libotov, ~1770).
+
+**Klíčové korekce z posledního výzkumu:**
+1. ⚠️ **Silberleut patřil nejspíš Šporkům (panství Choustníkovo Hradiště)**, NE jezuitům Žireč. Proto matriky mohou být v **jiném fondu** než jsme dosud otevřeli.
+2. ⚠️ **Po 1773 parochiálně pod Dvůr Králové**, ne Žireč. Úmrtní zápis Joseph Franze (3. 3. 1828) hledat ve **fondu Dvůr Králové**, ne 188-4 Žireč.
+3. ✅ **Hoffmann NENÍ mezi tradičními rody Silberleutu** (Patzak, Radda, Erbert, Honal, Turnwald, Schiller, Fiedler) — Joseph Franz se tam přiženil ~1793. Křest hledat jinde.
+4. ✅ **Nikdo jiný linku online nedokumentuje** — jsme první. Pull-forward přes veřejné stromy nevyšel.
+
+### Priority akcí (v pořadí hodnoty)
+
+#### P0 — SVATBA 1793 = rodiče obou párů v 1 zápisu
+- Matrika **188-3 O Žireč 1782-1814, strany 10-11** (rok 1793)
+- Direct JPG URL nefunguje (matriky.online vrací HTML redirect bez browser session)
+- **Řešení:** otevřít ručně v prohlížeči přes matriky.online nebo ARON (aron.vychodoceskearchivy.cz, UUID pro 188-3 je nutné dohledat ve finding aid fondu 188)
+- **Očekávaný výstup:** jména otce + matky Joseph Franze + otce + matky Heleny Haße + jejich místa původu
+
+#### P1 — PŘIHLÁŠENÝ FamilySearch
+- Otevři [PZ5T-1QY (Helena Haße)](https://www.familysearch.org/en/tree/person/details/PZ5T-1QY) v přihlášeném browseru
+- Sources tab může obsahovat matriční reference nebo rodičovský profil
+- Family view ukáže, jestli je Joseph Franz jako manžel propojen a zda má rodiče
+
+#### P2 — INDEX 34-21 NOZ 1653-1760
+- 106 stran abecedního indexu pro celou farnost Dubenec (9 vesnic)
+- **Písmeno H = odhadem strany 25-40**
+- Vyhledá všechny Hoffmann + Haße záznamy 1653-1760 v 1 projití
+
+#### P3 — MATRIKY CHOUSTNÍKOVO HRADIŠTĚ (dosud nezkoumané)
+- Šporkovské panství, potenciální matriky pro Silberleut před 1773
+- V SOA Zámrsk / ARON najít fond fary Choustníkovo Hradiště
+- Pokud Silberleut tam měl matriční záznamy, rodiče Joseph Franze budou tam, ne ve fondu 34
+
+#### P4 — EMAIL W. HONAL
+- Draft připravený v `EMAIL_HONAL_DRAFT.md` (němčina)
+- Honal má matriční výpisy Žireč 1760-1830 pro sousední rody
+- Nejpravděpodobnější regionální pull forward
+
+#### P5 — TRANSKRIBUS AI TRANSKRIPCE
+- 10 dokumentů uploaded, 470 str. matrik
+- Potřeba dokoupit ~430 kreditů (~20 €)
+- Po transkripci fulltext search "Hoffmann", "Haße", "Silberleut", "Libotov"
+
+#### P6 — TEREZIÁNSKÝ KATASTR 1748 (ověření panství Silberleut)
+- Národní archiv Praha-Dejvice, fond TK
+- Určí definitivně: Šporkové vs. jezuité vs. Dvůr Králové pro Silberleut
+- Odpoví na otázku: kam patří matriky pro Silberleut před 1773?
+
+### Infrastruktura (nezměněno)
+- **Gramps Web** localhost:5050 (josef / hoffmann2026) — 44 osob, 9 rodin
+- **Gramps MCP** — 16 nástrojů
+- **FamilySearch MCP** — vyžaduje API klíč (registrace na familysearch.org/developers/)
+- **Vercel** — https://hoffmann-rodokmen.vercel.app
 - **GitHub** — https://github.com/Stealth-mode-OFF/hoffmann-rodokmen
+- **GEDCOM** — `/Users/josefhofman/hoffmann-rodokmen/hoffmann-rodokmen-complete-2026-04-04.ged`
+- **Matriky už stažené** (6 JPGů) v `matriky/` — ale jen 1400x1106 grayscale, nedostatečné pro OCR Kurrent
 
-### Soubory
-- `/Users/josefhofman/hoffmann-rodokmen/` — git repo se vším
-- `/Users/josefhofman/hoffmann-rodokmen.html` — zdrojový HTML rodokmen (44 osob, 9 generací, horoskopy)
-- `/Users/josefhofman/hoffmann-rodokmen/hoffmann-rodokmen-complete-2026-04-04.ged` — GEDCOM 5.5.1
-- `/Users/josefhofman/hoffmann-rodokmen/HOFFMANN_RESEARCH_REPORT.md` — archivní výzkum
-- `/Users/josefhofman/hoffmann-rodokmen/FAMILYSEARCH_RESEARCH.md` — FamilySearch guide
+### Matriční inventář — kompletní
+Viz `SESSION_2026-04-17_MATRIKY.md` — nezměněno.
 
-### Co dělat dál (priority)
+### Klíčové lokace (připomenutí)
+⚠️ **POZOR:** Rtyně v rodokmenu = **Rtyně u Zaloňova** (u Jaroměře, farnost Zaloňov od 1785), NE Rtyně v Podkrkonoší. Silberleut = **Sylvárov**, dnes k.ú. Dvora Králové n. L.
 
-1. **Gramps MCP test** — zkus `find_anything` query "Hoffmann" a ověř že MCP funguje. Pak `tree_stats` pro statistiky.
-
-2. **FamilySearch API klíč** — zeptej se Josefa jestli má Client ID z https://www.familysearch.org/developers/. Pak `configure` + `authenticate`. Potom:
-   - `search-records` surname="Hoffmann" birthPlace="Rtyne" — české matriky!
-   - `search-records` surname="Hoffmann" birthPlace="Dvur Kralove" — Sylvárov
-   - `search-persons` name="Josef Hoffmann" birthDate="1894" — hledej ve Family Tree
-
-3. **Hledej chybějící manželky** — 4 zbývají:
-   - Manželka Josepha Franze (~1766) — matka 12 dětí
-   - Manželka Franze Xaveri (1799) — sňatek ~1818
-   - Manželka Franze podkováře (1825)
-   - Manželka Josefa (1857)
-   → Hledej v matrikách oddaných (Trauungsbücher) farnosti Zaloňov a Dvůr Králové
-
-4. **WWI — Josef (1894)** — `search-records` surname="Hoffmann" birthDate="1894" collection="WWI" nebo hledej na Verlustlisten (des.genealogy.net)
-
-5. **MyHeritage** — Josef má premium účet (jsfhofman@gmail.com). Nemá API — jen manuální Record Matching. Připomeň mu ať uploadne GEDCOM a spustí matching.
-
-6. **FamilySearch census** — sčítání Trutnov 1869-1921 (catalog/2101223) — hledej Rtyně č. 27 podle čísla domu. Najdeš tam všechny obyvatele za 50 let!
-
-### Klíčové lokace
-⚠️ **POZOR:** Rtyně v rodokmenu = **Rtyně u Velichovek / Rtyně u Zaloňova** (obec Zaloňov, u Jaroměře), NE Rtyně v Podkrkonoší (u Trutnova)! Stejné německé jméno "Hertin" pro obě obce.
-
-| Matrika | Moderní název | Okres | Farnost |
-|---------|--------------|-------|---------|
-| Silberleut/Silwerleut | **Sylvárov** (Dvůr Králové) | Trutnov | Dvůr Králové n. L. |
-| Bělouň/Bielaun | **Běluň** (Heřmanice) | Náchod | Jaroměř |
-| Rtyně/Hertin č. 27 | **Rtyně u Zaloňova** (obec Zaloňov) | Náchod | **Zaloňov** (od 1785) |
-| Vesce/Vestec | **Vesce** (obec Zaloňov) | Náchod | Zaloňov |
-| Lišice/Lischitz | **Lišice** | Hradec Králové | — |
-
-### Nalezené matriční knihy (digitalizované, SOA Zámrsk)
-| Signatura | Farnost | Typ | Roky | Pokrývá |
-|-----------|---------|-----|------|---------|
-| 66-9 | Jaroměř | Narození | 1822-1834 | Děti F. Xaveri v Běluně |
-| 66-10 | Jaroměř | Narození | 1835-1841 | Děti F. Xaveri v Běluně |
-| 66-29 | Jaroměř | Oddací | 1810-1834 | Sňatek F. Xaveri ~1824 |
-| 181A-4224 | Zaloňov | Oddací | 1839-1895 | Sňatek Franze ~1851 + Josefa ~1891 |
-| 181A-4213 | Zaloňov | Narození | 1839-1895 | Děti v Rtyni č. 27 |
-
-### Pravidla
-- Všechno česky (rodokmen, noty, komentáře)
-- Po každé změně: `cp hoffmann-rodokmen.html hoffmann-rodokmen/index.html && vercel --yes --prod --scope josefs-projects-e1e25112`
-- Git: `git add -A && git commit && git push origin main`
-- HTML je na `/Users/josefhofman/hoffmann-rodokmen.html`
-- GEDCOM je v `/Users/josefhofman/hoffmann-rodokmen/hoffmann-rodokmen-complete-2026-04-04.ged`
-- Gramps Web Docker musí běžet: `cd ~/projects/gramps-web && docker compose up -d`
+### Technické pravidlo
+- Matriky.online přímý curl NEFUNGUJE — vrací HTML. Nutný Playwright + browser session nebo stažené JPGy přes "Save as".
+- Claude multimodal OCR na 1400×1106 grayscale Kurrent = nespolehlivé. Pro OCR je nutné full-res 3000×2000+ nebo Transkribus AI.
