@@ -949,3 +949,913 @@ Von Karcha
 Matth
 ```
 
+
+## 188-2-zirec-N-1782-1795 (2026-04-23 20:12)
+Source: `/Users/josefhofman/matriky/pero-ocr-text/188-2-zirec-N-1782-1795.txt`
+Matches: 96
+
+### line 905: `Josepchas`
+```
+tors Schu
+zu
+Josepchas
+Fiedlers
+ses Mollit
+```
+
+### line 2995: `Richter au`
+```
+Dorothea
+Sohn des Franz
+Richter au
+Fleisch
+halten
+```
+
+### line 3765: `Richterin.`
+```
+Müller
+meister
+Richterin.
+G.
+Johann Alas Falgorie.
+```
+
+### line 3795: `richter und`
+```
+7. Stephan
+geelsteitl Feldbrecht Hor
+richter und
+Miller Briger
+Linister
+```
+
+### line 4386: `has`
+```
+
+Ögnatp
+has
+Leinwan
+werber und
+```
+
+### line 4743: `Mathesin.`
+```
+Zulachen
+Hern
+Mathesin.
+Gaffern
+Schözpin
+```
+
+### line 4884: `Richterin`
+```
+Johro Arlosfalzen
+Lostna
+Richterin
+Heinrich
+Seiler
+```
+
+### line 5595: `Helena`
+```
+Herrman
+Hutmacher
+Helena
+Mathese
+tung
+```
+
+### line 5596: `Mathese`
+```
+Hutmacher
+Helena
+Mathese
+tung
+Lorber
+```
+
+### line 5980: `Toter hastet`
+```
+deß Tag
+löhner
+Toter hastet
+thue
+Taglohner
+```
+
+### line 6001: `Richter`
+```
+Blois
+Joseph
+Richter
+thei
+Kheiben
+```
+
+### line 6008: `Richter`
+```
+
+Joseph
+Richter
+Fleisch
+hacken
+```
+
+### line 6017: `Richterin`
+```
+hausl
+Rosala
+Richterin
+in Shar
+legte
+```
+
+### line 6589: `Richterin`
+```
+Kna
+Rosali
+Richterin
+
+Theea, in Chelin
+```
+
+### line 6593: `Richter`
+```
+Theea, in Chelin
+Joseph
+Richter
+frisch
+halten
+```
+
+### line 6610: `Richter`
+```
+Frantz Herr
+Bern an
+Richter
+Müller
+ste
+```
+
+### line 6640: `Mathesin`
+```
+Denn
+hobnn
+Mathesin
+Borbena
+Eidlerm
+```
+
+### line 6745: `Thomas Prochasy`
+```
+Thomie
+gekauft, von
+Thomas Prochasy
+pin
+Roopekator
+```
+
+### line 6752: `Richter`
+```
+na
+Paulin.
+Richter
+Bohn
+Die
+```
+
+### line 6835: `Richter`
+```
+Fran
+4
+Richter
+meskeit
+Wandelun
+```
+
+### line 6979: `Richterin`
+```
+von der Burg
+Tosal
+Richterin
+und Abt
+schurz.
+```
+
+### line 7320: `Richter o`
+```
+üter Bild gan
+
+Richter o
+rauch
+Tina gel
+```
+
+### line 7435: `Helena`
+```
+1.
+1.
+Helena
+Matessin
+sein
+```
+
+### line 7557: `Arma Schassa`
+```
+ußmanin.
+Capellan
+Arma Schassa
+Katharina
+Feiglin
+```
+
+### line 7620: `Thoma Prochask`
+```
+
+denence
+Thoma Prochask
+2b
+Anna Ma
+```
+
+### line 7658: `Richter`
+```
+16,
+Joresk
+Richter
+Wäscher
+rer.
+```
+
+### line 7668: `Richter`
+```
+Bernard
+Ga
+Richter
+Frantz Mar
+Er. Wüller
+```
+
+### line 7907: `Helena`
+```
+Hutmacher.
+Johann Alois Falge
+Helena
+Franz Gold
+ner treuer
+```
+
+### line 8945: `Mathesin`
+```
+Gesell
+Marian
+Mathesin
+Als Rath
+in Abtschut
+```
+
+### line 9988: `Mathesin`
+```
+Ga
+Magne
+Mathesin
+rung
+thun
+```
+
+### line 9994: `Mathes`
+```
+dung
+ostlic
+Mathes
+begib an
+Altchr
+```
+
+### line 10093: `Richter Eler`
+```
+in Stadt Schurz.
+dern Claus
+Richter Eler
+in Altschne
+Johanni alge
+```
+
+### line 10311: `Richter`
+```
+10
+Karl
+Richter
+
+
+```
+
+### line 10316: `Richter`
+```
+
+Franz
+Richter
+Häusler
+Kiseli
+```
+
+### line 10583: `Mathes`
+```
+
+Pranz
+Mathes
+Töpfen
+Morgen
+```
+
+### line 10589: `Mathesi`
+```
+Margarit. Ehr
+Drit
+Mathesi
+von Lischon
+Fre
+```
+
+### line 10677: `Richter`
+```
+
+Floren
+Richter
+
+
+```
+
+### line 11234: `Mathesin`
+```
+soll.
+Mamann
+Mathesin
+Johann
+her
+```
+
+### line 11380: `gekräft Thomarshaß Korporator`
+```
+Berbern Hausmann
+
+gekräft Thomarshaß Korporator
+Dorante
+deßen
+```
+
+### line 11513: `Pirchaska`
+```
+mann
+Binder
+Pirchaska
+rsali
+Demuthin
+```
+
+### line 11960: `Liebthal`
+```
+(S. Dostihm cotadina 812
+die 3. Septembris.
+Liebthal
+Bauer
+nachein
+```
+
+### line 12035: `Helena`
+```
+Gokus.
+Richart
+Helena
+Frantz Gra Michtin
+ra die Bey auf die 1.
+```
+
+### line 12114: `Richterin`
+```
+Demuth.
+Cinna
+Richterin
+Franz Ha
+weil
+```
+
+### line 12119: `Richter`
+```
+ohn
+Ein
+Richter
+des Mit
+zia
+```
+
+### line 12134: `gekauft von Thonas Prochaskap`
+```
+Master
+heban. Kereßia Aheilen
+gekauft von Thonas Prochaskap
+Aben
+Anna
+```
+
+### line 12204: `well, chas`
+```
+Geric
+Ponecla
+well, chas
+Müller.
+Trant zir
+```
+
+### line 12211: `Nachaschte`
+```
+riebroh (aß
+Dann
+Nachaschte
+Frant
+An der
+```
+
+### line 12923: `nachasti`
+```
+Johannes her
+an
+nachasti
+Bei aus
+teten
+```
+
+### line 13003: `Richter.`
+```
+Franz Ri:
+Solans
+Richter.
+4 Zögtgl
+Richter
+```
+
+### line 13005: `Richter`
+```
+Richter.
+4 Zögtgl
+Richter
+Hausler.
+Dann man
+```
+
+
+## 188-1-zirec-N-1771-1781 (2026-04-23 20:17)
+Source: `/Users/josefhofman/matriky/pero-ocr-text/188-1-zirec-N-1771-1781.txt`
+Matches: 70
+
+### line 10: `okoli (Dubenee, Hribojed, Kasow, Libotor, Litie, Vestec, Zalonow)`
+```
+FIDI-IT8I
+zemmi Tozsah: farnost (Borek, Zirecka Podstran, Zirec) - lokality 2
+okoli (Dubenee, Hribojed, Kasow, Libotor, Litie, Vestec, Zalonow)
+22436,5 cm, Varba: Polokozena, 13 Hol. Tatina, nemeina
+KL.L1S0OOOIO-I9ODI88-0000I
+```
+
+### line 109: `Mutter Has Rosali`
+```
+nicht Kirner
+und die wohner die
+Mutter Has Rosali
+Thun Beniamin
+Innahn in dewoche
+```
+
+### line 249: `Naschhast und`
+```
+drpfindt.
+färte au
+Naschhast und
+gtargegircka
+außlachhaft
+```
+
+### line 365: `Richter Bernar`
+```
+korisch Kastro
+in Droh
+Richter Bernar
+daß von der
+tritten
+```
+
+### line 388: `Rechasse`
+```
+derzeit öhn
+Fräsiger
+Rechasse
+Wenzeslaus
+I. 7. Der
+```
+
+### line 573: `hast Duna barbara`
+```
+artner Goop
+leuten die Muter
+hast Duna barbara
+Bergedin
+Johanna nach
+```
+
+### line 615: `Richterin gar`
+```
+von al shiot.
+Zeißlei
+Richterin gar
+her aus Jung
+Stadt Curt
+```
+
+### line 1424: `dir mutter hast`
+```
+rannos gaot.
+herr in Kallnoy
+dir mutter hast
+Anna mavia
+Riicholt
+```
+
+### line 1525: `Richter in all`
+```
+Millerinzun
+nogros Franc
+Richter in all
+noch Koffer
+Kunkonins
+```
+
+### line 1735: `Haslinger`
+```
+29
+A
+Haslinger
+Jgnatius
+u. der
+```
+
+### line 1893: `Richter Joseph`
+```
+rig
+In. Kunig
+Richter Joseph
+Fleischhacker Meist
+in Stahl schnot
+```
+
+### line 2065: `Die Mutter hast`
+```
+Gellugery in
+dort leiden
+Die Mutter hast
+Catharina
+Im Augisty
+```
+
+### line 2487: `Haßshoff Die ander`
+```
+gottwaldt Pole
+Aalez noch in To
+Haßshoff Die ander
+haft Catharina
+Sudlinfrau
+```
+
+### line 2880: `Richter gartener`
+```
+Nicht Bernardy
+Wahn des zwan
+Richter gartener
+in Dorfleuten
+gilor Josep
+```
+
+### line 2890: `mathes Joseph`
+```
+Christoff schrey der
+im Stall hierz
+mathes Joseph
+gartnod inalt
+hert
+```
+
+### line 2898: `Richter in Cathar`
+```
+diffoter
+Dorf Witen
+Richter in Cathar
+rina Tagter
+des Frankzich.
+```
+
+### line 3422: `prichter im Dort`
+```
+Platze Jehann
+Schuch Macher
+prichter im Dort
+lauten deßen
+Weib Catharina
+```
+
+### line 3446: `Richter in`
+```
+Gryson im
+Aushurt
+Richter in
+Carosia des Tib
+Johan Stich.
+```
+
+### line 3558: `Hast. schumacher`
+```
+Basin Teresia
+Weib des Anton
+Hast. schumacher
+alt Schurtz.
+thun: A her
+```
+
+### line 3737: `Trichterf`
+```
+Heloisia
+Wittib nach
+Trichterf
+Schreide
+stätt Schurtz.
+```
+
+### line 3779: `Mutter: Helena`
+```
+staffer in Magen
+Hoffburg
+Mutter: Helena
+Patel Dozef
+Schneidermeister
+```
+
+### line 3795: `fort liebthal`
+```
+Rosef
+Bauer in
+fort liebthal
+Patrat. Do
+Ref: Dohe
+```
+
+### line 3826: `Richterin`
+```
+Schmidt in
+Sybogat.
+Richterin
+Siggliaß
+Tochter des Jose
+```
+
+### line 3829: `Richter`
+```
+Siggliaß
+Tochter des Jose
+Richter
+Schließ in
+Sibthal.
+```
+
+### line 4170: `Aushaßt`
+```
+geht
+Cotholisch
+Aushaßt
+15
+6h
+```
+
+### line 4191: `Richterin`
+```
+blosser Stadt Schnick
+Die Mutter Veronica
+Richterin
+Catharina
+Tochter deß
+```
+
+### line 4194: `Frantz Richter`
+```
+Catharina
+Tochter deß
+Frantz Richter
+partere in
+Korst leiten.
+```
+
+### line 4283: `haßlos im Bor`
+```
+Matia
+Rindt fran
+haßlos im Bor
+luten. Muster
+Maria Stan
+```
+
+### line 4364: `Richter Joseph`
+```
+Auna
+Maria
+Richter Joseph
+Fleisch Hacker
+in altegt
+```
+
+### line 4678: `rr hast lathavimm`
+```
+prihlor in Dorft
+leuten die Mit
+rr hast lathavimm
+hohl Sunat
+in wohnrr in
+```
+
+### line 4817: `Mathes girt n`
+```
+Suna Maria
+Weif, deß Joges
+Mathes girt n
+in
+chirt
+```
+
+### line 4825: `richter brig d`
+```
+Frandiglus
+Langri ent
+richter brig d
+S: Horschaft
+Schul
+```
+
+### line 5104: `Die Mutter hast`
+```
+lam eber Matt
+malt shurp
+Die Mutter hast
+Cathavina
+Kidronatz frenty
+```
+
+### line 5119: `Richterin`
+```
+in statt
+schurg
+Richterin
+Funa eli
+des Fezer
+```
+
+### line 5122: `Richter`
+```
+Funa eli
+des Fezer
+Richter
+Frisch hatte
+mastrr in
+```
+
+### line 5331: `Weib Haß`
+```
+Catharina
+churt
+Weib Haß
+
+Wohl Johann
+```
+
+### line 5643: `Richter Htm`
+```
+Gallery die Mutter
+hrist Rosine
+Richter Htm
+das in
+wohner in
+```
+
+### line 5781: `hast Catharina`
+```
+Allugner in Serp
+lauten die Mütter
+hast Catharina
+1841.
+helle Inter Gesey
+```
+
+### line 6369: `Richter Bernan`
+```
+rant
+
+Richter Bernan
+Pätzog
+Aund
+```
+
+### line 6938: `Richter in Sten`
+```
+39
+leiten
+Richter in Sten
+Weil daß Jen
+Sicherfleisch
+```
+
+### line 7168: `Richterin`
+```
+dern Wab
+Jofanna
+Richterin
+Alagine
+da Vor 4
+```
+
+### line 8496: `Richter Josep`
+```
+Monika
+Regallia
+Richter Josep
+Fleischhacker
+Meisterin alt
+```
+
+### line 8754: `Richter Bernar`
+```
+in Kri
+Gristina
+Richter Bernar
+Aigner in Dorf
+litisch
+```
+
+### line 8759: `Richter`
+```
+er weib
+Catharina
+Richter
+gent
+hoge deß
+```
+
+### line 8792: `Richter Gesge`
+```
+Chr. Wor zu twin
+zu schwot
+Richter Gesge
+eltisch zer
+meist. Se
+```
+
+### line 8829: `der Helena`
+```
+Meister in stadt
+schuch. Die Mut
+der Helena
+dig Wohl
+Ganseman
+```
+
+### line 9103: `Richter in`
+```
+Rober Meister
+Ein Starrhug
+Richter in
+Funa Weib
+daß Joseph
+```
+
+### line 9106: `Richter flei`
+```
+Funa Weib
+daß Joseph
+Richter flei
+hacker in
+Stadt schien
+```
+
+### line 9173: `Richter Gege`
+```
+
+or
+Richter Gege
+ei
+leite
+```
+
+### line 9747: `Stadt-richter`
+```
+in Liebehal
+Müller Johan
+Stadt-richter
+in Stadtl
+Schurz.
+```
+
